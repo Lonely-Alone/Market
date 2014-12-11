@@ -16,7 +16,6 @@ import app.service.MemberLoginService;
 import app.service.MemberService;
 import app.util.Result;
 
-import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ModelDriven;
 
 @SuppressWarnings("unchecked")
