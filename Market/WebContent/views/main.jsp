@@ -32,7 +32,7 @@
 				<a href="#" >商品全部分类</a>
 				<div class="ml10">
 					<span>
-						<a href="/Market/views/bookMain.jsp">图书</a>、<a href="#">音像</a>、<a href="#">数字商品</a>
+						<a href="/Market/views/book/bookMain.jsp">图书</a>、<a href="#">音像</a>、<a href="#">数字商品</a>
 					</span>
 					<span>
 						<a href="#">家用电器</a> <a href="#">手机</a>、<a href="#">数码</a> 
@@ -99,7 +99,5 @@
 		</div>
 	</div>
 </body>
-
-
 
 </html>

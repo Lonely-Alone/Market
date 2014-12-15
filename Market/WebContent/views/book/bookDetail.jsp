@@ -15,7 +15,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body >
-    <jsp:include page="head.jsp"></jsp:include>
+    <jsp:include page="/views/head.jsp"></jsp:include>
     <div class="detai">
 		<h2 ><a href="#">图书 &gt;</a></h2>
 		<span><a href="#">计算机与互联网&gt;</a><a href="#">编程语言与程序设计</a></span>

@@ -18,8 +18,9 @@ public class MemberServiceImpl implements MemberService {
 	private MemberLoginDao memberLoginDao;
 
 	@Override
-	public void save(Member m) {
-		memberDao.saveMember(m);
+	public void save(Member member) {
+		memberDao.saveMember(member);
+		memberLoginDao.addLogin(member);
 	}
 
 }
