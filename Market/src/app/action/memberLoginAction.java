@@ -1,13 +1,9 @@
 package app.action;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Map;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletResponse;
 
-import org.apache.struts2.ServletActionContext;
 import org.springframework.transaction.annotation.Transactional;
 
 import app.models.member.Member;

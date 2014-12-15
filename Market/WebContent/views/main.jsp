@@ -61,22 +61,14 @@
 		</div>
 		<div class="main_menu3">
 			<ul>
-				<li><a href="#" class="hide" style="backgroudcolor:#fff">首页</a>
-				</li>
-				<li><a href="#" class="hide">服装城</a>
-				</li>
-				<li><a href="#" class="hide">购物超市</a>
-				</li>
-				<li><a href="#" class="hide">电器城</a>
-				</li>
-				<li><a href="#" class="hide">书城</a>
-				</li>
-				<li><a href="#" class="hide">团购</a>
-				</li>
-				<li><a href="#" class="hide"></a>
-				</li>
-				<li><a href="#" class="hide"></a>
-				</li>
+				<li><a href="#" >首页</a></li>
+				<li><a href="#" >服装城</a></li>
+				<li><a href="#" >购物超市</a></li>
+				<li><a href="#" >电器城</a></li>
+				<li><a href="#" >书城</a></li>
+				<li><a href="#" >团购</a></li>
+				<li><a href="#" ></a></li>
+				<li><a href="#" ></a></li>
 			</ul>
 		</div>
 		<div class="main_container" id="idTransformView">
