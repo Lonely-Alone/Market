@@ -131,7 +131,7 @@ function GetLoadingImg()
 {
 	var ImgHtml;
 	ImgHtml='<div align="center">';
-	ImgHtml=ImgHtml+'<span><img src="images/loading.gif" alt="loading...." /></span>'
+	ImgHtml=ImgHtml+'<span><img src="public/img/loading.gif" alt="loading...." /></span>'
 	ImgHtml=ImgHtml+'</div>';
 	return ImgHtml;
 }

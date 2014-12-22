@@ -10,10 +10,12 @@
 	<constant name="struts.objectFactory" value="spring" />
 	<!-- 指定Web应用的默认编码集，相当于调用 HttpServletRequest的setCharacterEncoding方法 -->  
     <constant name="struts.i18n.encoding" value="UTF-8" /> 
+    <!-- 请求去掉后缀 -->
+     
     <constant name="struts.action.extension" value="action" />  
-    
+
+
      <package name="allInterceptor" extends="struts-default" >
-    
     	<interceptors>  
             <interceptor name="encode"  
                 class="interceptor.EncodingInterceptor">  
@@ -24,15 +26,20 @@
                 <interceptor-ref name="encode" />  
             </interceptor-stack>  
         </interceptors>  
-        
-      </package>
-    
+    </package>
     
  <!-- struts2的action必须放在一个指定的包空间下定义 -->
-    <package name="default" extends="allInterceptor" namespace="">
-    <!-- 定义处理请求URL为login.action的Action -->
+    <package name="default" extends="struts-default" namespace="">
+  
+    	<action name="indexAct" class="app.action.ApplicationAction"  method="index">
+    		<result name="success" type="dispatcher">/Market/views/application/main.jsp</result>
+    		<result name="error" type="redirect">/Market/views/application/Login.jsp</result>
+    	</action>
+    	
+    	
+    	  <!-- 定义处理请求URL为login.action的Action -->
         <action name="login" class="app.action.memberLoginAction"  method="login"></action>
-         <action name="logout" class="app.action.memberLoginAction"  method="logout"></action>
+        <action name="logout" class="app.action.memberLoginAction"  method="logout"></action>
         <action name="checkLoginId" class="app.action.memberLoginAction"  method="checkLoginId"></action>
         <action name="regist" class="app.action.memberLoginAction"  method="regist"></action>
     </package>

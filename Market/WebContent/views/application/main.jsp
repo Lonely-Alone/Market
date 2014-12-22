@@ -16,12 +16,9 @@
 <link rel="stylesheet" type="text/css" href="public/css/main.css">
 <link rel="stylesheet" type="text/css" href="public/css/common.css">
 </head>
-<script type="text/javascript" src="public/js/min/do.js"></script>
-<script type="text/javascript" src="public/js/main.js"></script>
-
 <body>
 
-	<jsp:include page="head.jsp"></jsp:include>
+	<jsp:include page="/views/head.jsp"></jsp:include>
 	<div class="main_search">
 				<input type="text" /> 
 				<a href="javascript:;" onclick="">搜索</a>
@@ -71,25 +68,27 @@
 				<li><a href="#" ></a></li>
 			</ul>
 		</div>
-		<div class="main_container" id="idTransformView">
-			<ul class="main_slider" id="idSlider">
-				<li><img src="public/img/roll1.jpg" />
-				</li>
-				<li><img src="public/img/roll2.jpg" />
-				</li>
-				<li><img src="public/img/roll3.jpg" />
-				</li>
-				<li><img src="public/img/roll4.jpg" />
-				</li>
-			</ul>
-			<ul class="main_num" id="idNum">
-				<li>1</li>
+		<div class="dhooo_tab">
+			<ul class="tab_btn" id="numberScroll">
+				<li class="hot">1</li>
 				<li>2</li>
 				<li>3</li>
 				<li>4</li>
 			</ul>
+			<div class="scroll" id="picScroll">
+				<ul class="content">
+					<li><a href="#"><img src="public/img/roll1.jpg" /></a>
+					</li>
+					<li><a href="#"><img src="public/img/roll2.jpg" /></a>
+					</li>
+					<li><a href="#"><img src="public/img/roll3.jpg" /></a>
+					</li>
+					<li><a href="#"><img src="public/img/roll4.jpg" /></a>
+				</ul>
+			</div>
 		</div>
 	</div>
 </body>
-
+<script type="text/javascript" src="public/js/min/do.js"></script>
+<script type="text/javascript" src="public/js/main.js"></script>
 </html>

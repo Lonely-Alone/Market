@@ -41,7 +41,7 @@ Do(function(){
 					},
 					callback : function (json) {
 						if(json.status){
-							window.location.href="/Market/views/main.jsp";
+							window.location.href="/Market/views/application/main.jsp";
 					}
 					}
 				});

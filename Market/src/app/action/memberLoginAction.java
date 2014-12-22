@@ -14,7 +14,7 @@ import app.util.Result;
 
 import com.opensymphony.xwork2.ModelDriven;
 
-@SuppressWarnings("unchecked")
+@SuppressWarnings("all")
 public class memberLoginAction extends BaseAction implements
 		ModelDriven<MemberLogin> {
 

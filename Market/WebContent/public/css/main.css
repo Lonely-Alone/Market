@@ -33,7 +33,14 @@ a{text-decoration:none}
 .main_num li{float: left;color: #FF7300;text-align: center;line-height: 16px;width: 16px;height: 16px;font-family: Arial;font-size: 12px;cursor: pointer;overflow: hidden;margin: 3px 1px;border: 1px solid #FF7300;background-color: #fff;}
 .main_num li.on{color: #fff;line-height: 21px;width: 21px;height: 21px;font-size: 16px;margin: 0 1px;border: 0;background-color: #FF7300;font-weight: bold;}
 
+/*图片切换*/
 
+
+.dhooo_tab{margin-left:30px; width:auto; background:#fff url(../img/main_bg.gif) repeat-x 0 100%; position:relative; float:left; }
+.tab_btn{position:absolute; right:50px;bottom:15px;}
+.tab_btn li{width:20px;height:20px;background: #CC3300;border:2px solid #993300; overflow:hidden; color:#fff; filter:alpha(opacity=80);opacity:0.8;float:left;cursor:default; font-size:12px;line-height:20px; margin:0px 5px; font-family:Arial;}
+.tab_btn li.hot{background:#FFCC00; color:#993300; border:2px solid #FF0000; }
+.scroll{width:720px;height:190px; overflow:hidden;  margin:10px auto; text-align:left;font-size:12px;}
 
 
 
