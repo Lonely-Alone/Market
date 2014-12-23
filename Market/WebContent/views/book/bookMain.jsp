@@ -59,24 +59,12 @@
 		</ul>
 		<div class="main1" id="main2">
 			<ul class="content">
-				<li><a href="#"><img src="public/img/book/book1.jpg" />
-				</a>
-				</li>
-				<li><a href="#"><img src="public/img/book/book2.jpg" />
-				</a>
-				</li>
-				<li><a href="#"><img src="public/img/book/book3.jpg" />
-				</a>
-				</li>
-				<li><a href="#"><img src="public/img/book/book4.jpg" />
-				</a>
-				</li>
-				<li><a href="#"><img src="public/img/book/book5.jpg" />
-				</a>
-				</li>
-				<li><a href="#"><img src="public/img/book/book6.jpg" />
-				</a>
-				</li>
+				<li><a href="#"><img src="public/img/book/book1.jpg" /></a></li>
+				<li><a href="#"><img src="public/img/book/book2.jpg" /></a></li>
+				<li><a href="#"><img src="public/img/book/book3.jpg" /></a></li>
+				<li><a href="#"><img src="public/img/book/book4.jpg" /></a></li>
+				<li><a href="#"><img src="public/img/book/book5.jpg" /></a></li>
+				<li><a href="#"><img src="public/img/book/book6.jpg" /></a></li>
 			</ul>
 		</div>
 	</div>

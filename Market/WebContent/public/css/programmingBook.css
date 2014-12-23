@@ -1,0 +1,27 @@
+@CHARSET "UTF-8";
+
+.div{width:200px;height:800px;margin-top:30px;margin-left:60px;}
+.div h2{background:#0099FF;color:white;width:120px;}
+.div1 {border:1px solid black;height:200px;}
+.div1 span {float:left;margin-left:10px;margin-top:20px;}
+.div1 span a {font-size:15px;padding:10px;}
+.div1 span a:hover{color:red}
+.div2{border:1px solid black;height:650px;margin-top:20px;}
+.div2 h2{color:black;background:white;padding:5px;color:#66CCFF}
+.div2 hr{margin-left:10px;color:#66CCFF}
+.div2 span {float:left;margin-left:10px;margin-bottom:15px;}
+.div2 span a {font-size:14px;padding:10px;}
+.div2 span a:hover{color:red}
+
+.tab1{margin-left:320px;margin-top:-780px; width:720px; background:#fff url(../images/main_bg.gif) repeat-x 0 100%; position:relative; }
+.btn_1{position:absolute; right:50px;bottom:15px;}
+.btn_1 li{width:20px;height:20px;background: #CC3300;border:2px solid #993300; overflow:hidden; color:#fff; filter:alpha(opacity=80);opacity:0.8;float:left;cursor:default; font-size:12px;line-height:20px; margin:0px 5px; font-family:Arial;}
+.btn_1 li.hot{background:#FFCC00; color:#993300; border:2px solid #FF0000; }
+.main12{width:720px;height:230px; overflow:hidden;  margin:10px auto; text-align:left;font-size:12px;}
+
+.div3{margin-left:320px;margin-top:30px;width:725px;display:block;height:300px;}
+.li_div  div{float:left;margin-left:20px;margin-top:-500px;}
+.li_div1  div{float:left;margin-left:50px;margin-top:-180px;}
+.button1{background:url(../images/book/buyCart.jpg) no-repeat;width:100px;height:20px;border:0px;cursor:pointer;margin-left:20px;}
+.price1{TEXT-DECORATION: line-through;margin-top:10px;display:block;margin-left:20px;}
+.price2{color:red;margin-left:20px;}
