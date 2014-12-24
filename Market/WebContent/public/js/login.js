@@ -57,27 +57,19 @@ Do(function(){
 	var registBtn = $("#regist"),userName=$("#userName"), pass1 = $("#password1"),pass2 = $("#password2") ;
 	   userName.blur(function(){
 	  	  if(this.value==""){
-	  	  	return ;
+	  		 Do('testRemind', function(){$.testRemind(userName, '邮箱不能为空！');setTimeout($.testRemind.hide, 1000);});
+   			 return ;
 	  	  }
-	  	  if(this.value.length<4||this.value.length>20){
-	  		 Do('testRemind', function(){$.testRemind(userName, '用户名长度只能在4-20位字符之间');setTimeout($.testRemind.hide, 1000);});	
-		  	 return ;
-	  	  }
-	  	  
-	  	  	var num= /^[0-9]*$/;//验证是否全是数字
-	  	  	var char =/^[a-zA-Z]$/;//验证是否全是字母
+//	  	  	var num= /^[0-9]*$/;//验证是否全是数字
+//	  	  	var char =/^[a-zA-Z]$/;//验证是否全是字母
 	  	  	var mail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;//邮箱验证
 	  	  	var patt=new RegExp("@");
-	  	  	if(num.test(this.value)){
-  	  			Do('testRemind', function(){$.testRemind(userName, '用户名不能是纯数字，请确重新输入！');setTimeout($.testRemind.hide, 1000);});	
+	  	 
+	  	  	if(!mail.test(this.value)||!patt.test(this.value)){
+	  	  		Do('testRemind', function(){$.testRemind(userName, '邮箱地址不正确，请重新输入！');setTimeout($.testRemind.hide, 1000);});	
   	  			return;
-	  	  	}
-	  	  	if(patt.test(this.value)){
-		  	  	if(!mail.test(this.value)){
-		  	  		Do('testRemind', function(){$.testRemind(userName, '邮箱地址不正确，请重新输入！');setTimeout($.testRemind.hide, 1000);});	
-	  	  			return;
-		  	  	 }
-	  	   	}
+	  	  	 }
+  	   	
 	  	  	
 	  	  Do('newAjax', function(){
 				$.newAjax(this,{
@@ -91,7 +83,7 @@ Do(function(){
 						if(json.status){
 							$("#errName").html("<img src='public/img/right.png'></img>");
 						}else{
-							Do('testRemind', function(){$.testRemind(userName, '该用户名已存在！');setTimeout($.testRemind.hide, 1000);});	
+							Do('testRemind', function(){$.testRemind(userName, '该邮箱已注册！！');setTimeout($.testRemind.hide, 1000);});	
 						}
 					}
 				});
@@ -100,9 +92,9 @@ Do(function(){
 	  	   	
 	   });
 	   
-	pass1.focus(function(){
-		Do('testRemind', function(){$.testRemind(pass1, '请输入密码,6-20位字符，可由数字、字母或者字符组成！');setTimeout($.testRemind.hide, 1000);});	
-	})
+//	pass1.focus(function(){
+//		Do('testRemind', function(){$.testRemind(pass1, '请输入密码,6-20位字符，可由数字、字母或者字符组成！');setTimeout($.testRemind.hide, 1000);});	
+//	})
 	pass1.blur(function(){
 		var len = pass1.val().length;
 		if(len<6 || len>20){
@@ -112,9 +104,9 @@ Do(function(){
 		$("#errPass1").html("<img src='public/img/right.png'></img>");
 	})
 		
-	pass2.focus(function(){
-		Do('testRemind', function(){$.testRemind(pass2, '再次输入密码进行确认！');setTimeout($.testRemind.hide, 1000);});	
-	})
+//	pass2.focus(function(){
+//		Do('testRemind', function(){$.testRemind(pass2, '再次输入密码进行确认！');setTimeout($.testRemind.hide, 1000);});	
+//	})
 	pass2.blur(function(){
 		if(pass2.val()==null||pass2.val()==""){
 			return;
@@ -130,9 +122,17 @@ Do(function(){
 	var regist = function(){
 		registBtn.click(function(){
 	   		if(userName.val() =="" ){
-	   			 Do('testRemind', function(){$.testRemind(userName, '用户名不能为空！');setTimeout($.testRemind.hide, 1000);});
+	   			 Do('testRemind', function(){$.testRemind(userName, '邮箱不能为空！');setTimeout($.testRemind.hide, 1000);});
 	   			 return ;
 	   		}
+	   		var mail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;//邮箱验证
+	  	  	var patt=new RegExp("@");
+	  	 
+	  	  	if(!mail.test(userName.val())||!patt.test(userName.val())){
+	  	  		Do('testRemind', function(){$.testRemind(userName, '邮箱地址不正确，请重新输入！');setTimeout($.testRemind.hide, 1000);});	
+  	  			return;
+	  	  	 }
+  	   	
 	   		if(pass1.val() ==""){
 	   			Do('testRemind', function(){$.testRemind(pass1, '密码不能为空！');setTimeout($.testRemind.hide, 1000);});
 	   			return ;

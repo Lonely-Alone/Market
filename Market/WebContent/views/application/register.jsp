@@ -22,25 +22,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	<hr class="hr"></hr>
   	<span style="margin-right:320px;margin-left:20px">立即注册送400积分，赶快注册吧！</span>我已注册，马上<a href="/SuperMarket/LogAndRegister/LogIn.jsp" class="href">登陆&gt;</a>
   	<div class="left">
-  		<dl>
-  			<dt>账户名：</dt>
-			<dd><input type="text" name="userName" id="userName"  placeholder='用户名/邮箱' class="text"> 
-			<span class="err" id="errName" style="font-size:10px;color:red"></span> </dd>
-		</dl>
-		<dl>
-			<dt >密码:</dt>
-			<dd><input type="password" name="password1" id="password1"  class="text" >
-  			<label  class="err" id="errPass1"></label></dd>
-  		</dl>
-  		<dl>
-			<dt >确认密码:</dt>
-			<dd><input type="password" name="password2" id="password2"  class="text" >
-  			<label  class="err" id="errPass2" ></label></dd>
-  		</dl>
-  		<dl>
-  			<dd><input type="submit" name="button"  value="同意协议并注册" id="regist" class="sub" ></dd>
-  			<dd><a  target="_blank" href="#" class="href">&lt;&lt;购物中心服务协议&gt;&gt;</a></dd>
-  		</dl>
+	  	<div>
+	  		<label style="text-align: right;float: left;width: 73px;">邮箱：</label>
+			<span><input type="text" name="userName" id="userName"  placeholder='邮箱' class="text"></span>
+			<span class="err" id="errName" style="font-size:10px;color:red"></span> 
+	  	</div>
+		<div>
+			<label style="text-align: right;float: left;width: 73px;">密码:</label>
+			<span><input type="password" name="password1" id="password1"  class="text" ></span>
+	 		<label  class="err" id="errPass1"></label>
+		</div>
+ 		<div>
+ 			<label style="text-align: right;float: left;width: 73px;">确认密码:</label>
+			<span><input type="password" name="password2" id="password2"  class="text" ></span>
+			<label  class="err" id="errPass2" ></label>
+ 		</div>
+		<div class="fc">
+			<input id="final-check" checked="true" name="" type="checkbox" value="" class="txt_check">
+			<label><span>我已阅读并同意</span><a  target="_blank" href="#" class="href">&lt;&lt;购物中心服务协议&gt;&gt;</a></label>
+		</div>
+		<div>
+			<input type="submit" name="button"  value="提交注册" id="regist" class="sub" >
+		</div>
+  		
   	</div>
   	<div class="right">
   		<h5 style="margin-top:40px;margin-right:50px;margin-left:50px;">手机快速注册</h5>
