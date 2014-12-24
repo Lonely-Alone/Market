@@ -6,6 +6,7 @@ import javax.annotation.Resource;
 
 import org.springframework.transaction.annotation.Transactional;
 
+import util.MD5Util;
 import app.models.member.Member;
 import app.models.member.MemberLogin;
 import app.service.MemberLoginService;
@@ -31,7 +32,7 @@ public class memberLoginAction extends BaseAction implements
 		String msg = "";
 		MemberLogin ml = memberLoginService.findByLoginId(memberLogin.loginId);
 		if (ml != null) {
-			if (ml.password.equals(memberLogin.password)) {
+			if (ml.password.equals(MD5Util.MD5(memberLogin.password))) {
 				session.put("member", ml.member);
 				out.write(Result.succeed(null));
 				return null;
@@ -81,7 +82,7 @@ public class memberLoginAction extends BaseAction implements
 		} else {
 			m.username = memberLogin.loginId;
 		}
-		m.password = memberLogin.password;
+		m.password = MD5Util.MD5(memberLogin.password);
 		memberService.save(m);
 		// memberLoginService.addLogin(m);
 		out.write(Result.succeed(null));
