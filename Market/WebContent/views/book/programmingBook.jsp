@@ -27,7 +27,7 @@
 		<h2>热门编程语言</h2>
 		<div class="div1">
 			 <span><a href="#">c</a> <a href="#">c#</a> <a href="#">c++</a></span> <br />
-			 <span> <a href="/SuperMarket/getbooks.do?method=getBooks&pageNow=1&search=java">java</a> <a href="#">javaScript</a></span> <br />
+			 <span> <a href="Market/getGoodsList.action?page=1&goodsType=book">java</a> <a href="#">javaScript</a></span> <br />
 			 <span> <a href="#">Objective-c</a>  </span><br />
 			 <span> <a href="#">PHP</a> <a href="#">Python</a> <a href="#">Ruby</a> </span><br/>
 			<span><a href="#">&gt;所有编程语言</a></span>

@@ -42,6 +42,13 @@
         <action name="logout" class="app.action.memberLoginAction"  method="logout"></action>
         <action name="checkLoginId" class="app.action.memberLoginAction"  method="checkLoginId"></action>
         <action name="regist" class="app.action.memberLoginAction"  method="regist"></action>
+        
+        <!-- 获取物品的Action -->
+        <action name="getGoods" class="app.action.goodsAction" method="getGoods">
+        	<result name="success">/views/book/programmingJava.jsp</result>
+        </action>
+        <action name="getGoodsList" class="app.action.goodsAction" method="getGoodsList"></action>
+        <action name="addGoods" class="app.action.ApplicationAction"  method="addGoods"></action>
     </package>
 
 

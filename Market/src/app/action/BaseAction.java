@@ -20,6 +20,7 @@ public class BaseAction extends ActionSupport implements SessionAware,
 	public HttpServletRequest request;
 	public Map session;
 	public PrintWriter out;
+	public static final int size = 4;
 
 	@Override
 	public void setSession(Map<String, Object> session) {

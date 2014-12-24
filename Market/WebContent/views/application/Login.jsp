@@ -38,7 +38,7 @@
 					</div>
 					<div class="mt20 pt10 ">
 						<a id="login" class="loginbtn bdrad3 boxsh1" href="javascript:;">登录</a>
-						<a  class="loginbtn bdrad3 boxsh1" href="/Market/views/register.jsp">注册</a>
+						<a  class="loginbtn bdrad3 boxsh1" href="/Market/views/application/register.jsp">注册</a>
 					</div>	
 				</div>
 				<span class="shadow"></span>										
