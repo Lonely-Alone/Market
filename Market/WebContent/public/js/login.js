@@ -54,10 +54,10 @@ Do(function(){
 	
 /*----------------------------注册------------------------------------*/
 	
-	var registBtn = $("#regist"),userName=$("#userName"), pass1 = $("#password1"),pass2 = $("#password2") ;
-	   userName.blur(function(){
+	var registBtn = $("#regist"),email=$("#email"), pass1 = $("#password1"),pass2 = $("#password2") ;
+		email.blur(function(){
 	  	  if(this.value==""){
-	  		 Do('testRemind', function(){$.testRemind(userName, '邮箱不能为空！');setTimeout($.testRemind.hide, 1000);});
+	  		 Do('testRemind', function(){$.testRemind(email, '邮箱不能为空！');setTimeout($.testRemind.hide, 1000);});
    			 return ;
 	  	  }
 //	  	  	var num= /^[0-9]*$/;//验证是否全是数字
@@ -66,7 +66,7 @@ Do(function(){
 	  	  	var patt=new RegExp("@");
 	  	 
 	  	  	if(!mail.test(this.value)||!patt.test(this.value)){
-	  	  		Do('testRemind', function(){$.testRemind(userName, '邮箱地址不正确，请重新输入！');setTimeout($.testRemind.hide, 1000);});	
+	  	  		Do('testRemind', function(){$.testRemind(email, '邮箱地址不正确，请重新输入！');setTimeout($.testRemind.hide, 1000);});	
   	  			return;
 	  	  	 }
   	   	
@@ -76,14 +76,14 @@ Do(function(){
 					type:'post',
 					url:"Market/checkLoginId.action",
 					data:{
-						loginId:userName.val(),
+						loginId:email.val(),
 					},
 					callback : function (json) {
 						console.log(json);
 						if(json.status){
 							$("#errName").html("<img src='public/img/right.png'></img>");
 						}else{
-							Do('testRemind', function(){$.testRemind(userName, '该邮箱已注册！！');setTimeout($.testRemind.hide, 1000);});	
+							Do('testRemind', function(){$.testRemind(email, '该邮箱已注册！！');setTimeout($.testRemind.hide, 1000);});	
 						}
 					}
 				});
@@ -121,15 +121,15 @@ Do(function(){
 		
 	var regist = function(){
 		registBtn.click(function(){
-	   		if(userName.val() =="" ){
-	   			 Do('testRemind', function(){$.testRemind(userName, '邮箱不能为空！');setTimeout($.testRemind.hide, 1000);});
+	   		if(email.val() =="" ){
+	   			 Do('testRemind', function(){$.testRemind(email, '邮箱不能为空！');setTimeout($.testRemind.hide, 1000);});
 	   			 return ;
 	   		}
 	   		var mail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;//邮箱验证
 	  	  	var patt=new RegExp("@");
 	  	 
-	  	  	if(!mail.test(userName.val())||!patt.test(userName.val())){
-	  	  		Do('testRemind', function(){$.testRemind(userName, '邮箱地址不正确，请重新输入！');setTimeout($.testRemind.hide, 1000);});	
+	  	  	if(!mail.test(email.val())||!patt.test(email.val())){
+	  	  		Do('testRemind', function(){$.testRemind(email, '邮箱地址不正确，请重新输入！');setTimeout($.testRemind.hide, 1000);});	
   	  			return;
 	  	  	 }
   	   	
@@ -147,7 +147,7 @@ Do(function(){
 					url:"Market/regist.action",
 					dataType: "json", 
 					data:{
-						loginId:userName.val(),
+						loginId:email.val(),
 						password:pass1.val()
 					},
 					callback : function (json) {

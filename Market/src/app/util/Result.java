@@ -12,7 +12,7 @@ public class Result {
 	/**
 	 * 返回状态：“true”表示成功；“false”表示失败
 	 */
-	public String status;
+	public boolean status;
 	/**
 	 * 返回状态码
 	 */
@@ -30,7 +30,7 @@ public class Result {
 
 	public static String failed(int statusCode) {
 		Result vo = new Result();
-		vo.status = "false";
+		vo.status = false;
 		vo.statusCode = statusCode;
 		try {
 			return JSONObject.toJSONString(vo);
@@ -41,7 +41,7 @@ public class Result {
 
 	public static String failed(String msg) {
 		Result vo = new Result();
-		vo.status = "false";
+		vo.status = false;
 		vo.msg = msg;
 		try {
 			return JSONObject.toJSONString(vo);
@@ -52,7 +52,7 @@ public class Result {
 
 	public static String succeed(Result result) {
 		Result vo = new Result();
-		vo.status = "true";
+		vo.status = true;
 		vo.statusCode = InterfaceStatusCode.SUCCEED_CODE;
 		vo.result = result;
 		try {

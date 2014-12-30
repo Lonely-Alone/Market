@@ -30,6 +30,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<a href="/Market/views/application/register.jsp">[免费注册]</a>
 							</s:else>
 					</li>
+					<li>
+						<s:if test="#session.member.username != null && !#session.member.username.isEmpty()">
+								<a href="/Market/views/application/personalInfo.jsp">个人中心</a>
+						</s:if>
+					</li>
 					<li><a href="#">我的订单</a> </li>
 					<li><a href="#" >手机购物</a></li>
 					<li  class="head_li1">客户服务 

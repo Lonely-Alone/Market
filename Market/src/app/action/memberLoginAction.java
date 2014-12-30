@@ -70,6 +70,9 @@ public class memberLoginAction extends BaseAction implements
 		}
 
 	}
+	public void editPersonalInfo() throws IOException{
+		response.sendRedirect("/Market");
+	}
 
 	@Transactional
 	public void regist() throws IOException {

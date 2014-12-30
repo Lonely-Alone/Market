@@ -14,7 +14,7 @@
      
     <constant name="struts.action.extension" value="action" />  
 
-
+	<!--  -->
      <package name="allInterceptor" extends="struts-default" >
     	<interceptors>  
             <interceptor name="encode"  
@@ -42,6 +42,7 @@
         <action name="logout" class="app.action.memberLoginAction"  method="logout"></action>
         <action name="checkLoginId" class="app.action.memberLoginAction"  method="checkLoginId"></action>
         <action name="regist" class="app.action.memberLoginAction"  method="regist"></action>
+        <action name="editPersonalInfo" class="app.action.memberLoginAction"  method="editPersonalInfo"></action>
         
         <!-- 获取物品的Action -->
         <action name="getGoods" class="app.action.goodsAction" method="getGoods">

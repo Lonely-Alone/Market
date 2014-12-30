@@ -24,7 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	<div class="left">
 	  	<div>
 	  		<label style="text-align: right;float: left;width: 73px;">邮箱：</label>
-			<span><input type="text" name="userName" id="userName"  placeholder='邮箱' class="text"></span>
+			<span><input type="text" name="email" id="email"  placeholder='邮箱' class="text"></span>
 			<span class="err" id="errName" style="font-size:10px;color:red"></span> 
 	  	</div>
 		<div>
