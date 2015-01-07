@@ -1,4 +1,4 @@
-//图片滑动	
+	//图片滑动	
 	var Ex=function (o){
 		for(var k in o)
 			this[k]=o[k];
@@ -55,8 +55,24 @@
 		}
 	})
 
+		new dhooo({
+				btns:UIs.call(UI('myTab_btns2'),'LI')
+				,className:'hot'
+				,contentID:'main2'
+				,len:190
+				,dir:'top'
+				,auto:true
+			});
+			
+			new dhooo({
+				btns:UIs.call(UI('myTab_btns1'),'LI')
+				,className:'hot'
+				,contentID:'main1'
+				,len:360
+			});
 	
-	
+
+
 
 
 

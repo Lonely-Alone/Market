@@ -1,0 +1,25 @@
+@CHARSET "UTF-8";
+
+a{text-decoration:none}
+
+
+.shopping_div1{width:800px;height:150px;margin-left:500px;margin-top:50px;}
+.shopping_div1 li {float:left;font-size:12px;}
+.hr1{width:150px; height:5px;border:none;border-top:5px ridge #F7F7F7;}
+
+
+.shopping_div2{width:1000px;height:auto;margin-left:100px;margin-top:60px;}
+.shopping_div2_1{border:1px solid black;}
+.shopping_div2_1 div{width:1000px;height:auto;margin-top:10px;}
+.shopping_div2_1 div span{display:block;height:auto;float:left;margin-left:10px;text-align:center}
+.shopping_div2_1 div span a{text-decoration:none}
+.shopping_div2_1 div span a:hover{text-decoration:underline}
+
+.shopping_span{width:200px;}
+.shopping_span  a{display:inline-block;margin-left:20px;width:15px;height:15px;border:1px solid gray;text-align:center;line-height:15px}
+.shopping_span  a:hover{text-decoration:none;color:black;border:1px solid black;}
+.shopping_span  input {width:30px;margin-left:20px;height:20px;text-align:center;line-height:20px;}
+
+.goBuy{display:block;float:left;margin-top:20px;border:1px solid #999999;width:90px;height:30px;text-align:center;background:#CCCCCC;line-height:30px}
+.goPay{display:block;float:left;margin-top:-30px;margin-left:872px;border:1px solid #999999;
+		width:130px;height:35px;text-align:center;background:#CC0000;color:white;line-height:35px;font-size:18px;font-weight:bold;border:0}

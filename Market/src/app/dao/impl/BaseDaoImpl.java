@@ -3,179 +3,116 @@ package app.dao.impl;
 import java.io.Serializable;
 import java.util.List;
 
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import app.dao.BaseDao;
+import app.dao.Dao;
 import app.models.BaseModel;
 
 @Transactional("transactionManager")
-@Repository("baseDao")
+@Repository("baseService")
 @SuppressWarnings("all")
 public class BaseDaoImpl<T extends BaseModel> implements BaseDao<T> {
 
-	@Autowired
-	private SessionFactory sessionFactory;
+	@Resource
+	private Dao dao;
 
-	public SessionFactory getSessionFactory() {
-		return sessionFactory;
+	@Override
+	public <T extends BaseModel> T save(T o) {
+		dao.save(o);
+		return o;
 	}
 
-	@Autowired
-	public void setSessionFactory(SessionFactory sessionFactory) {
-		this.sessionFactory = sessionFactory;
+	public <T extends BaseModel> T saveOrupdate(T o) {
+		dao.saveOrUpdate(o);
+		return o;
 	}
 
-	private Session getCurrentSession() {
-		return sessionFactory.getCurrentSession();
-	}
-
-	public Serializable save(T o) {
-		return this.getCurrentSession().save(o);
-	}
-
+	@Override
 	public void delete(T o) {
-		this.getCurrentSession().delete(o);
+		dao.delete(o);
+
 	}
 
-	public void update(T o) {
-		this.getCurrentSession().update(o);
+	@Override
+	public <T extends BaseModel> T update(T o) {
+		dao.update(o);
+		return o;
 	}
 
-	public void saveOrUpdate(T o) {
-		this.getCurrentSession().saveOrUpdate(o);
+	@Override
+	public <T extends BaseModel> T find(Class<T> c, Serializable id) {
+		return (T) dao.get(c, id);
 	}
 
-	public <T extends BaseModel> List<T> find(String hql) {
-		return this.getCurrentSession().createQuery(hql).list();
+	@Override
+	public <T extends BaseModel> T find(String hql, Object... param) {
+		return (T) dao.get(hql, param);
 	}
 
-	public <T extends BaseModel> List<T> find(String hql, Object... param) {
-		Query q = this.getCurrentSession().createQuery(hql);
-		if (param != null && param.length > 0) {
-			for (int i = 0; i < param.length; i++) {
-				q.setParameter(i, param[i]);
-			}
-		}
-		return q.list();
+	@Override
+	public <T extends BaseModel> T find(String hql, List<Object> param) {
+		return (T) dao.get(hql, param);
 	}
 
-	public <T extends BaseModel> List<T> find(String hql, List<Object> param) {
-		Query q = this.getCurrentSession().createQuery(hql);
-		if (param != null && param.size() > 0) {
-			for (int i = 0; i < param.size(); i++) {
-				q.setParameter(i, param.get(i));
-			}
-		}
-		return q.list();
+	@Override
+	public <T extends BaseModel> List<T> fetch(String hql) {
+		return dao.find(hql);
 	}
 
-	public <T extends BaseModel> List<T> find(String hql, Object[] param,
+	@Override
+	public <T extends BaseModel> List<T> fetch(String hql, Object... param) {
+		return dao.find(hql, param);
+	}
+
+	@Override
+	public <T extends BaseModel> List<T> fetch(String hql, List<Object> param) {
+		return dao.find(hql, param);
+	}
+
+	@Override
+	public <T extends BaseModel> List<T> fetch(String hql, Object[] param,
 			Integer page, Integer rows) {
-		if (page == null || page < 1) {
-			page = 1;
-		}
-		if (rows == null || rows < 1) {
-			rows = 10;
-		}
-		Query q = this.getCurrentSession().createQuery(hql);
-		if (param != null && param.length > 0) {
-			for (int i = 0; i < param.length; i++) {
-				q.setParameter(i, param[i]);
-			}
-		}
-		return q.setFirstResult((page - 1) * rows).setMaxResults(rows).list();
+		return dao.find(hql, param, page, rows);
 	}
 
-	public <T extends BaseModel> List<T> find(String hql, List<Object> param,
+	@Override
+	public <T extends BaseModel> List<T> fetch(String hql, List<Object> param,
 			Integer page, Integer rows) {
-		if (page == null || page < 1) {
-			page = 1;
-		}
-		if (rows == null || rows < 1) {
-			rows = 10;
-		}
-		Query q = this.getCurrentSession().createQuery(hql);
-		if (param != null && param.size() > 0) {
-			for (int i = 0; i < param.size(); i++) {
-				q.setParameter(i, param.get(i));
-			}
-		}
-		return q.setFirstResult((page - 1) * rows).setMaxResults(rows).list();
+		return dao.find(hql, param, page, rows);
 	}
 
-	public <T extends BaseModel> T get(Class<T> c, Serializable id) {
-		return (T) this.getCurrentSession().get(c, id);
-	}
-
-	public <T extends BaseModel> T get(String hql, Object... param) {
-		List<T> l = this.find(hql, param);
-		if (l != null && l.size() > 0) {
-			return l.get(0);
-		} else {
-			return null;
-		}
-	}
-
-	public <T extends BaseModel> T get(String hql, List<Object> param) {
-		List<T> l = this.find(hql, param);
-		if (l != null && l.size() > 0) {
-			return l.get(0);
-		} else {
-			return null;
-		}
-	}
-
+	@Override
 	public Long count(String hql) {
-		return (Long) this.getCurrentSession().createQuery(hql).uniqueResult();
+		return dao.count(hql);
 	}
 
+	@Override
 	public Long count(String hql, Object[] param) {
-		Query q = this.getCurrentSession().createQuery(hql);
-		if (param != null && param.length > 0) {
-			for (int i = 0; i < param.length; i++) {
-				q.setParameter(i, param[i]);
-			}
-		}
-		return (Long) q.uniqueResult();
+		return dao.count(hql, param);
 	}
 
+	@Override
 	public Long count(String hql, List<Object> param) {
-		Query q = this.getCurrentSession().createQuery(hql);
-		if (param != null && param.size() > 0) {
-			for (int i = 0; i < param.size(); i++) {
-				q.setParameter(i, param.get(i));
-			}
-		}
-		return (Long) q.uniqueResult();
+		return dao.count(hql, param);
 	}
 
+	@Override
 	public Integer executeHql(String hql) {
-		return this.getCurrentSession().createQuery(hql).executeUpdate();
+		return dao.executeHql(hql);
 	}
 
-	public Integer executeHql(String hql, Object[] param) {
-		Query q = this.getCurrentSession().createQuery(hql);
-		if (param != null && param.length > 0) {
-			for (int i = 0; i < param.length; i++) {
-				q.setParameter(i, param[i]);
-			}
-		}
-		return q.executeUpdate();
+	@Override
+	public Integer executeHql(String hql, Object... param) {
+		return dao.executeHql(hql, param);
 	}
 
+	@Override
 	public Integer executeHql(String hql, List<Object> param) {
-		Query q = this.getCurrentSession().createQuery(hql);
-		if (param != null && param.size() > 0) {
-			for (int i = 0; i < param.size(); i++) {
-				q.setParameter(i, param.get(i));
-			}
-		}
-		return q.executeUpdate();
+		return dao.executeHql(hql, param);
 	}
 
 }

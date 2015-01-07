@@ -4,7 +4,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import app.dao.BaseDao;
+import app.dao.Dao;
 import app.dao.MemberLoginDao;
 import app.models.member.Member;
 import app.models.member.MemberLogin;

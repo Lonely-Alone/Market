@@ -8,17 +8,17 @@
 .detai span a{color:#333; text-decoration:none}
 .detai span a:hover{text-decoration:underline;color:#CC9933}
 
-.detail1{float:left;margin-left:50px;margin-top:20px;width:220px;height:800px;border:1px solid black;}
+.detail_l{float:left;margin-left:50px;margin-top:20px;width:220px;height:800px;border:1px solid black;}
 
-.detail2{float:left;margin:20px;width:900px;height:auto;}
-.detail2_div1{float:left;width:350px;height:350px;border:1px solid gray;}
-.detail2_div2{float:left;margin-left:10px;width:530px;height:800px;}
-.detail2_div2 span{padding:30px ;line-height:40px;}
-.detail2_div2 span a{display:inline-block;width:15px;height:15px;border:1px solid gray;text-align:center;line-height:18px;text-decoration:none;color:black}
-.detail2_div2 span a:hover{text-decoration:none;color:black;border:1px solid black;}
-.detail2_div2 span input {width:30px;height:20px;text-align:center;line-height:20px;}
-.detail2_div2 hr{margin-top:20px;border:1px dotted #CCCCCC;width:600px; }
-.detail2_div2 button {width:180px;height:40px;color:white;font-size:20px;font-weight:bold;background-color:#CC0000;margin-left:20px;margin-top:20px;border-style:solid;}
-.detail2_div2 button:hover {border-style:none;}
-.detail2_div2_1{font-size:17px;font-weight:bold;margin-top:20px;color:gray}
-.detail2_div2_2{font-size:17px;font-weight:bold;color:red;margin-top:20px;}
+.detail_c{float:left;margin:20px;width:900px;height:auto;}
+.detail_c_img{float:left;width:350px;height:350px;border:1px solid gray;}
+.detail_c_div2{float:left;margin-left:10px;width:530px;height:800px;}
+.detail_c_div2 span{padding:30px ;line-height:40px;}
+.detail_c_div2 span a{display:inline-block;width:15px;height:15px;border:1px solid gray;text-align:center;line-height:18px;text-decoration:none;color:black}
+.detail_c_div2 span a:hover{text-decoration:none;color:black;border:1px solid black;}
+.detail_c_div2 span input {width:30px;height:20px;text-align:center;line-height:20px;}
+.detail_c_div2 hr{margin-top:20px;border:1px dotted #CCCCCC;width:600px; }
+.detail_c_div2 button {width:180px;height:40px;color:white;font-size:20px;font-weight:bold;background-color:#CC0000;margin-left:20px;margin-top:20px;border-style:solid;}
+.detail_c_div2 button:hover {border-style:none;}
+.detail_c_div2_1{font-size:17px;font-weight:bold;margin-top:20px;color:gray}
+.detail_c_div2_2{font-size:17px;font-weight:bold;color:red;margin-top:20px;}

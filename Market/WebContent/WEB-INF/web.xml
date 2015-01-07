@@ -26,7 +26,10 @@
 	     <param-name>contextConfigLocation</param-name>
 	     <param-value>/WEB-INF/applicationContext.xml</param-value>
 	</context-param>
-  <!-- openSessionInView配置 -->
-
+	
+	
+	<session-config>
+	     <session-timeout>30</session-timeout>
+	 </session-config>
   	
 </web-app>

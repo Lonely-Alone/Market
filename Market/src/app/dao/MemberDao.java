@@ -6,4 +6,6 @@ public interface MemberDao {
 
 	public void saveMember(Member m);
 
+	Member getMember(Long id);
+
 }

@@ -10,13 +10,11 @@ import app.dao.MemberLoginDao;
 import app.models.member.Member;
 import app.models.member.MemberLogin;
 import app.models.member.MemberLogin.LoginType;
-import app.service.impl.BaseServiceImpl;
 
 @Repository("memberLoginDao")
 @SuppressWarnings({ "unchecked", "rawtypes" })
 @Transactional("transactionManager")
-public class MemberLoginDaoImpl extends BaseServiceImpl implements
-		MemberLoginDao {
+public class MemberLoginDaoImpl extends BaseDaoImpl implements MemberLoginDao {
 
 	@Override
 	public void addLogin(Member member) {
@@ -79,21 +77,21 @@ public class MemberLoginDaoImpl extends BaseServiceImpl implements
 
 	@Override
 	public List<MemberLogin> fetchByMember(Member member) {
-		return find(
+		return fetch(
 				"select ml from MemberLogin ml where ml.isDeleted = false and ml.member = ?",
 				member);
 	}
 
 	@Override
 	public MemberLogin findEmailByMember(Member member) {
-		return (MemberLogin) get(
+		return (MemberLogin) find(
 				"select ml from MemberLogin ml where ml.isDeleted = false and ml.member = ?",
 				member);
 	}
 
 	@Override
 	public MemberLogin findByLoginId(String username) {
-		return (MemberLogin) get(
+		return (MemberLogin) find(
 				"select ml from MemberLogin ml where ml.isDeleted = false and ml.loginId = ?",
 				username);
 	}

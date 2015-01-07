@@ -14,4 +14,18 @@ public interface GoodsService {
 
 	public int getTotalPage(String name, String type);
 
+	public void addToCart(Goods goods);
+
+	public void deleteFromCart(Goods goods);
+
+	public int getTotalNum();
+
+	public float getTotalPrice();
+
+	public void editCart(Goods goods, long num);
+
+	public void clearCart();
+
+	List<Goods> getGoodsListByCart();
+
 }

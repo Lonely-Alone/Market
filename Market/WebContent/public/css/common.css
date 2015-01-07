@@ -348,3 +348,5 @@ a.c:hover{text-decoration:none; color:#22a0b9;}
 .abs_out{position:absolute; left:-9999px; top:-9999px;}
 .abs_in .abs_out{position:static;}
 
+.lh{text-decoration:line-through;}
+.hrd{border:1px dotted #CCCCCC;width:400px;}

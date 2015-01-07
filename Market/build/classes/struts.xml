@@ -14,7 +14,7 @@
      
     <constant name="struts.action.extension" value="action" />  
 
-	<!--  -->
+
      <package name="allInterceptor" extends="struts-default" >
     	<interceptors>  
             <interceptor name="encode"  
@@ -42,16 +42,18 @@
         <action name="logout" class="app.action.memberLoginAction"  method="logout"></action>
         <action name="checkLoginId" class="app.action.memberLoginAction"  method="checkLoginId"></action>
         <action name="regist" class="app.action.memberLoginAction"  method="regist"></action>
-        <action name="editPersonalInfo" class="app.action.memberLoginAction"  method="editPersonalInfo"></action>
         
         <!-- 获取物品的Action -->
-        <action name="getGoods" class="app.action.goodsAction" method="getGoods">
-        	<result name="success">/views/book/programmingJava.jsp</result>
+        <action name="getGoods" 	class="app.action.GoodsAction" method="getGoods">
+        	<result name="success">/views/book/bookDetail.jsp</result>
         </action>
-        <action name="getGoodsList" class="app.action.goodsAction" method="getGoodsList"></action>
+        <action name="getGoodsList" class="app.action.GoodsAction" method="getGoodsList">
+        	<result name="success">/views/book/ProgrammingJava.jsp</result>
+        </action>
+        <action name="addGoodsToCart" class="app.action.GoodsAction"  method="addGoodsToCart">
+        	<result name="success">/views/book/shoppingCart.jsp</result>
+        </action>
+        
         <action name="addGoods" class="app.action.ApplicationAction"  method="addGoods"></action>
     </package>
-
-
-
 </struts>

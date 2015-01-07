@@ -3,14 +3,16 @@ package app.dao.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Repository;
 
 import app.dao.GoodsDao;
 import app.models.goods.Goods;
+import app.models.goods.Goods.GoodsType;
 
 @SuppressWarnings("all")
 @Repository
-public class GoodsDaoImpl extends BaseDaoImpl implements GoodsDao {
+public class GoodsDaoImpl extends DaoImpl implements GoodsDao {
 
 	@Override
 	public void saveGoods(Goods goods) {
@@ -24,12 +26,14 @@ public class GoodsDaoImpl extends BaseDaoImpl implements GoodsDao {
 
 	@Override
 	public List<Goods> getGoodsList(String name, String type, int page, int size) {
+		String hql = "select g from Goods g where g.goodsType=?";
 		List<Object> list = new ArrayList<Object>();
-		list.add(type);
-		list.add("%" + name + "%");
-		return find(
-				"select * from Goods g where g.goodsType=? and g.name like ?",
-				list, page, size);
+		list.add(GoodsType.book);
+		if (StringUtils.isNotBlank(name)) {
+			list.add("%" + name + "%");
+			hql += "and g.name like ?";
+		}
+		return find(hql, list, page, size);
 	}
 
 	@Override

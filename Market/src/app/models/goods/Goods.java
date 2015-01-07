@@ -63,6 +63,10 @@ public class Goods extends BaseModel {
 
 		public abstract String getName();
 
+		// public String convert(String str) {
+		//
+		// }
+
 	}
 
 }

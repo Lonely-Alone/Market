@@ -11,9 +11,13 @@
 <head>
 <base href="<%=basePath%>">
 <title>Java</title>
-<link rel="stylesheet" type="text/css" href="style/programmingJava.css">
-<link rel="stylesheet" type="text/css" href="style/bookMain.css">
-<link rel="stylesheet" type="text/css" href="style/programmingBook.css">
+<link rel="stylesheet" type="text/css" href="public/css/programmingJava.css">
+<link rel="stylesheet" type="text/css" href="public/css/common.css">
+<link rel="stylesheet" type="text/css" href="public/css/bookMain.css">
+<link rel="stylesheet" type="text/css" href="public/css/programmingBook.css">
+<script type="text/javascript" src="public/js/min/do.js"></script>
+<script type="text/javascript" src="public/js/book.js"></script>
+
 
 
 </head>
@@ -27,55 +31,47 @@
 	</div>
 	<div class="javabook1" ></div>
 
-	<div class="javabook2">
+	<div class="goods_center">
 		<hr>
-			<c:forEach  items="${ goodsList}" var="book" >
-				<div style="float:left;width:260px;margin-top:30px;margin-left:40px;"><a href="/SuperMarket/showdetail.do?method=getBook&id=${book.id}" ><img src="images/javaBook/${book.id}.jpg"></a></div>
-				<div style="float:left;width:400px;margin-top:30px;">
-				<a href="/SuperMarket/showdetail.do?method=getBook&id=${book.id}" style="font-size:16px;font-weight:bold;">${book.bookName }</a><br>
-				<span  class="javabook3">${book.description }</span>
-				<a href="javascript:;" target="_blank" class="javabutton" onclick="addGoods(${book.id})">加入购物车</a><br>
-				<span >现价:</span><span style="color:red;font-weight:bold;">￥  ${book.sellPrice}</span>
-				<span style="margin-left:30px;text-decoration:line-through">定价：￥ ${book.basePrice}</span><br>
-				<hr align="center"  style= "border:1px dotted #CCCCCC;width:400px;margin-bottom:-10px; " /><br/>
-				<span>作 &emsp; &emsp;者:  ${book.author} 著</span><br>
-				<span>出 &ensp;版 &ensp;社：  ${book.publish}</span><br/>
-				<span>出版时间： ${book.publishTime}</span>
-				</div><br>
-				<hr align="center"  style= "margin-top:20px;border:1px dashed #CCCCCC;width:800px; " /><br/>
-		 </c:forEach >
+			<s:iterator   value="# request.goodsList" id="book" >
+				<div class="goods_img">
+					<a href="" ><img src="public/img/javaBook/${book.id}.jpg"></a>
+				</div>
+				<div class="goods_detail">
+					<ul>
+						<li>
+							<a href="Market/getGoods.action?goodsId=${book.id}" class="f16 b"><s:property value="#book.name"/></a>
+						</li>
+						<li class="desc"><s:property value="#book.description"/></li>
+						<li>
+							<span >现价:</span><span style="color:red;font-weight:bold;">￥ <s:property value="#book.price"/> </span>
+						</li>
+						<li>
+						<span class="lh">定价：￥ <s:property value="#book.price"/></span>
+						</li>
+						<li>
+							<hr align="center"  class= "hrd" />
+						</li>
+						<li>
+							<span>作 &emsp; &emsp;者:  <s:property value="#book.author"/>著</span>
+						</li>
+						<li>
+							<span>出 &ensp;版 &ensp;社：  <s:property value="#book.publisher"/></span>
+						</li>
+						<li>
+							<span>出版时间： <s:property value="#book.publishTime"/></span>
+						</li>
+						<li>
+							<a href="javascript:;" target="_blank" class="addbutton" goodsId ="${book.id}">加入购物车</a>
+						</li>
+					</ul>
+				</div>
+				<div>
+					<hr   class= "cut_off " />
+				</div>
+				
+		 </s:iterator  >
 		  <div class="page">
-		  <c:if test="${pageNow - 1 > 0 }">
-			<a href="/SuperMarket/getbooks.do?method=getBooks&pageNow=${pageNow - 1}" style="display:block;float:left;width:60px;align:center">上一页</a>
-		  </c:if>
-		  <c:choose> 
-			  <c:when test="${pageNow - 4 > 0 }">
-				  <c:forEach begin="${pageNow - 4}" end="${pageNum-1 }" var="i">
-					<a href='/SuperMarket/getbooks.do?method=getBooks&pageNow=${i }'>${i }</a>
-				  </c:forEach>
-			  </c:when>
-			  <c:otherwise >
-			  	<c:forEach begin="1" end="${pageNow-1 }" var="i">
-					<a href='/SuperMarket/getbooks.do?method=getBooks&pageNow=${i }&search=${searchName}'>${i }</a>
-				  </c:forEach>
-			  </c:otherwise>
-		  </c:choose>
-		  <a href='/SuperMarket/getbooks.do?method=getBooks&pageNow=${pageNow}&search=${searchName}' style="border:0px;color:orange">${pageNow}</a>
-		  <c:choose> 
-			  <c:when test="${pageNow + 4 < pageNum}">
-				  <c:forEach begin="${pageNow +1 }" end="${pageNum + 4 }" var="i">
-					<a href='/SuperMarket/getbooks.do?method=getBooks&pageNow=${i }&search=${searchName}'>${i }</a>
-				  </c:forEach>
-			  </c:when>
-			  <c:otherwise >
-			  	<c:forEach begin="${pageNow+1 }" end="${pageNum }" var="i">
-					<a href='/SuperMarket/getbooks.do?method=getBooks&pageNow=${i }&search=${searchName}'>${i }</a>
-				  </c:forEach>
-			  </c:otherwise>
-		  </c:choose>
-	<c:if test="${pageNow < pageNum}">
-		<a href='/SuperMarket/getbooks.do?method=getBooks&pageNow=${pageNow +1}&search=${searchName}' style="display:block;float:left;width:60px;align:center">下一页</a>
-	</c:if>
 			
 		 </div>
 	</div>
