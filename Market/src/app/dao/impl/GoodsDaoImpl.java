@@ -11,8 +11,8 @@ import app.models.goods.Goods;
 import app.models.goods.Goods.GoodsType;
 
 @SuppressWarnings("all")
-@Repository
-public class GoodsDaoImpl extends DaoImpl implements GoodsDao {
+@Repository("goodsDao")
+public class GoodsDaoImpl extends BaseDaoImpl implements GoodsDao {
 
 	@Override
 	public void saveGoods(Goods goods) {
@@ -21,7 +21,7 @@ public class GoodsDaoImpl extends DaoImpl implements GoodsDao {
 
 	@Override
 	public Goods getGoods(long id) {
-		return (Goods) get(Goods.class, id);
+		return (Goods) find(Goods.class, id);
 	}
 
 	@Override
@@ -33,7 +33,7 @@ public class GoodsDaoImpl extends DaoImpl implements GoodsDao {
 			list.add("%" + name + "%");
 			hql += "and g.name like ?";
 		}
-		return find(hql, list, page, size);
+		return fetch(hql, list, page, size);
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class GoodsDaoImpl extends DaoImpl implements GoodsDao {
 		List<Object> list = new ArrayList<Object>();
 		list.add(type);
 		list.add("%" + name + "%");
-		return find(
+		return fetch(
 				"select * from Goods g where g.goodsType=? and g.name like ?",
 				list).size();
 	}

@@ -1,6 +1,8 @@
 package app.action;
 
 import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.annotation.Resource;
 
@@ -70,7 +72,8 @@ public class memberLoginAction extends BaseAction implements
 		}
 
 	}
-	public void editPersonalInfo() throws IOException{
+
+	public void editPersonalInfo() throws IOException {
 		response.sendRedirect("/Market");
 	}
 
@@ -78,9 +81,12 @@ public class memberLoginAction extends BaseAction implements
 	public void regist() throws IOException {
 		out = response.getWriter();
 		response.setContentType("text/html;charset=UTF-8");
-		String mail = "^\\s*\\w+(?:\\.{0,1}[\\w-]+)*@[a-zA-Z0-9]+(?:[-.][a-zA-Z0-9]+)*\\.[a-zA-Z]+\\s*$";
+		String mail = "^([a-zA-Z0-9_\\-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?)$";
+		Pattern pattern = Pattern.compile(mail);
+		Matcher matcher = pattern.matcher("dffdfdf@qq.com");
+		boolean isMail = matcher.matches();
 		Member m = new Member();
-		if (mail.matches(memberLogin.loginId)) {
+		if (isMail) {
 			m.email = memberLogin.loginId;
 		} else {
 			m.username = memberLogin.loginId;

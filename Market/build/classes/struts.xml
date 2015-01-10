@@ -14,20 +14,19 @@
      
     <constant name="struts.action.extension" value="action" />  
 
-
+<!-- 拦截器栈 
      <package name="allInterceptor" extends="struts-default" >
     	<interceptors>  
             <interceptor name="encode"  
                 class="interceptor.EncodingInterceptor">  
             </interceptor>  
-            <!-- 拦截器栈 -->  
             <interceptor-stack name="mydefault">  
                 <interceptor-ref name="defaultStack" />  
                 <interceptor-ref name="encode" />  
             </interceptor-stack>  
         </interceptors>  
     </package>
-    
+   -->  
  <!-- struts2的action必须放在一个指定的包空间下定义 -->
     <package name="default" extends="struts-default" namespace="">
   

@@ -7,7 +7,7 @@ import app.models.member.Member;
 
 @Repository("memberDao")
 @SuppressWarnings("all")
-public class MemberDaoImpl extends DaoImpl implements MemberDao {
+public class MemberDaoImpl extends BaseDaoImpl implements MemberDao {
 
 	@Override
 	public void saveMember(Member m) {
@@ -16,7 +16,7 @@ public class MemberDaoImpl extends DaoImpl implements MemberDao {
 
 	@Override
 	public Member getMember(Long id) {
-		return (Member) get(Member.class, id);
+		return (Member) find(Member.class, id);
 	}
 
 }

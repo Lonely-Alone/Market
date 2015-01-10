@@ -4,7 +4,6 @@ import java.util.List;
 
 import app.models.goods.Cart;
 import app.models.goods.Goods;
-import app.models.member.Member;
 
 public interface CartDao {
 
@@ -22,7 +21,7 @@ public interface CartDao {
 
 	public void clearCart();
 
-	public Cart findCartByMember(Member member);
+	public Cart findCartByMember();
 
 	public List<Goods> fetchGoodsByCart();
 

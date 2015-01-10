@@ -5,19 +5,17 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import util.CommonUtils;
 import app.dao.CartDao;
 import app.dao.CartGoodsDao;
 import app.dao.GoodsDao;
 import app.dao.MemberDao;
-import app.models.goods.Cart;
-import app.models.goods.Cart_Goods;
 import app.models.goods.Goods;
-import app.models.member.Member;
 import app.service.GoodsService;
 
 @Service
+@Transactional("transactionManager")
 public class GoodsServiceImpl implements GoodsService {
 
 	@Resource
@@ -58,23 +56,7 @@ public class GoodsServiceImpl implements GoodsService {
 
 	@Override
 	public void addToCart(Goods goods) {
-		Member member = CommonUtils.getCurrentMember();
-		Cart myCart = cartDao.findCartByMember(member);
-		if (myCart == null) {
-			myCart = new Cart();
-			myCart.member = CommonUtils.getCurrentMember();
-			cartDao.saveCart(myCart);
-		}
-		Cart_Goods cartGoods = cartGoodsDao.findByCartAndGoods(myCart, goods);
-		if (cartGoods == null) {
-			cartGoods = new Cart_Goods();
-			cartGoods.cart = myCart;
-			cartGoods.goods = goods;
-			cartGoodsDao.saveCartGoods(cartGoods);
-		} else if (cartGoods.isDeleted) {
-			cartGoods.isDeleted = false;
-			cartGoodsDao.saveCartGoods(cartGoods);
-		}
+		cartDao.addToCart(goods);
 	}
 
 	@Override

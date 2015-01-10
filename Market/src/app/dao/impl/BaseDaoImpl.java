@@ -6,14 +6,12 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import app.dao.BaseDao;
 import app.dao.Dao;
 import app.models.BaseModel;
 
-@Transactional("transactionManager")
-@Repository("baseService")
+@Repository("baseDao")
 @SuppressWarnings("all")
 public class BaseDaoImpl<T extends BaseModel> implements BaseDao<T> {
 

@@ -7,25 +7,24 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import app.dao.Dao;
 import app.models.BaseModel;
 
-@Transactional("transactionManager")
-@Repository("baseDao")
+@Repository("dao")
 @SuppressWarnings("all")
 public class DaoImpl<T extends BaseModel> implements Dao<T> {
 
 	@Autowired
+	@Qualifier("sessionFactory")
 	private SessionFactory sessionFactory;
 
 	public SessionFactory getSessionFactory() {
 		return sessionFactory;
 	}
 
-	@Autowired
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}

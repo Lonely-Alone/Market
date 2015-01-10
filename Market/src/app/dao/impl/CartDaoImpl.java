@@ -6,9 +6,11 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Repository;
 
+import util.CommonUtils;
 import app.dao.CartDao;
 import app.dao.CartGoodsDao;
 import app.models.goods.Cart;
+import app.models.goods.Cart_Goods;
 import app.models.goods.Goods;
 import app.models.member.Member;
 
@@ -25,52 +27,66 @@ public class CartDaoImpl extends BaseDaoImpl implements CartDao {
 
 	@Override
 	public void addToCart(Goods goods) {
-
+		Cart myCart = findCartByMember();
+		if (myCart == null) {
+			myCart = new Cart();
+			myCart.member = CommonUtils.getCurrentMember();
+			saveCart(myCart);
+		}
+		Cart_Goods cartGoods = cartGoodsDao.findByCartAndGoods(myCart, goods);
+		if (cartGoods == null) {
+			cartGoods = new Cart_Goods();
+			cartGoods.cart = myCart;
+			cartGoods.goods = goods;
+			cartGoodsDao.saveCartGoods(cartGoods);
+		} else if (cartGoods.isDeleted) {
+			cartGoods.isDeleted = false;
+			cartGoodsDao.saveCartGoods(cartGoods);
+		}
 	}
 
 	@Override
 	public void deleteFromCart(Goods goods) {
-		// Cart_Goods cartGoods = cartGoodsDao.findByCartAndGoods(
-		// findCartByMember(), goods);
-		// if (cartGoods != null) {
-		// cartGoods.isDeleted = true;
-		// }
-		// save(cartGoods);
+		Cart_Goods cartGoods = cartGoodsDao.findByCartAndGoods(
+				findCartByMember(), goods);
+		if (cartGoods != null) {
+			cartGoods.isDeleted = true;
+			save(cartGoods);
+		}
+
 	}
 
 	public List<Goods> fetchGoodsByCart() {
-		return null;
-		// return cartGoodsDao.fetchGoosListByCart(findCartByMember());
+		return cartGoodsDao.fetchGoosListByCart(findCartByMember());
 	}
 
 	@Override
 	public int getTotalNum() {
-		return 0;
-		// return cartGoodsDao.totalNum(findCartByMember());
+		return cartGoodsDao.totalNum(findCartByMember());
 	}
 
 	@Override
 	public float getTotalPrice() {
-		return 0;
-		// return cartGoodsDao.totalPrice(findCartByMember());
+		return cartGoodsDao.totalPrice(findCartByMember());
 	}
 
 	@Override
 	public void editCart(Goods goods, long num) {
-		// Cart_Goods cartGoods = cartGoodsDao.findByCartAndGoods(
-		// findCartByMember(), goods);
-		// cartGoods.num = num;
-		// save(cartGoods);
+		Cart_Goods cartGoods = cartGoodsDao.findByCartAndGoods(
+				findCartByMember(), goods);
+		cartGoods.num = num;
+		saveOrupdate(cartGoods);
 	}
 
 	@Override
 	public void clearCart() {
-		// cartGoodsDao.clearCart(findCartByMember());
+		cartGoodsDao.clearCart(findCartByMember());
 
 	}
 
 	@Override
-	public Cart findCartByMember(Member member) {
+	public Cart findCartByMember() {
+		Member member = CommonUtils.getCurrentMember();
 		return (Cart) find("select c from Cart c where c.member = ?", member);
 	}
 

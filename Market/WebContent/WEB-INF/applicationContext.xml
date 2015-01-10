@@ -53,11 +53,11 @@
                 <!-- javax.persistence.validation.mode默认情况下是auto的，就是说如果不设置的话它是会自动去你的classpath下面找一个bean-validation**包 
                     所以把它设置为none即可 -->
                 javax.persistence.validation.mode=none
-                current_session_context_class=thread  
+                current_session_context_class=thread
             </value>
         </property>
          
-        <!-- 自动扫描实体对象 model.bean的包结构中存放实体类 -->
+        <!-- 自动扫描实体对象 model.bean的包结构中存放实体类   -->
         <property name="packagesToScan" value="app.models" />
     </bean>
     <!-- 定义事务管理 -->
@@ -66,19 +66,16 @@
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
     
-
-    
-    
     <!-- 注解支持 --> 
     <context:annotation-config/>  
+    
     <!-- 扫描有注解的文件  base-package 包路径 -->
-    <context:component-scan base-package="app"/>
+    <context:component-scan base-package="app.dao"/>
+    <context:component-scan base-package="app.service"/>
      <!-- 定义 Autowired  自动注入 bean -->
     <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/> 
 	
-	<bean class="app.dao.BaseDao" scope="prototype">
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean> 
+
 
     <tx:annotation-driven transaction-manager="transactionManager"/>
     <tx:advice id="txAdvice" transaction-manager="transactionManager">
@@ -100,9 +97,7 @@
 
     <!-- 定义切面，在 * .*.service.*ServiceImpl.*(..) 中执行有关的hibernate session的事务操作 -->
     <aop:config>
-        <aop:pointcut id="daoOperation" expression="execution(* app.dao..*.*(..))" />
         <aop:pointcut id="serviceOperation" expression="execution(* app.service..*.*(..))" />
-        <aop:advisor advice-ref="txAdvice" pointcut-ref="daoOperation" />
         <aop:advisor advice-ref="txAdvice" pointcut-ref="serviceOperation" />
     </aop:config>
     <aop:config  proxy-target-class="true"/>
