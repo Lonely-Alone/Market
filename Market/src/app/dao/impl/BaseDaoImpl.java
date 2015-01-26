@@ -15,6 +15,8 @@ import app.models.BaseModel;
 @SuppressWarnings("all")
 public class BaseDaoImpl<T extends BaseModel> implements BaseDao<T> {
 
+	public static final int PAGESIZE = 2;
+
 	@Resource
 	private Dao dao;
 
@@ -89,7 +91,7 @@ public class BaseDaoImpl<T extends BaseModel> implements BaseDao<T> {
 	}
 
 	@Override
-	public Long count(String hql, Object[] param) {
+	public Long count(String hql, Object... param) {
 		return dao.count(hql, param);
 	}
 

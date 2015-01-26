@@ -36,7 +36,7 @@ public interface BaseDao<T> {
 
 	public Long count(String hql);
 
-	public Long count(String hql, Object[] param);
+	public Long count(String hql, Object... param);
 
 	public Long count(String hql, List<Object> param);
 

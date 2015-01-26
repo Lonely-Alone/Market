@@ -21,7 +21,7 @@ a.c:hover{text-decoration:none; color:#22a0b9;}
 
 /*-----------------single-declaration css lib 单声明CSS库--------------*/
 .dn{display:none;}.db{display:block;}.di{display:inline;}.dib{display:inline-block;}
-.h0{height:0;}.h14{height:14px;}.h16{height:16px;}.h18{height:18px;}.h20{height:20px;}.h22{height:22px;}.h24{height:24px;}.h30{height:30px;}.h150{height:150px;}
+.h0{height:0;}.h6{height:6;}.h14{height:14px;}.h16{height:16px;}.h18{height:18px;}.h20{height:20px;}.h22{height:22px;}.h24{height:24px;}.h30{height:30px;}.h150{height:150px;}
 .lh14{line-height:14px;}.lh16{line-height:16px;}.lh18{line-height:18px;}.lh20{line-height:20px;}.lh22{line-height:22px;}.lh24{line-height:24px;}.lh30{line-height:30px;}.lh34{line-height:34px;}
 .m0{margin:0;}.ml1{margin-left:1px;}.ml2{margin-left:2px;}.ml5{margin-left:5px;}.ml10{margin-left:10px;}.ml20{margin-left:20px;}.ml50{margin-left:50px;}.ml100{margin-left:100px;}.ml150{margin-left:150px;}
 .mr1{margin-right:1px;}.mr2{margin-right:2px;}.mr5{margin-right:5px;}.mr10{margin-right:10px;}.mr20{margin-right:20px;}.mr50{margin-right:50px;}.mr100{margin-right:100px;}.mr150{margin-right:150px;}
@@ -105,6 +105,8 @@ a.c:hover{text-decoration:none; color:#22a0b9;}
 /*--------------------------项目样式库 project css lib---------------------*/
 
 /*width*/
+.w20{width:20px}
+.w30{width:30px}
 .w40{width:40px}
 .w60{width:60px;}
 .w70{width:70px;}
@@ -112,6 +114,7 @@ a.c:hover{text-decoration:none; color:#22a0b9;}
 .w90{width:90px;}
 .w180{width:180px;}
 .w280{width:280px;}
+.w400{width:400px;}
 .pct10{width:10%;}
 .pct15{width:15%;}
 .pct25{width:25%;}
@@ -151,7 +154,7 @@ a.c:hover{text-decoration:none; color:#22a0b9;}
 .bgblue{background-color:#416385;}
 .bgeb{background-color:#E7FBD7;}
 .bgde{background-color:#DEEEFE;}
-.bdc{background:#DC143C}
+.bdc1{background:#DC143C}
 
 /*-------字体颜色---------*/
 .ca{color:#0372DE;}

@@ -20,8 +20,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="head_top">
 				<ul class="head_menu">
 					<li>
-							<s:if test="#session.member.username != null && !#session.member.username.isEmpty()">
-								您好！ <s:property value="#session.member.username"/>  &emsp;
+							<s:if test="javascript:;session.member.username != null && !javascript:;session.member.username.isEmpty()">
+								您好！ <s:property value="javascript:;session.member.username"/>  &emsp;
 								<a href="/Market/logout.action">[退出]</a>
 							</s:if>
 							<s:else >
@@ -31,39 +31,39 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</s:else>
 					</li>
 					<li>
-						<s:if test="#session.member.username != null && !#session.member.username.isEmpty()">
+						<s:if test="javascript:;session.member.username != null && !javascript:;session.member.username.isEmpty()">
 								<a href="/Market/views/application/personalInfo.jsp">个人中心</a>
 						</s:if>
 					</li>
-					<li><a href="#">我的订单</a> </li>
-					<li><a href="#" >手机购物</a></li>
+					<li><a href="javascript:;">我的订单</a> </li>
+					<li><a href="javascript:;" >手机购物</a></li>
 					<li  class="head_li1">客户服务 
 						<ul>
-							<li > <a href="#" >常见问题</a> </li>
-							<li > <a href="#" >售后服务</a> </li>
-							<li > <a href="#" >在线客服</a> </li>
-							<li > <a href="#" >投诉中心</a> </li>
-							<li > <a href="#" >客服邮箱</a> </li>
+							<li > <a href="javascript:;" >常见问题</a> </li>
+							<li > <a href="javascript:;" >售后服务</a> </li>
+							<li > <a href="javascript:;" >在线客服</a> </li>
+							<li > <a href="javascript:;" >投诉中心</a> </li>
+							<li > <a href="javascript:;" >客服邮箱</a> </li>
 						</ul>  
 					</li>
 					
 					<li  class="head_li2"> 网站导航
 							<ul>
 							<li> <span >购物</span> </li>
-							<li> <a href="#" >图书</a> </li>
-							<li> <a href="#" >数码</a> </li>
-							<li> <a href="#" >服饰</a> </li>
-							<li> <a href="#" >食品</a> </li>
+							<li> <a href="javascript:;" >图书</a> </li>
+							<li> <a href="javascript:;" >数码</a> </li>
+							<li> <a href="javascript:;" >服饰</a> </li>
+							<li> <a href="javascript:;" >食品</a> </li>
 							<li> <span >生活</span> </li>
-							<li> <a href="#" >商旅</a> </li>
-							<li> <a href="#" >保险</a> </li>
-							<li> <a href="#" >游戏</a> </li>
-							<li> <a href="#" >水电</a> </li>
+							<li> <a href="javascript:;" >商旅</a> </li>
+							<li> <a href="javascript:;" >保险</a> </li>
+							<li> <a href="javascript:;" >游戏</a> </li>
+							<li> <a href="javascript:;" >水电</a> </li>
 							<li> <span >娱乐</span> </li>
-							<li> <a href="#" >电影</a> </li>
-							<li> <a href="#" >玩具</a> </li>
-							<li> <a href="#" >棋牌麻将</a> </li>
-							<li> <a href="#" >游戏机</a> </li>
+							<li> <a href="javascript:;" >电影</a> </li>
+							<li> <a href="javascript:;" >玩具</a> </li>
+							<li> <a href="javascript:;" >棋牌麻将</a> </li>
+							<li> <a href="javascript:;" >游戏机</a> </li>
 						</ul>
 					</li>
 				</ul>

@@ -7,7 +7,7 @@ import app.models.BaseModel;
 import app.models.comment.Comment;
 
 @Entity
-public class Goods extends BaseModel {
+public class Good extends BaseModel {
 
 	public long number;// 商品编号
 	public String name;
@@ -59,14 +59,34 @@ public class Goods extends BaseModel {
 			public String getName() {
 				return "家具";
 			}
+		},
+		others {
+			@Override
+			public String getName() {
+				return "其他";
+			}
 		};
 
 		public abstract String getName();
 
-		// public String convert(String str) {
-		//
-		// }
+		public static GoodsType convert2Enum(String str) {
+			if (str.equals("book")) {
+				return GoodsType.book;
+			} else if (str.equals("household")) {
+				return GoodsType.household;
+			} else if (str.equals("dress")) {
+				return GoodsType.dress;
+			} else if (str.equals("digital")) {
+				return GoodsType.digital;
+			} else if (str.equals("food")) {
+				return GoodsType.food;
+			} else if (str.equals("furniture")) {
+				return GoodsType.furniture;
+			} else {
+				return GoodsType.others;
+			}
 
+		}
 	}
 
 }

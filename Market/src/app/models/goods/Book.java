@@ -7,7 +7,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-public class Book extends Goods {
+public class Book extends Good {
 
 	public String author;
 	public String publisher;// 出版商

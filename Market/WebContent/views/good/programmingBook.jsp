@@ -83,7 +83,7 @@
 	</div>
 	<div class="div3">
 		 <h3>新书速递</h3><hr>
-			 <ul>
+			 <ul class="mt10">
 			 <li class="li_div">
 			 <div>	<img src="public/img/book/NoSQL.jpg"><br><a href="">图灵程序设计丛书：NoSQL</a><br>
 			 		<span style="color:#00FF00">(全面展示NoSQL基础概念和实践方案)</span><br>

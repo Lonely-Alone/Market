@@ -3,7 +3,8 @@ package app.action;
 import javax.annotation.Resource;
 
 import app.models.goods.Book;
-import app.service.GoodsService;
+import app.models.goods.Good.GoodsType;
+import app.service.GoodService;
 
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -13,13 +14,13 @@ public class ApplicationAction extends BaseAction implements ModelDriven<Book> {
 	private Book book;
 
 	@Resource
-	private GoodsService goodsService;
+	private GoodService goodsService;
 
-	public GoodsService getGoodsService() {
+	public GoodService getGoodsService() {
 		return goodsService;
 	}
 
-	public void setGoodsService(GoodsService goodsService) {
+	public void setGoodsService(GoodService goodsService) {
 		this.goodsService = goodsService;
 	}
 
@@ -37,7 +38,8 @@ public class ApplicationAction extends BaseAction implements ModelDriven<Book> {
 	public String addGoods() throws Exception {
 		request.setCharacterEncoding("UTF-8");
 		System.err.println(book.name);
-		goodsService.saveGoods(book);
+		book.goodsType = GoodsType.book;
+		goodsService.saveGood(book);
 		return null;
 	}
 

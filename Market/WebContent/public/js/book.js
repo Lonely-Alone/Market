@@ -66,6 +66,7 @@ Do(function(){
 					},
 					callback : function (json) {
 						if(json.status){
+							window.location.href="/Market/views/book/myCart.jsp"
 						}
 					}
 				});

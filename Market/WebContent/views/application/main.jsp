@@ -26,31 +26,31 @@
 	<div class="mt20">
 		<div class="main_menu2">
 			<div class="main_menu2_li_1">
-				<a href="#" >商品全部分类</a>
+				<a href="javascript:;" >商品全部分类</a>
 				<div class="ml10">
 					<span>
-						<a href="/Market/views/book/bookMain.jsp">图书</a>、<a href="#">音像</a>、<a href="#">数字商品</a>
+						<a href="/Market/views/good/goodMain.jsp">图书</a>、<a href="javascript:;">音像</a>、<a href="javascript:;">数字商品</a>
 					</span>
 					<span>
-						<a href="#">家用电器</a> <a href="#">手机</a>、<a href="#">数码</a> 
+						<a href="javascript:;">家用电器</a> <a href="javascript:;">手机</a>、<a href="javascript:;">数码</a> 
 					</span>
 					<span>
-						<a href="#">电脑、办公</a> </span><br /> <span><a href="#">家居</a>、<a href="#">家具</a>、<a href="#">家装</a>、<a href="#">厨具</a> 
+						<a href="javascript:;">电脑、办公</a> </span><br /> <span><a href="javascript:;">家居</a>、<a href="javascript:;">家具</a>、<a href="javascript:;">家装</a>、<a href="javascript:;">厨具</a> 
 					</span>
 					<span><a
-						href="#">服饰内衣</a> <a href="#">个护化妆</a> 
+						href="javascript:;">服饰内衣</a> <a href="javascript:;">个护化妆</a> 
 					</span>
 					<span>
-						<a href="#">鞋靴</a>、<a href="#">箱包</a>、<a href="#">钟表</a>、<a href="#">珠宝</a> 
+						<a href="javascript:;">鞋靴</a>、<a href="javascript:;">箱包</a>、<a href="javascript:;">钟表</a>、<a href="javascript:;">珠宝</a> 
 					</span>
 					<span>
-						<a href="#">运动健康</a> <a href="#">汽车用品</a> 
+						<a href="javascript:;">运动健康</a> <a href="javascript:;">汽车用品</a> 
 					</span>
 					<span>
-						<a href="#">母婴</a>、<a href="#">玩具乐器</a> </span><br /> <span><a href="#">食品饮料、保健食品</a> 
+						<a href="javascript:;">母婴</a>、<a href="javascript:;">玩具乐器</a> </span><br /> <span><a href="javascript:;">食品饮料、保健食品</a> 
 					</span>
 					<span>
-						<a href="#">彩票</a>、<a href="#">旅行</a>、<a href="#">充值</a>、<a href="#">票务</a> 
+						<a href="javascript:;">彩票</a>、<a href="javascript:;">旅行</a>、<a href="javascript:;">充值</a>、<a href="javascript:;">票务</a> 
 					</span>
 				</div>
 			</div>
@@ -58,14 +58,14 @@
 		</div>
 		<div class="main_menu3">
 			<ul>
-				<li><a href="#" >首页</a></li>
-				<li><a href="#" >服装城</a></li>
-				<li><a href="#" >购物超市</a></li>
-				<li><a href="#" >电器城</a></li>
-				<li><a href="#" >书城</a></li>
-				<li><a href="#" >团购</a></li>
-				<li><a href="#" ></a></li>
-				<li><a href="#" ></a></li>
+				<li><a href="javascript:;" >首页</a></li>
+				<li><a href="javascript:;" >服装城</a></li>
+				<li><a href="javascript:;" >购物超市</a></li>
+				<li><a href="javascript:;" >电器城</a></li>
+				<li><a href="javascript:;" >书城</a></li>
+				<li><a href="javascript:;" >团购</a></li>
+				<li><a href="javascript:;" ></a></li>
+				<li><a href="javascript:;" ></a></li>
 			</ul>
 		</div>
 		<div class="dhooo_tab">
@@ -77,13 +77,13 @@
 			</ul>
 			<div class="scroll" id="picScroll">
 				<ul class="content">
-					<li><a href="#"><img src="public/img/roll1.jpg" /></a>
+					<li><a href="javascript:;"><img src="public/img/roll1.jpg" /></a>
 					</li>
-					<li><a href="#"><img src="public/img/roll2.jpg" /></a>
+					<li><a href="javascript:;"><img src="public/img/roll2.jpg" /></a>
 					</li>
-					<li><a href="#"><img src="public/img/roll3.jpg" /></a>
+					<li><a href="javascript:;"><img src="public/img/roll3.jpg" /></a>
 					</li>
-					<li><a href="#"><img src="public/img/roll4.jpg" /></a>
+					<li><a href="javascript:;"><img src="public/img/roll4.jpg" /></a>
 				</ul>
 			</div>
 		</div>

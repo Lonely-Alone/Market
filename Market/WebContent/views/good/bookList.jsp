@@ -72,7 +72,7 @@
 				
 		 </s:iterator  >
 		  <div class="page">
-			
+			<jsp:include page="/views/application/paging.jsp"></jsp:include>
 		 </div>
 	</div>
 

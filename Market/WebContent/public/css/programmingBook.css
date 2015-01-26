@@ -20,8 +20,8 @@
 .main12{width:720px;height:230px; overflow:hidden;  margin:10px auto; text-align:left;font-size:12px;}
 
 .div3{margin-left:320px;margin-top:30px;width:725px;display:block;height:300px;}
-.li_div  div{float:left;margin-left:20px;margin-top:-500px;}
-.li_div1  div{float:left;margin-left:50px;margin-top:-180px;}
+.li_div  div{float:left;margin-left:20px;margin-top:-460px;}
+.li_div1  div{float:left;margin-left:30px;margin-top:-160px;}
 .button1{background:url(../img/book/buyCart.jpg) no-repeat;width:100px;height:20px;border:0px;cursor:pointer;margin-left:20px;}
 .price1{TEXT-DECORATION: line-through;margin-top:10px;display:block;margin-left:20px;}
 .price2{color:red;margin-left:20px;}

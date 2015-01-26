@@ -3,8 +3,8 @@
     "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
-		
-		
+		<!-- name="struts.devMode 表示为开发模式 value="true"表示不需要重启tomcat -->
+		<constant name="struts.devMode" value="true" />
 
 <!-- Struts 2运行时使用Spring来创建对象 -->
 	<constant name="struts.objectFactory" value="spring" />
@@ -14,22 +14,34 @@
      
     <constant name="struts.action.extension" value="action" />  
 
-<!-- 拦截器栈 
+<!-- 拦截器栈    -->  
      <package name="allInterceptor" extends="struts-default" >
     	<interceptors>  
+    	<!--
             <interceptor name="encode"  
                 class="interceptor.EncodingInterceptor">  
             </interceptor>  
             <interceptor-stack name="mydefault">  
                 <interceptor-ref name="defaultStack" />  
                 <interceptor-ref name="encode" />  
-            </interceptor-stack>  
+            </interceptor-stack>
+        --> 
+            <interceptor name="authenticationInterceptor" 
+				class="interceptor.AuthenticationInterceptor" />
+		    <interceptor-stack name="myStack">
+		      <interceptor-ref name="authenticationInterceptor" />
+		      <interceptor-ref name="defaultStack" />
+	    	</interceptor-stack>  
         </interceptors>  
     </package>
-   -->  
+
  <!-- struts2的action必须放在一个指定的包空间下定义 -->
-    <package name="default" extends="struts-default" namespace="">
-  
+    <package name="default" extends="allInterceptor" namespace="">
+	  <global-results>
+	    <result name="input" type="redirect">/Market/views/application/Login.jsp</result>
+	    <result name="error">/error.jsp</result>
+	  </global-results>
+	  
     	<action name="indexAct" class="app.action.ApplicationAction"  method="index">
     		<result name="success" type="dispatcher">/Market/views/application/main.jsp</result>
     		<result name="error" type="redirect">/Market/views/application/Login.jsp</result>
@@ -43,16 +55,18 @@
         <action name="regist" class="app.action.memberLoginAction"  method="regist"></action>
         
         <!-- 获取物品的Action -->
-        <action name="getGoods" 	class="app.action.GoodsAction" method="getGoods">
-        	<result name="success">/views/book/bookDetail.jsp</result>
+        <action name="getGoods" 	class="app.action.GoodAction" method="getGoods">
+        	<result name="success">/views/good/goodDetail.jsp</result>
         </action>
-        <action name="getGoodsList" class="app.action.GoodsAction" method="getGoodsList">
-        	<result name="success">/views/book/ProgrammingJava.jsp</result>
+        <action name="getGoodsList" class="app.action.GoodAction" method="getGoodsList">
+        	<result name="success">/views/good/bookList.jsp</result>
         </action>
-        <action name="addGoodsToCart" class="app.action.GoodsAction"  method="addGoodsToCart">
-        	<result name="success">/views/book/shoppingCart.jsp</result>
+        <action name="addGoodsToCart" class="app.action.GoodAction"  method="addGoodsToCart">
         </action>
-        
+         <action name="deleteGood" class="app.action.GoodAction"  method="deleteGoodFromCart"></action>
+         <action name="deleteGoods" class="app.action.GoodsAction"  method="deleteGoodsFromCart"></action>
+         
         <action name="addGoods" class="app.action.ApplicationAction"  method="addGoods"></action>
+        
     </package>
 </struts>
