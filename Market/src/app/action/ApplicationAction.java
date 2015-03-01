@@ -2,53 +2,42 @@ package app.action;
 
 import javax.annotation.Resource;
 
-import app.models.goods.Book;
-import app.models.goods.Good.GoodsType;
-import app.service.GoodService;
+import util.MD5Util;
+import app.models.member.MemberLogin;
+import app.service.MemberLoginService;
 
 import com.opensymphony.xwork2.ModelDriven;
 
 @SuppressWarnings("serial")
-public class ApplicationAction extends BaseAction implements ModelDriven<Book> {
+public class ApplicationAction extends BaseAction implements
+		ModelDriven<MemberLogin> {
 
-	private Book book;
+	private MemberLogin memberLogin;
 
 	@Resource
-	private GoodService goodsService;
+	private MemberLoginService memberLoginService;
 
-	public GoodService getGoodsService() {
-		return goodsService;
-	}
+	private static final String[] menus = { "账号管理", "发布商品", "管理商品", "订单管理",
+			"进账流水" };
 
-	public void setGoodsService(GoodService goodsService) {
-		this.goodsService = goodsService;
-	}
+	public String login() {
+		MemberLogin ml = memberLoginService.findByLoginId(memberLogin.loginId);
+		if (ml != null) {
+			if (ml.password.equals(MD5Util.MD5(memberLogin.password))) {
 
-	public void index() throws Exception {
-		if (session.get("member") != null) {
-			response.sendRedirect("/views/application/main.jsp");
-		} else {
-			response.sendRedirect("/views/application/Login.jsp");
+				request.setAttribute("menus", menus);
+				return SUCCESS;
+			}
 		}
-		out.flush();
-		out.close();
-		return;
-	}
-
-	public String addGoods() throws Exception {
-		request.setCharacterEncoding("UTF-8");
-		System.err.println(book.name);
-		book.goodsType = GoodsType.book;
-		goodsService.saveGood(book);
-		return null;
+		return ERROR;
 	}
 
 	@Override
-	public Book getModel() {
-		if (book == null) {
-			book = new Book();
+	public MemberLogin getModel() {
+		if (memberLogin == null) {
+			memberLogin = new MemberLogin();
 		}
-		return book;
+		return memberLogin;
 	}
 
 }

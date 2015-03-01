@@ -7,8 +7,8 @@ import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Repository;
 
 import app.dao.GoodDao;
+import app.models.enums.GoodsType;
 import app.models.goods.Good;
-import app.models.goods.Good.GoodsType;
 
 @SuppressWarnings("all")
 @Repository("goodDao")
@@ -29,7 +29,7 @@ public class GoodDaoImpl extends BaseDaoImpl implements GoodDao {
 			int pageSize) {
 		String hql = "select g from Good g where g.goodsType=?";
 		List<Object> list = new ArrayList<Object>();
-		list.add(GoodsType.convert2Enum(type));
+		list.add(Enum.valueOf(GoodsType.class, type));
 		if (StringUtils.isNotBlank(name)) {
 			list.add("%" + name + "%");
 			hql += "and g.name like ?";

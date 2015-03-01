@@ -41,10 +41,12 @@
 	    <result name="input" type="redirect">/Market/views/application/Login.jsp</result>
 	    <result name="error">/error.jsp</result>
 	  </global-results>
+	  <!-- 上传图片 -->
+	  <action name="upload" class="app.action.UploadAction"  method="upload"></action>
 	  
-    	<action name="indexAct" class="app.action.ApplicationAction"  method="index">
-    		<result name="success" type="dispatcher">/Market/views/application/main.jsp</result>
-    		<result name="error" type="redirect">/Market/views/application/Login.jsp</result>
+    	<action name="login_back" class="app.action.ApplicationAction"  method="login">
+    		<result name="success" type="dispatcher">/views/back/manageMenu.jsp</result>
+    		<result name="error" type="redirect">/Market/views/back/login.jsp</result>
     	</action>
     	
     	

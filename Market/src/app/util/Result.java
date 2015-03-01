@@ -26,6 +26,8 @@ public class Result {
 	 */
 	public Result result;
 
+	public String url;
+
 	public static final JSONObject jsonObj = new JSONObject();
 
 	public static String failed(int statusCode) {
@@ -55,6 +57,17 @@ public class Result {
 		vo.status = true;
 		vo.statusCode = InterfaceStatusCode.SUCCEED_CODE;
 		vo.result = result;
+		try {
+			return JSONObject.toJSONString(vo);
+		} catch (Exception e) {
+			return null;
+		}
+	}
+
+	public static String succeed(boolean b, String url) {
+		Result vo = new Result();
+		vo.status = true;
+		vo.url = url;
 		try {
 			return JSONObject.toJSONString(vo);
 		} catch (Exception e) {

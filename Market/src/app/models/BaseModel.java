@@ -17,12 +17,8 @@ import Listeners.BaseModelListener;
 @MappedSuperclass
 @EntityListeners(BaseModelListener.class)
 @Access(AccessType.FIELD)
-public class BaseModel{
+public class BaseModel {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Long id;
