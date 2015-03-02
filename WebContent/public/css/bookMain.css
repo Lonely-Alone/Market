@@ -1,0 +1,72 @@
+@CHARSET "UTF-8";
+
+body{font-size:12px;font-family:Arial, Helvetica, sans-serif; color:#333; margin:0 auto; }
+a{color:#333; text-decoration:none}
+a:hover{text-decoration:none;color:red}
+
+.container {margin:0 auto; width:auto;}
+.header { height:100px;  margin-bottom:5px;}
+.menu { height:30px; margin-bottom:5px;}
+.mainContent { height:500px; margin-bottom:5px;}
+
+.h{position:absolute;margin-top:15px:float:left}
+.h h2{margin-left:100px;}
+.h span {dispaly:block;float:left;margin-left:140px;}
+
+
+/*导航栏下面 左侧的框架*/
+.li_1_1{margin-top:40px;margin-left:60px;text-decoration:none; width:220px; height:900px; color:white;font-size:18px;border:2px solid gray;}
+.li_1_1 span{float:left;font-size:16px;margin-right:50px;margin-top:2px;margin-left:15px}
+.li_1_1 span a{text-decoration:none;color:black;font-size:13px;}
+.li_1_1 span a:hover  {color:#990000; background:white;text-decoration:underline;}
+.li_1_1 h5 {margin-left:8px;margin-top:12px;}
+
+
+.search{width:500px;margin-left:300px;margin-top:30px;border:1px solid #996600}
+.search input{width:400px;height:35px;border:2px solid #996600}
+.search a{display:block;margin-left:400;margin-top:-36px;width:100px;height:38px;color:white;
+			background:#996600;font-size:20px;text-align:center;line-height:35px;text-decoration:none}
+.search input:focus{outline:none}
+
+
+/*图片切换*/
+.dhooo_tab{width:auto; margin-left:30px;height:500px;background:#fff url(../img/main_bg.gif) repeat-x 0 100%; position:relative; float:left;}
+.tab_btn li{float:left; width:80px;margin-left:10px;text-align:center;}
+.tab_btn li {font-size:12px;display:block; padding:10px;margin-right:5px; zoom:1;text-decoration:none; color:#fff;line-height:50%; cursor:pointer;}
+.tab_btn li.hot {background:#fff;color:#333;font-weight:bold;cursor:default;}
+.tab_btn{overflow:hidden;height:28px; padding-left:20px; padding-top:5px; background:url(../img/tabbar.gif) repeat-x ; }
+.shell{width:99999px; height:100%; }
+.shell li{float:left; width:760px; height:98%; }
+.main{width:720px;height:500px; overflow:hidden;  text-align:left;font-size:12px;}
+
+.dhooo_tab1{margin-left:30px; width:auto; background:#fff url(../img/main_bg.gif) repeat-x 0 100%; position:relative; float:left; }
+.tab_btn_1{position:absolute; right:50px;bottom:15px;}
+.tab_btn_1 li{width:20px;height:20px;background: #CC3300;border:2px solid #993300; overflow:hidden; color:#fff; filter:alpha(opacity=80);opacity:0.8;float:left;cursor:default; font-size:12px;line-height:20px; margin:0px 5px; font-family:Arial;}
+.tab_btn_1 li.hot{background:#FFCC00; color:#993300; border:2px solid #FF0000; }
+.main1{width:720px;height:190px; overflow:hidden;  margin:10px auto; text-align:left;font-size:12px;}
+
+
+.zixun{margin-right:10px;border:1px solid gray;width:200px;height:190px;}
+.zixun h3 {margin-left:5px;}
+.zixun ul li{font-size:12px;marigin-top:5px;line-height:25px;list-style-type : disc;margin-left:20px}
+.zixun a:hover{color:red;background:white;}
+
+
+.navigation {float:left;margin-left:0px;margin-top:20px;}
+.navigation ul {padding:0; margin:0;list-style-type: none;}
+.navigation ul li {float:left;position:relative;}
+.navigation ul li a {display:block; text-align:center; text-decoration:none; width:104px;height:42px; border:1px solid #999933;color:white;background:#999933;line-height:40px; font-size:15px;font-weight:bold}
+.navigation ul li:hover a { background:#996600;}
+
+
+.main_container, .main_container *{margin:0; padding:0;}
+.main_container{width:700px; height:300px; overflow:hidden;position:relative;}
+.main_slider{position:absolute;}
+.main_slider li{ list-style:none;display:inline;}
+.main_slider img{ width:708px; height:300px; display:block;margin-top:20px;margin-left:10px;}
+.main_num{ position:absolute; right:5px; bottom:5px;}
+.main_num li{float: left;color: #FF7300;text-align: center;line-height: 16px;width: 16px;height: 16px;font-family: Arial;font-size: 12px;cursor: pointer;overflow: hidden;margin: 3px 1px;border: 1px solid #FF7300;background-color: #fff;}
+.main_num li.on{color: #fff;line-height: 21px;width: 21px;height: 21px;font-size: 16px;margin: 0 1px;border: 0;background-color: #FF7300;font-weight: bold;}
+
+
+

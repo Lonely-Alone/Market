@@ -1,0 +1,52 @@
+@charset "utf-8";
+.constr{width:960px;height:auto; margin-left:auto; margin-right:auto;}
+.bge5{background-color:#E5E5E5;}
+.c76{color:#767C8B;}
+.header{margin-top:60px; margin-left:80px;}
+.boxsh1{-webkit-box-shadow:0 2px 3px #ccc; -moz-box-shadow:0 2px 3px #ccc; box-shadow:0 2px 3px #ccc;}
+.shadow{
+	display:inline-block; width:300px; padding:8px; background-color:#CCCCCC; 
+	background:-moz-linear-gradient(top,#646464,#E5E5E5);background:-webkit-linear-gradient(top,#646464,#E5E5E5); 
+	position:absolute; bottom:-5px; left:10px; z-index:-2;
+}
+.login_cont{margin-top:100px;}
+.login_box{width:470px; height:285px; margin-left:530px;background-color:#ededed; border:1px solid #dbdbdb; position:absolute; right:0; top:-300px;}
+.login_input_area{padding:30px 35px 80px; border-right:1px solid #dbdbdb;}
+.login_input_l{
+	display:inline-block; width:40px; height:28px; padding:5px 6px; background-color:#4EA5D9; text-align:center;
+	background:-moz-linear-gradient(top,#2A87C3,#84c8f2);
+	background:-webkit-linear-gradient(top,#2A87C3,#84c8f2); 
+	background:-o-linear-gradient(top,#2A87C3,#84c8f2); 
+	border-width:1px; border-style:solid; border-color:#1D6695 #59AEE0 #59AEE0 #3B7EA7; 
+	-moz-border-radius-topleft:5px;
+	-moz-border-radius-bottom-left:5px;
+	-webkit-border-top-left-radius:5px;
+	-webkit-border-bottom-left-radius:5px;
+	border-top-left-radius:5px;
+	border-bottom-left-radius:5px;
+}
+.login_input_r{
+	display:inline-block; height:28px;width:200px; padding:5px 8px; background-color:#DFDFDF; border-width:1px 1px 1px 0; border-style:solid; border-color:#ccc #fbfbfb #fbfbfb; 
+	-moz-border-radius-topriht:5px;
+	-moz-border-radius-bottom-right:5px;
+	-webkit-border-top-right-radius:5px;
+	-webkit-border-bottom-right-radius:5px;
+	border-top-right-radius:5px;
+	border-bottom-right-radius:5px;
+	-webkit-box-shadow:inset 0 0 2px #bbb; 
+	-moz-box-shadow:inset 0 0 2px #bbb; 
+	box-shadow:inset 0 0 2px #bbb;
+}
+.loginbtn{
+	display:inline-block; padding:10px 50px; background-color:#EAEAEA; border:1px solid #BDBDBD; 
+	color:#999; font-size:16px; font-weight:bold; text-align:center; 
+    background:-moz-linear-gradient(top,#f0f0f0,#E6E6E6);
+    background:-webkit-linear-gradient(top,#f0f0f0,#E6E6E6);
+}
+.loginbtn:hover{
+	background-color:#f9f9f9;
+	background:-moz-linear-gradient(top,#fbfbfb,#efefef);
+    background:-webkit-linear-gradient(top,#f0f0f0,#E6E6E6);	
+}
+
+.login_input{height:24px; line-height:24px; padding:4px 5px; background-color:#DFDFDF; border:0; font-size:14px; font-weight:bold;}
