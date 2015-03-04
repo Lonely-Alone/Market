@@ -2,8 +2,6 @@ package app.action;
 
 import javax.annotation.Resource;
 
-import org.springframework.transaction.annotation.Transactional;
-
 import app.models.goods.Good;
 import app.service.GoodService;
 import app.util.Result;
@@ -22,7 +20,6 @@ public class BackAction extends BaseAction implements ModelDriven<Good> {
 		this.goodService = goodService;
 	}
 
-	@Transactional
 	public void saveGood() throws Exception {
 		out = response.getWriter();
 		goodService.saveGood(good);

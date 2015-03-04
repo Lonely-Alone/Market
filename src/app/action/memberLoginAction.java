@@ -6,8 +6,6 @@ import java.util.regex.Pattern;
 
 import javax.annotation.Resource;
 
-import org.springframework.transaction.annotation.Transactional;
-
 import util.MD5Util;
 import app.models.member.Member;
 import app.models.member.MemberLogin;
@@ -77,7 +75,6 @@ public class memberLoginAction extends BaseAction implements
 		response.sendRedirect("/Market");
 	}
 
-	@Transactional
 	public void regist() throws IOException {
 		out = response.getWriter();
 		response.setContentType("text/html;charset=UTF-8");

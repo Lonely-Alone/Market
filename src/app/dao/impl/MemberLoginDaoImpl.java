@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import app.dao.MemberLoginDao;
 import app.models.member.Member;
@@ -12,8 +11,7 @@ import app.models.member.MemberLogin;
 import app.models.member.MemberLogin.LoginType;
 
 @Repository("memberLoginDao")
-@SuppressWarnings({ "unchecked", "rawtypes" })
-@Transactional("transactionManager")
+@SuppressWarnings({ "all" })
 public class MemberLoginDaoImpl extends BaseDaoImpl implements MemberLoginDao {
 
 	@Override

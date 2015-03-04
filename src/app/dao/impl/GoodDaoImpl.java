@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import app.dao.GoodDao;
 import app.models.enums.GoodType;
@@ -13,7 +12,6 @@ import app.models.goods.Good;
 
 @Repository("goodDao")
 @SuppressWarnings("all")
-@Transactional("transactionManager")
 public class GoodDaoImpl extends BaseDaoImpl implements GoodDao {
 
 	@Override

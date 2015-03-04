@@ -4,8 +4,6 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.springframework.transaction.annotation.Transactional;
-
 import util.CommonUtils;
 import app.models.goods.Cart_Good;
 import app.models.goods.Good;
@@ -28,7 +26,6 @@ public class GoodAction extends BaseAction implements ModelDriven<Good> {
 	@Resource(name = "goodService")
 	private GoodService goodService;
 
-	@Transactional
 	public void saveGood() throws Exception {
 		System.err.println(good.description);
 		out = response.getWriter();
