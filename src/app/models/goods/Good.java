@@ -1,96 +1,33 @@
 package app.models.goods;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.ManyToOne;
 
 import app.models.BaseModel;
-import app.models.comment.Comment;
-import app.models.enums.GoodsType;
+import app.models.enums.GoodType;
 
 @Entity
 public class Good extends BaseModel {
 
-	public long number;// 商品编号
 	public String name;
+	public String chief;// 简单描述
+	@Column(length = 2000)
 	public String description;//
 	public String manufacturer;// 生产厂商
-	public float price;
-	public long clickCount;//
-	public long sellCount;//
-	public long buyCount;//
+	// 参考价
+	public int showPrice;
+	// 实际价格
+	public int realPrice;
 
+	public long clickCount = 0;//
+	public int leftCount;// 库存
+	public int soldCount;// 已销售
+	public String goodSerial;// 商品编号
 	@Enumerated(EnumType.STRING)
-	public GoodsType goodsType;
+	public GoodType goodType;
 
-	@ManyToOne
-	public Comment comment;// 评论
-
-	// public enum GoodsType {
-	// book {
-	// @Override
-	// public String getName() {
-	// return "书籍";
-	// }
-	// },
-	// dress {
-	// @Override
-	// public String getName() {
-	// return "服装";
-	// }
-	// },
-	// household {
-	// @Override
-	// public String getName() {
-	// return "家电";
-	// }
-	// },
-	// digital {
-	// @Override
-	// public String getName() {
-	// return "数码";
-	// }
-	// },
-	// food {
-	// @Override
-	// public String getName() {
-	// return "饮食";
-	// }
-	// },
-	// furniture {
-	// @Override
-	// public String getName() {
-	// return "家具";
-	// }
-	// },
-	// others {
-	// @Override
-	// public String getName() {
-	// return "其他";
-	// }
-	// };
-	//
-	// public abstract String getName();
-	//
-	// public static GoodsType convert2Enum(String str) {
-	// if (str.equals("book")) {
-	// return GoodsType.book;
-	// } else if (str.equals("household")) {
-	// return GoodsType.household;
-	// } else if (str.equals("dress")) {
-	// return GoodsType.dress;
-	// } else if (str.equals("digital")) {
-	// return GoodsType.digital;
-	// } else if (str.equals("food")) {
-	// return GoodsType.food;
-	// } else if (str.equals("furniture")) {
-	// return GoodsType.furniture;
-	// } else {
-	// return GoodsType.others;
-	// }
-	//
-	// }
-	// }
+	public String picUrls;// 商品图片
 
 }

@@ -68,7 +68,7 @@
          <action name="deleteGood" class="app.action.GoodAction"  method="deleteGoodFromCart"></action>
          <action name="deleteGoods" class="app.action.GoodsAction"  method="deleteGoodsFromCart"></action>
          
-        <action name="addGoods" class="app.action.ApplicationAction"  method="addGoods"></action>
+        <action name="saveGood" class="app.action.GoodAction"  method="saveGood"></action>
         
     </package>
 </struts>

@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import util.CommonUtils;
 import app.models.goods.Cart_Good;
 import app.models.goods.Good;
@@ -14,12 +16,25 @@ import app.util.Result;
 import com.opensymphony.xwork2.ModelDriven;
 
 @SuppressWarnings("all")
-public class GoodAction extends BaseAction implements ModelDriven {
+public class GoodAction extends BaseAction implements ModelDriven<Good> {
 
 	@Resource
 	private GoodService goodsService;
 
 	private GoodDriven goodDriven;
+
+	private Good good;
+
+	@Resource(name = "goodService")
+	private GoodService goodService;
+
+	@Transactional
+	public void saveGood() throws Exception {
+		System.err.println(good.description);
+		out = response.getWriter();
+		goodService.saveGood(good);
+		out.write(Result.succeed(true, "商品添加成功！"));
+	}
 
 	public String getGoods() {
 
@@ -81,12 +96,20 @@ public class GoodAction extends BaseAction implements ModelDriven {
 		out.write(Result.succeed(null));
 	}
 
+	public void setGoodService(GoodService goodService) {
+		this.goodService = goodService;
+	}
+
 	@Override
-	public Object getModel() {
-		if (goodDriven == null) {
-			goodDriven = new GoodDriven();
+	public Good getModel() {
+		if (good == null) {
+			good = new Good();
 		}
-		return goodDriven;
+		return good;
+	}
+
+	public GoodService getGoodService() {
+		return goodService;
 	}
 
 }

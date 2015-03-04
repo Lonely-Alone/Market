@@ -105,7 +105,7 @@
 											<s:param name="first" value="1" />
 											<s:param name="last" value="5" />
 											<s:iterator>
-												<div id="previewPicDiv${current-1 }" class="upload_img_box2 l rel">
+												<div id="previewPicDiv${current-1 }" class="upload_img_box2 l rel picDiv">
 							            			<form action="Market/upload.action" id="form${current-1 }" class="" target="upload_target${current-1}" method="post" enctype="multipart/form-data">
 														<p>图${current-1}：</p>
 														<input type="file" name="image" class="dn jsForUpload" id="fileInput${current-1}"></br>
@@ -132,5 +132,6 @@
 </div>
 </body>
 <script type="text/javascript" src="public/js/min/jquery-1.8.3.js"></script>
-<script type="text/javascript" src="public/js/editGood.js"></script>
+<script type="text/javascript" src="public/js/min/newAjax.js"></script>
+<script type="text/javascript" src="public/js/back_editGood.js"></script>
 </html>

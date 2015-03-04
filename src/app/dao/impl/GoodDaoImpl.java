@@ -5,13 +5,15 @@ import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import app.dao.GoodDao;
-import app.models.enums.GoodsType;
+import app.models.enums.GoodType;
 import app.models.goods.Good;
 
-@SuppressWarnings("all")
 @Repository("goodDao")
+@SuppressWarnings("all")
+@Transactional("transactionManager")
 public class GoodDaoImpl extends BaseDaoImpl implements GoodDao {
 
 	@Override
@@ -29,7 +31,7 @@ public class GoodDaoImpl extends BaseDaoImpl implements GoodDao {
 			int pageSize) {
 		String hql = "select g from Good g where g.goodsType=?";
 		List<Object> list = new ArrayList<Object>();
-		list.add(Enum.valueOf(GoodsType.class, type));
+		list.add(Enum.valueOf(GoodType.class, type));
 		if (StringUtils.isNotBlank(name)) {
 			list.add("%" + name + "%");
 			hql += "and g.name like ?";

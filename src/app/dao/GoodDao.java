@@ -5,7 +5,6 @@ import java.util.List;
 import app.models.goods.Good;
 
 public interface GoodDao {
-
 	public void saveGood(Good good);
 
 	public Good getGood(long id);

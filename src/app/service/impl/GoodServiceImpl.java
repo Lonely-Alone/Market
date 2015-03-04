@@ -5,7 +5,6 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import app.dao.CartDao;
 import app.dao.CartGoodDao;
@@ -16,8 +15,7 @@ import app.models.goods.Cart_Good;
 import app.models.goods.Good;
 import app.service.GoodService;
 
-@Service
-@Transactional("transactionManager")
+@Service("goodService")
 public class GoodServiceImpl implements GoodService {
 
 	@Resource
@@ -105,7 +103,7 @@ public class GoodServiceImpl implements GoodService {
 				.findCartByMember());
 		float totalPrice = 0f;
 		for (Cart_Good good : goodList) {
-			float price = good.num * good.good.price;
+			float price = good.num * good.good.realPrice;
 			totalPrice += price;
 		}
 		return totalPrice;
