@@ -57,18 +57,23 @@
         <action name="regist" class="app.action.memberLoginAction"  method="regist"></action>
         
         <!-- 获取物品的Action -->
-        <action name="getGoods" 	class="app.action.GoodAction" method="getGoods">
+        <action name="getGood" 	class="app.action.GoodAction" method="getGood">
         	<result name="success">/views/good/goodDetail.jsp</result>
         </action>
-        <action name="getGoodsList" class="app.action.GoodAction" method="getGoodsList">
+        <action name="getGoods" class="app.action.GoodAction" method="getGoodList">
         	<result name="success">/views/good/bookList.jsp</result>
         </action>
-        <action name="addGoodsToCart" class="app.action.GoodAction"  method="addGoodsToCart">
+        <action name="addGoodsToCart" class="app.action.GoodAction"  method="addGoodToCart">
         </action>
          <action name="deleteGood" class="app.action.GoodAction"  method="deleteGoodFromCart"></action>
-         <action name="deleteGoods" class="app.action.GoodsAction"  method="deleteGoodsFromCart"></action>
+         <action name="deleteGoods" class="app.action.GoodAction"  method="deleteGoodsFromCart"></action>
          
         <action name="saveGood" class="app.action.GoodAction"  method="saveGood"></action>
+        
+        <!-- 后台管理页面 -->
+         <action name="manageGoods" class="app.action.BackstageAction" method="manageGoods">
+        	<result name="success">/views/back/manageGood.jsp</result>
+        </action>
         
     </package>
 </struts>

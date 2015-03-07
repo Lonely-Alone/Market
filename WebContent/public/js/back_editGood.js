@@ -59,16 +59,16 @@ addGoodBtn.click( function(){
 //				goodId: $("goodIdInput").val(),
 				name: nameInput.val().trim(),
 				chief: chiefInput.val().trim(),
-				showPrice: new Number(showPriceInput.val().trim()),
-				realPrice: new Number(realPriceInput.val().trim()),
-				leftCount: leftCountInput.val().trim(),
+				showPrice: Number(showPriceInput.val().trim()),
+				realPrice: Number(realPriceInput.val().trim()),
+				leftCount: Number(leftCountInput.val().trim()),
 				description: descrArea.val(),
 				picUrls: picUrls.length>0?picUrls:null,
 				goodType:goodType.val().trim(),
 			},
 			success: function(json){
 				if(json.succ){
-					Ibox.alert(json.msg, function(){$pageFresh();});
+					alert(json.msg);
 				}
 			}
 		});

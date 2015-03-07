@@ -7,11 +7,13 @@ import javax.annotation.Resource;
 import util.CommonUtils;
 import app.models.goods.Cart_Good;
 import app.models.goods.Good;
-import app.models.parameter.GoodDriven;
 import app.service.GoodService;
 import app.util.Result;
 
+import com.opensymphony.xwork2.ActionContext;
+import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.ModelDriven;
+import com.opensymphony.xwork2.interceptor.PreResultListener;
 
 @SuppressWarnings("all")
 public class GoodAction extends BaseAction implements ModelDriven<Good> {
@@ -19,7 +21,13 @@ public class GoodAction extends BaseAction implements ModelDriven<Good> {
 	@Resource
 	private GoodService goodsService;
 
-	private GoodDriven goodDriven;
+	public Integer page;
+
+	public String goodsArr;// 批量删除商品的Ids
+
+	public String goodType;
+
+	public int num;
 
 	private Good good;
 
@@ -27,45 +35,51 @@ public class GoodAction extends BaseAction implements ModelDriven<Good> {
 	private GoodService goodService;
 
 	public void saveGood() throws Exception {
-		System.err.println(good.description);
 		out = response.getWriter();
 		goodService.saveGood(good);
+		ActionContext.getContext().getActionInvocation()
+				.addPreResultListener(new PreResultListener() {
+					@Override
+					public void beforeResult(ActionInvocation arg0, String arg1) {
+						good.goodSerial = CommonUtils.serial(good.id);
+						goodService.saveGood(good);
+					}
+				});
 		out.write(Result.succeed(true, "商品添加成功！"));
 	}
 
-	public String getGoods() {
+	public String getGood() {
 
-		Good goods = goodsService.getGood(goodDriven.goodsId);
+		Good goods = goodsService.getGood(good.id);
 		request.setAttribute("goods", goods);
 		return SUCCESS;
 	}
 
-	public String getGoodsList() {
-		if (goodDriven.page == null) {
-			goodDriven.page = 1;
+	public String getGoodList() {
+		if (page == null) {
+			page = 1;
 		}
-		List<Good> list = goodsService.getGoodList(goodDriven.name,
-				goodDriven.goodsType, goodDriven.page, PAGESIZE);
-		int goodCount = goodsService.getTotalNum(goodDriven.name,
-				goodDriven.goodsType);
+		List<Good> list = goodsService.getGoodList(good.name, goodType, page,
+				PAGESIZE);
+		int goodCount = goodsService.getTotalNum(good.name, goodType);
 		int pageCount = goodCount / PAGESIZE == 0 ? goodCount / PAGESIZE
 				: goodCount / PAGESIZE + 1;
 		request.setAttribute("goodsList", list);
-		request.setAttribute("page", goodDriven.page);
+		request.setAttribute("page", page);
 		request.setAttribute("pageCount", pageCount);
-		request.setAttribute("goodsType", goodDriven.goodsType);
+		request.setAttribute("goodsType", goodType);
 		return SUCCESS;
 	}
 
-	public String addGoodsToCart() throws Exception {
+	public String addGoodToCart() throws Exception {
 		response.setContentType("text/html;charset=UTF-8");
 		out = response.getWriter();
 		if (CommonUtils.getCurrentMember() == null) {
 			out.write(Result.failed("未登录,请先登录！"));
 			return null;
 		}
-		Good goods = goodsService.getGood(goodDriven.goodsId);
-		goodsService.addToCart(goods, goodDriven.num);
+		Good goods = goodsService.getGood(good.id);
+		goodsService.addToCart(goods, num);
 		List<Good> list = goodsService.getGoodListByCart();
 		List<Cart_Good> list1 = goodsService.getTotal();
 		float totaoPrice = goodsService.getTotalPrice();
@@ -82,13 +96,13 @@ public class GoodAction extends BaseAction implements ModelDriven<Good> {
 	}
 
 	public void deleteGoodFromCart() {
-		Good goods = goodsService.getGood(goodDriven.goodsId);
+		Good goods = goodsService.getGood(good.id);
 		goodsService.deleteFromCart(goods);
 		out.write(Result.succeed(null));
 	}
 
 	public void deleteGoodsFromCart() {
-		String[] goodIds = goodDriven.goodsArr.split(",");
+		String[] goodIds = goodsArr.split(",");
 		goodsService.deleteGoodByIds(goodIds);
 		out.write(Result.succeed(null));
 	}

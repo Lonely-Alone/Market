@@ -1,15 +1,20 @@
 package app.models.goods;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
+import app.Listeners.GoodListener;
 import app.models.BaseModel;
 import app.models.enums.GoodType;
 
 @Entity
-public class Good extends BaseModel {
+@EntityListeners(GoodListener.class)
+public class Good extends BaseModel implements Serializable {
 
 	public String name;
 	public String chief;// 简单描述

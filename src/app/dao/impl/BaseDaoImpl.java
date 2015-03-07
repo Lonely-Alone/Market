@@ -22,7 +22,7 @@ public class BaseDaoImpl<T extends BaseModel> implements BaseDao<T> {
 
 	@Override
 	public <T extends BaseModel> T save(T o) {
-		dao.save(o);
+		dao.saveOrUpdate(o);
 		return o;
 	}
 

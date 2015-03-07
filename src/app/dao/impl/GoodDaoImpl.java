@@ -7,7 +7,6 @@ import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Repository;
 
 import app.dao.GoodDao;
-import app.models.enums.GoodType;
 import app.models.goods.Good;
 
 @Repository("goodDao")
@@ -27,12 +26,15 @@ public class GoodDaoImpl extends BaseDaoImpl implements GoodDao {
 	@Override
 	public List<Good> getGoodList(String name, String type, int page,
 			int pageSize) {
-		String hql = "select g from Good g where g.goodsType=?";
+		String hql = "select g from Good g where g.isDeleted = false ";
 		List<Object> list = new ArrayList<Object>();
-		list.add(Enum.valueOf(GoodType.class, type));
 		if (StringUtils.isNotBlank(name)) {
 			list.add("%" + name + "%");
 			hql += "and g.name like ?";
+		}
+		if (StringUtils.isNotBlank(type)) {
+			hql += " and  g.goodsType=?";
+			list.add(type);
 		}
 		return fetch(hql, list, page, pageSize);
 	}
