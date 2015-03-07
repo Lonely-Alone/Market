@@ -8,7 +8,7 @@ import javax.persistence.EntityListeners;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
-import app.Listeners.GoodListener;
+import Listeners.GoodListener;
 import app.models.BaseModel;
 import app.models.enums.GoodType;
 
