@@ -74,6 +74,9 @@
          <action name="manageGoods" class="app.action.BackstageAction" method="manageGoods">
         	<result name="success">/views/back/manageGood.jsp</result>
         </action>
+        <action name="editGood" class="app.action.GoodAction" method="getGood">
+        	<result name="success">/views/back/editGood.jsp</result>
+        </action>
         
     </package>
 </struts>

@@ -3,9 +3,11 @@ package app.service.impl;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import app.dao.AttachDao;
 import app.dao.CartDao;
 import app.dao.CartGoodDao;
 import app.dao.GoodDao;
@@ -16,6 +18,7 @@ import app.models.goods.Good;
 import app.service.GoodService;
 
 @Service("goodService")
+@Transactional
 public class GoodServiceImpl implements GoodService {
 
 	@Resource
@@ -30,15 +33,22 @@ public class GoodServiceImpl implements GoodService {
 	@Resource
 	private MemberDao memberDao;
 
-	public void saveGood(Good good) {
+	@Resource
+	private AttachDao attachmentDao;
+
+	public Good saveGood(Good good) {
+		return goodDao.saveGood(good);
+
+	}
+
+	public void saveGood(Good good, String picUrls) {
 		goodDao.saveGood(good);
+		attachmentDao.updateGoodPictures(good, picUrls);
 	}
 
 	@Override
 	public Good getGood(long id) {
-		Good good = goodDao.getGood(id);
-		goodDao.addClick(good);//
-		return good;
+		return goodDao.getGood(id);
 	}
 
 	@Override

@@ -14,8 +14,8 @@ import app.models.goods.Good;
 public class GoodDaoImpl extends BaseDaoImpl implements GoodDao {
 
 	@Override
-	public void saveGood(Good good) {
-		save(good);
+	public Good saveGood(Good good) {
+		return (Good) save(good);
 	}
 
 	@Override

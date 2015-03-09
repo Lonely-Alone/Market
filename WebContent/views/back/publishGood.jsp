@@ -33,37 +33,40 @@
                     <div class="mb10">
                     	宝贝名称：
                         <span class="cr">*</span>
-                        <input id="nameInput" class="jsForCount pct60 input vn" type="text" value='<s:property value="#request.good.name"/>'/>
+                        <input id="nameInput" class="jsForCount pct60 input vn" type="text" value=""/>
                     </div>
                     <div class="mb10">
                     	<span class="dib w60 tr">副标题：</span>
                         <span class="cr">*</span>
-                        <input id="chiefInput" class="jsForCount pct60 input vn" type="text" value='<s:property value="#request.good.chief"/>'/>
+                        <input id="chiefInput" class="jsForCount pct60 input vn" type="text" value=""/>
                     </div>
                     <div class="mb10">
                     	<span class="dib w60 tr">宝贝类型：</span>
                         <span class="cr">*</span>
-                        <select id="goodType" >
-                        	<option selected><s:property value="#request.good.goodType"/></option>
-                        	<s:iterator value="{'衣服','数码','饮食','家具','书籍','其他' }" id="type">
-                       			<option ><s:property/></option>
-                        	</s:iterator>
+                        <select id="goodType">
+		                	<option >--请选择商品类型--</option>
+		                		<option >衣服</option>
+		                		<option >数码</option>
+		                		<option >饮食</option>
+		                		<option >家具</option>
+		                		<option >书籍</option>
+		                		<option >其他</option>
 		                </select>
                     </div>
                     <div class="mb10">
                     	<span class="dib w60 tr">市场价：</span>
                         <span class="cr">*</span>
-                        <input id="showPriceInput"  class="pct20 input vn jsForPrice" type="text" value='<s:property value="#request.good.showPrice"/>'/>
+                        <input id="showPriceInput" value="" class="pct20 input vn jsForPrice" type="text"/>
                         元
                         <span class="ml20 dib w60 tr">商店价：</span>
                         <span class="cr">*</span>
-                        <input id="realPriceInput" value='<s:property value="#request.good.realPrice"/>' class="pct20 input vn jsForPrice" type="text"/>
+                        <input id="realPriceInput" value="" class="pct20 input vn jsForPrice" type="text"/>
                         元
                     </div>
                     <div class="mb10">
                     	<span class="dib w60 tr">宝贝数量：</span>
                         <span class="cr">*</span>
-                        <input id="leftCountInput" class="pct20 input vn jsForNumber" type="text" value='<s:property value="#request.good.leftCount"/>'/>
+                        <input id="leftCountInput" class="pct20 input vn jsForNumber" type="text" value=""/>
                         件
                      </div>
                      <div class="mb10 fix">
@@ -72,7 +75,7 @@
                      		<span class="cr">*</span>
                         </div>
                         <div class="cell">
-                        	<textarea id="descrArea" class="textarea pct85" rows="8"><s:property value="#request.good.description"/></textarea><br/>
+                        	<textarea id="descrArea" class="textarea pct85" rows="8"></textarea><br/>
                         </div>
                      </div>
                 </div>
@@ -98,32 +101,20 @@
 					            </div>
 					            <div class="mt10 p10 bgf9">
 					            	<div class="mt10 fix">
-						            	<s:iterator value="#request.attchs" var="attch" status="item">
-						            		<div id="previewPicDiv<s:property value="#item.index+1"/>" class="upload_img_box2 l rel picDiv">
-						            			<form action="Market/upload.action" id="form<s:property value="#item.index+1"/>" class="dn" target="upload_target<s:property value="#item.index+1"/>" method="post" enctype="multipart/form-data">
-													<p>图<s:property value="#item.index+1"/>：</p>
-													<input type="file" name="image" class="dn jsForUpload" id="fileInput<s:property value="#item.index+1"/>"></br>
-													<input type="hidden" name="target" value='<s:property value="#item.index+1"/>'/>
-													<a id="uploadTrigger" class="bdc p5 g5 uploadBtn mt20 dn" href="javascript:;" rel="fileInput<s:property value="#item.index+1"/>">点击上传</a>
-												</form>
-												<img id="uploadedPic<s:property value="#item.index+1"/>" class="l mr10 jsForUploaded " src='<s:property value="url" />'  height="90" width="90" rel="fileInput<s:property value="#item.index+1"/>"/>
-												<iframe id="upload_target" name="upload_target<s:property value="#item.index+1"/>" class="dn"></iframe>
-						            		</div>
-						            	</s:iterator>
 					            		<s:bean name="org.apache.struts2.util.Counter" id="counter">
-											<s:param name="first" value="#request.attchs.size +1" />
+											<s:param name="first" value="1" />
 											<s:param name="last" value="5" />
 											<s:iterator>
-													<div id="previewPicDiv${current-1 }" class="upload_img_box2 l rel picDiv">
-								            			<form action="Market/upload.action" id="form${current-1 }" class="" target="upload_target${current-1}" method="post" enctype="multipart/form-data">
-															<p>图${current-1}：</p>
-															<input type="file" name="image" class="dn jsForUpload" id="fileInput${current-1}"></br>
-															<input type="hidden" name="target" value="${current-1}"/>
-															<a id="uploadTrigger${current-1}" class="bdc p5 g5 uploadBtn mt20" href="javascript:;" rel="fileInput${current-1}">点击上传</a>
-														</form>
-														<img id="uploadedPic${current-1}" class="l mr10 jsForUploaded dn" src=""  height="90" width="90" rel="fileInput${current-1}"/>
-														<iframe id="upload_target" name="upload_target${current-1}" class="dn"></iframe>
-								            		</div>
+												<div id="previewPicDiv${current-1 }" class="upload_img_box2 l rel picDiv">
+							            			<form action="Market/upload.action" id="form${current-1 }" class="" target="upload_target${current-1}" method="post" enctype="multipart/form-data">
+														<p>图${current-1}：</p>
+														<input type="file" name="image" class="dn jsForUpload" id="fileInput${current-1}"></br>
+														<input type="hidden" name="target" value="${current-1}"/>
+														<a id="uploadTrigger${current-1}" class="bdc p5 g5 uploadBtn mt20" href="javascript:;" rel="fileInput${current-1}">点击上传</a>
+													</form>
+													<img id="uploadedPic${current-1}" class="l mr10 jsForUploaded dn" src=""  height="90" width="90" rel="fileInput${current-1}"/>
+													<iframe id="upload_target" name="upload_target${current-1}" class="dn"></iframe>
+							            		</div>
 											</s:iterator>
 										</s:bean>
 					                </div>
@@ -133,7 +124,7 @@
 					 </div>
                 </div>
                 <div class="mt10 tc">
-                	<a id="addGoodBtn" class="bluebtn btn_m" href="javascript:;">${null == good ? "发布商品" : "保存"}</a>
+                	<a id="addGoodBtn" class="bluebtn btn_m" href="javascript:;">发布商品</a>
                 </div>
             </article>
         </section>

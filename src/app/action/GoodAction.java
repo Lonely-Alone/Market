@@ -8,6 +8,7 @@ import util.CommonUtils;
 import app.models.goods.Cart_Good;
 import app.models.goods.Good;
 import app.service.GoodService;
+import app.service.impl.AttachServiceImpl;
 import app.util.Result;
 
 import com.opensymphony.xwork2.ActionContext;
@@ -21,6 +22,9 @@ public class GoodAction extends BaseAction implements ModelDriven<Good> {
 	@Resource
 	private GoodService goodsService;
 
+	@Resource
+	private AttachServiceImpl attachService;
+
 	public Integer page;
 
 	public String goodsArr;// 批量删除商品的Ids
@@ -31,12 +35,15 @@ public class GoodAction extends BaseAction implements ModelDriven<Good> {
 
 	private Good good;
 
+	public String picUrls;
+
 	@Resource(name = "goodService")
 	private GoodService goodService;
 
 	public void saveGood() throws Exception {
 		out = response.getWriter();
 		goodService.saveGood(good);
+		goodService.saveGood(good, picUrls);
 		ActionContext.getContext().getActionInvocation()
 				.addPreResultListener(new PreResultListener() {
 					@Override
@@ -49,9 +56,9 @@ public class GoodAction extends BaseAction implements ModelDriven<Good> {
 	}
 
 	public String getGood() {
-
 		Good goods = goodsService.getGood(good.id);
-		request.setAttribute("goods", goods);
+		request.setAttribute("good", goods);
+		request.setAttribute("attchs", attachService.getPictuesByGood(goods));
 		return SUCCESS;
 	}
 

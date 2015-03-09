@@ -84,7 +84,7 @@
                             <td class="pct10"><s:property value="soldCount"/></td>
                             <td class="pct10" ><s:date name="createTime" format="yyyy-MM-dd"/></td>
 							<td class="pct10">
-                            	<a href="">编辑</a>
+                            	<a href="Market/editGood.action?id=${good.id}">编辑</a>
                             </td>
                         </tr>
                     	</s:iterator>

@@ -7,7 +7,9 @@ import app.models.goods.Good;
 
 public interface GoodService {
 
-	public void saveGood(Good good);
+	public Good saveGood(Good good);
+
+	public void saveGood(Good good, String picUrls);
 
 	public Good getGood(long id);
 

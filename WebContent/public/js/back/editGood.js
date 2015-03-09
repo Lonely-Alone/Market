@@ -2,6 +2,7 @@
 var iFrameCallBack = function(uploadResult) {
 	var url=uploadResult.split("|")[0],target=uploadResult.split("|")[1];
 	$("#uploadedPic"+target).attr("src",url).removeClass("dn");
+	$("#uploadedPic"+target).attr("url",url);
 	$("#form"+target).addClass("dn");
 	
 };
@@ -40,13 +41,13 @@ addGoodBtn.click( function(){
 		alert(  "库存必须大于等于0");
 	}else if($isEmpty(descrArea)){
 		alert(  "请输入商品描述");
-	}else if(previewPicDiv.find('img').attr('src').length == 0){
-		alert( '您必须上传&nbsp;<span class="co">1</span>&nbsp;张商品预览图');
+	}else if(previewPicDiv.find('img').attr('url').length == 0){
+		alert( '您必须上传  1 张商品预览图');
 	}else{
 		var picUrls = '';
 		previewPicDiv.find('img').each(function(index,item){
-			if(item.src.length>0){
-				picUrls += item.src + ',';
+			if($(item).attr("url") != undefined && $(item).attr("url")!="" ){
+				picUrls += "http://localhost:8088/Market/"+$(item).attr("url") + ',';
 			}
 		})
 		if(picUrls.length>0){
