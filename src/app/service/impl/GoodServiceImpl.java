@@ -62,6 +62,10 @@ public class GoodServiceImpl implements GoodService {
 		return cartDao.fetchGoodByCart();
 	}
 
+	public void removeGoods(String goodIds) {
+		goodDao.removeGoods(goodIds);
+	}
+
 	@Override
 	public int getTotalNum(String name, String type) {
 		return goodDao.getTotalNum(name, type);

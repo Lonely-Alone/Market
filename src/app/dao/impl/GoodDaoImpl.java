@@ -39,6 +39,19 @@ public class GoodDaoImpl extends BaseDaoImpl implements GoodDao {
 		return fetch(hql, list, page, pageSize);
 	}
 
+	public void removeGood(long goodId) {
+		Good good = getGood(goodId);
+		good.isDeleted = true;
+		save(good);
+	}
+
+	public void removeGoods(String goodIds) {
+		List<String> idList = new ArrayList<String>();
+		for (String id : goodIds.split(",")) {
+			removeGood(Long.parseLong(id));
+		}
+	}
+
 	@Override
 	public int getTotalNum(String name, String type) {
 		return getGoodList(name, type, 1, Integer.MAX_VALUE).size();

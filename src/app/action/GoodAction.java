@@ -20,14 +20,14 @@ import com.opensymphony.xwork2.interceptor.PreResultListener;
 public class GoodAction extends BaseAction implements ModelDriven<Good> {
 
 	@Resource
-	private GoodService goodsService;
+	private GoodService goodService;
 
 	@Resource
 	private AttachServiceImpl attachService;
 
 	public Integer page;
 
-	public String goodsArr;// 批量删除商品的Ids
+	public String goodIds;// 批量删除商品的Ids
 
 	public String goodType;
 
@@ -37,11 +37,9 @@ public class GoodAction extends BaseAction implements ModelDriven<Good> {
 
 	public String picUrls;
 
-	@Resource(name = "goodService")
-	private GoodService goodService;
-
 	public void saveGood() throws Exception {
 		out = response.getWriter();
+		response.setContentType("text/html;charset=UTF-8");
 		goodService.saveGood(good);
 		goodService.saveGood(good, picUrls);
 		ActionContext.getContext().getActionInvocation()
@@ -52,11 +50,11 @@ public class GoodAction extends BaseAction implements ModelDriven<Good> {
 						goodService.saveGood(good);
 					}
 				});
-		out.write(Result.succeed(true, "商品添加成功！"));
+		out.write(Result.success("商品添加成功！"));
 	}
 
 	public String getGood() {
-		Good goods = goodsService.getGood(good.id);
+		Good goods = goodService.getGood(good.id);
 		request.setAttribute("good", goods);
 		request.setAttribute("attchs", attachService.getPictuesByGood(goods));
 		return SUCCESS;
@@ -66,9 +64,9 @@ public class GoodAction extends BaseAction implements ModelDriven<Good> {
 		if (page == null) {
 			page = 1;
 		}
-		List<Good> list = goodsService.getGoodList(good.name, goodType, page,
+		List<Good> list = goodService.getGoodList(good.name, goodType, page,
 				PAGESIZE);
-		int goodCount = goodsService.getTotalNum(good.name, goodType);
+		int goodCount = goodService.getTotalNum(good.name, goodType);
 		int pageCount = goodCount / PAGESIZE == 0 ? goodCount / PAGESIZE
 				: goodCount / PAGESIZE + 1;
 		request.setAttribute("goodsList", list);
@@ -78,6 +76,11 @@ public class GoodAction extends BaseAction implements ModelDriven<Good> {
 		return SUCCESS;
 	}
 
+	public void removeGoods() {
+		goodService.removeGoods(goodIds);
+		out.write(Result.succeed(null));
+	}
+
 	public String addGoodToCart() throws Exception {
 		response.setContentType("text/html;charset=UTF-8");
 		out = response.getWriter();
@@ -85,12 +88,12 @@ public class GoodAction extends BaseAction implements ModelDriven<Good> {
 			out.write(Result.failed("未登录,请先登录！"));
 			return null;
 		}
-		Good goods = goodsService.getGood(good.id);
-		goodsService.addToCart(goods, num);
-		List<Good> list = goodsService.getGoodListByCart();
-		List<Cart_Good> list1 = goodsService.getTotal();
-		float totaoPrice = goodsService.getTotalPrice();
-		long totalNum = goodsService.getTotalNum();
+		Good goods = goodService.getGood(good.id);
+		goodService.addToCart(goods, num);
+		List<Good> list = goodService.getGoodListByCart();
+		List<Cart_Good> list1 = goodService.getTotal();
+		float totaoPrice = goodService.getTotalPrice();
+		long totalNum = goodService.getTotalNum();
 		session.put("myCart", list1);
 		session.put("totalPrice", totaoPrice);
 		session.put("totalNum", totalNum);
@@ -103,14 +106,14 @@ public class GoodAction extends BaseAction implements ModelDriven<Good> {
 	}
 
 	public void deleteGoodFromCart() {
-		Good goods = goodsService.getGood(good.id);
-		goodsService.deleteFromCart(goods);
+		Good goods = goodService.getGood(good.id);
+		goodService.deleteFromCart(goods);
 		out.write(Result.succeed(null));
 	}
 
 	public void deleteGoodsFromCart() {
-		String[] goodIds = goodsArr.split(",");
-		goodsService.deleteGoodByIds(goodIds);
+		String[] ids = goodIds.split(",");
+		goodService.deleteGoodByIds(ids);
 		out.write(Result.succeed(null));
 	}
 

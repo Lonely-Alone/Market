@@ -12,6 +12,10 @@ public interface GoodDao {
 	public List<Good> getGoodList(String name, String type, int page,
 			int pageSize);
 
+	public void removeGood(long goodId);
+
+	public void removeGoods(String goodIds);
+
 	public int getTotalNum(String name, String type);
 
 	public void addClick(Good good);

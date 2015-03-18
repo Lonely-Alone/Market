@@ -56,6 +56,7 @@ addGoodBtn.click( function(){
 		$.ajax({
 			type: "POST",
 			url: 'Market/saveGood.action',
+			dataType : "json",
 			data: {
 //				goodId: $("goodIdInput").val(),
 				name: nameInput.val().trim(),
@@ -68,7 +69,7 @@ addGoodBtn.click( function(){
 				goodType:goodType.val().trim(),
 			},
 			success: function(json){
-				if(json.succ){
+				if(json.status){
 					alert(json.msg);
 				}
 			}

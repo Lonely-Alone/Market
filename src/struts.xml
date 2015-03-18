@@ -77,6 +77,7 @@
         <action name="editGood" class="app.action.GoodAction" method="getGood">
         	<result name="success">/views/back/editGood.jsp</result>
         </action>
+        <action name="removeGoods" class="app.action.GoodAction" method="removeGoods"></action>
         
     </package>
 </struts>

@@ -64,6 +64,17 @@ public class Result {
 		}
 	}
 
+	public static String success(String msg) {
+		Result vo = new Result();
+		vo.status = true;
+		vo.msg = msg;
+		try {
+			return JSONObject.toJSONString(vo);
+		} catch (Exception e) {
+			return null;
+		}
+	}
+
 	public static String succeed(boolean b, String url) {
 		Result vo = new Result();
 		vo.status = true;

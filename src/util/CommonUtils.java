@@ -36,8 +36,7 @@ public class CommonUtils {
 	public static String serial(Long id) {
 		NumberFormat format = NumberFormat.getInstance();
 		format.setMinimumIntegerDigits(8);
-		int i = 10;
-		return format.format(i).replace(",", "");
+		return format.format(id).replace(",", "");
 	}
 
 }

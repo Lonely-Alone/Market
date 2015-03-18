@@ -44,23 +44,35 @@
 //		});
 //	});
 //}
-//// 删除商品
-//removeData(function(){
-//	new AjaxPost($("iboxConfirmOk"), {
-//		url: '/AdminController/removeGoods',
-//		data: { goodIds : $$(".jsForCheck:checked").attr('data')},
-//		callback: function(json){
-//			var ids = $$(".jsForCheck:checked").attr('data');
-//			ids.each(function(item){
-//				$("goodChk_"+item).dispose();
-//				$("good_"+item).dispose();
-//			})
-//			$("dataCount").txt(new Number($("dataCount").txt())-ids.length);
-//			if(json.succ){
-//				Ibox.alert("删除成功");
-//			}else{
-//				Ibox.alert("删除成功，但是编号为："+json.msg+"的商品已经被删除");
-//			}
-//		}
-//	}).send();
-//});
+// 删除商品
+var removeData = function(){
+	$("#removeBtn").click(function(){
+		var goodIds="";
+		$(".jsForCheck:checked").each(function(index,item){
+			goodIds+=$(item).attr("data")+",";
+		});
+		if(goodIds.length==0){
+			return;
+		}
+		$.ajax({
+			url: 'Market/removeGoods.action',
+			data: { goodIds :goodIds },
+			type:'POST',
+			success: function(json){
+				$(".jsForCheck:checked").each(function(index,item){
+					var id=$(item).attr("data");
+					$("#goodChk_"+id).remove();
+					$("#good_"+id).remove();
+				});
+				$("#dataCount").text(parseInt($("#dataCount").text())-ids.length);
+				if(json.succ){
+					Ibox.alert("删除成功");
+				}else{
+					Ibox.alert("删除成功，但是编号为："+json.msg+"的商品已经被删除");
+				}
+			}
+		});
+	})
+};
+
+removeData();

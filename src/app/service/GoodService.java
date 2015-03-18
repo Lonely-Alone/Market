@@ -16,6 +16,8 @@ public interface GoodService {
 	public List<Good> getGoodList(String name, String type, int page,
 			int pageSize);
 
+	public void removeGoods(String goodIds);
+
 	public int getTotalNum(String name, String type);
 
 	public void addToCart(Good good, int num);
