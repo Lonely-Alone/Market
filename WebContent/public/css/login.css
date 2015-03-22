@@ -14,7 +14,7 @@ body { font-family:Verdana;  margin:0;}
 	position:absolute; bottom:-5px; left:10px; z-index:-2;
 }
 .login_cont{margin-top:100px;}
-.login_box{width:470px; height:285px; margin-left:530px;background-color:#ededed; border:1px solid #dbdbdb; position:absolute; right:0; top:-50px;}
+.login_box{z-index:1;width:470px; height:285px; margin-left:530px;background-color:#ededed; border:1px solid #dbdbdb; position:absolute; right:0; top:-50px;}
 .login_input_area{padding:30px 35px 80px; border-right:1px solid #dbdbdb;}
 .login_input_l{
 	display:inline-block; width:40px; height:28px; padding:5px 6px; background-color:#4EA5D9; text-align:center;

@@ -59,7 +59,7 @@
 			</div>
 		</div>
 		<div class="content">
-			<div class=navigation2 >
+			<div class="navigation2" >
 				<ul>
 					<li><a href="javascript:;">首页</a></li>
 					<li><a href="javascript:;" >服装城</a></li>
@@ -87,7 +87,7 @@
 		  </div>
 			<div class="sidebar2">
 				<div class="news">
-					<h2>最新消息</h2>
+					<span>最新消息</span>
 				</div>
 				<div class="board">
 					<ul>

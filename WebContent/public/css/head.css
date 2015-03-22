@@ -13,12 +13,12 @@ body,h1,h2,h3,h4,h5,h6,p,ul,ol,li,form,img,dl,dt,dd,table,th,td,blockquote,field
 
 .head_li1:hover{background-color:#fff;border:1px solid #DDDDDD;border-bottom:1px solid #DDDDDD;}
 .drop_servi{margin-top:30px;width:60px;position: absolute;}
-.head_li1:hover div.drop_servi{display:block;position:relative; z-index: 99;}
+.head_li1:hover div.drop_servi{display:block;position:relative; z-index:99;}
 
 .head_li2:hover{background-color:#fff;border:1px solid #DDDDDD;border-bottom:1px solid #DDDDDD;}
 .drop_nav{position: absolute;margin-top:30px;width:60px}
 .head_li2 span{font-weight:bold;font-size:16px;margin-bottomm:10px}
-.head_li2:hover div.drop_nav{display:block;position:relative; z-index: 99;}
+.head_li2:hover div.drop_nav{display:block;position:relative; z-index:99;}
 
 
 

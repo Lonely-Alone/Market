@@ -10,6 +10,9 @@ var iFrameCallBack = function(uploadResult) {
 $(".uploadBtn").click(function(){
 	$("#"+$(this).attr('rel')).click();
 })
+$(".jsForUploaded").click(function(){
+	$("#"+$(this).attr('rel')).click();
+})
 
 $(".jsForUpload").change(function(){
 	$(this).parent().submit();
