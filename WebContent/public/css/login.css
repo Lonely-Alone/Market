@@ -1,8 +1,12 @@
 @charset "utf-8";
+body { font-family:Verdana;  margin:0;}
+
+
+
 .constr{width:960px;height:auto; margin-left:auto; margin-right:auto;}
+.picHead{margin-top:60px; margin-left:80px;}
 .bge5{background-color:#E5E5E5;}
 .c76{color:#767C8B;}
-.header{margin-top:60px; margin-left:80px;}
 .boxsh1{-webkit-box-shadow:0 2px 3px #ccc; -moz-box-shadow:0 2px 3px #ccc; box-shadow:0 2px 3px #ccc;}
 .shadow{
 	display:inline-block; width:300px; padding:8px; background-color:#CCCCCC; 
@@ -10,7 +14,7 @@
 	position:absolute; bottom:-5px; left:10px; z-index:-2;
 }
 .login_cont{margin-top:100px;}
-.login_box{width:470px; height:285px; margin-left:530px;background-color:#ededed; border:1px solid #dbdbdb; position:absolute; right:0; top:-300px;}
+.login_box{width:470px; height:285px; margin-left:530px;background-color:#ededed; border:1px solid #dbdbdb; position:absolute; right:0; top:-50px;}
 .login_input_area{padding:30px 35px 80px; border-right:1px solid #dbdbdb;}
 .login_input_l{
 	display:inline-block; width:40px; height:28px; padding:5px 6px; background-color:#4EA5D9; text-align:center;

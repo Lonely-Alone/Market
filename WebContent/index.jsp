@@ -7,8 +7,6 @@
 <title>登录页面</title>
 </head>
 <body>
-	
-	<s:action name="indexAct" namespace="" ></s:action> 
-	
+	<jsp:forward page="/views/application/main.jsp" /> 
 </body>
 </html>
