@@ -3,6 +3,7 @@ package app.action;
 import java.io.File;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.struts2.ServletActionContext;
 
 @SuppressWarnings("serial")
 public class UploadAction extends BaseAction {
@@ -13,11 +14,10 @@ public class UploadAction extends BaseAction {
 	public String target;
 
 	public void upload() throws Exception {
-		// String realpath =
-		// ServletActionContext.getServletContext().getRealPath(
-		// "/images");
+		String realpath = ServletActionContext.getServletContext().getRealPath(
+				"/images");
 		out = response.getWriter();
-		String realpath = "E:/Users/lil/git/Market/WebContent/images";
+		// String realpath = "E:/Users/lil/git/Market/WebContent/images";
 		File savefile = null;
 		if (image != null) {
 			savefile = new File(new File(realpath), imageFileName);

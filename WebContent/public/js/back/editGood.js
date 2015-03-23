@@ -50,7 +50,7 @@ addGoodBtn.click( function(){
 		var picUrls = '';
 		previewPicDiv.find('img').each(function(index,item){
 			if($(item).attr("url") != undefined && $(item).attr("url")!="" ){
-				picUrls += "http://localhost:8088/Market/"+$(item).attr("url") + ',';
+				picUrls += $(item).attr("url") + ',';
 			}
 		})
 		if(picUrls.length>0){
@@ -61,7 +61,7 @@ addGoodBtn.click( function(){
 			url: 'Market/saveGood.action',
 			dataType : "json",
 			data: {
-//				goodId: $("goodIdInput").val(),
+				id: $("#goodIdInput").val(),
 				name: nameInput.val().trim(),
 				chief: chiefInput.val().trim(),
 				showPrice: Number(showPriceInput.val().trim()),

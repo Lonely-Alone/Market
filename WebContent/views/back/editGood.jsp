@@ -34,6 +34,7 @@
                     	宝贝名称：
                         <span class="cr">*</span>
                         <input id="nameInput" class="jsForCount pct60 input vn" type="text" value='<s:property value="#request.good.name"/>'/>
+                        <input id="goodIdInput" class="dn " type="text" value='<s:property value="#request.good.id"/>'/>
                     </div>
                     <div class="mb10">
                     	<span class="dib w60 tr">副标题：</span>
@@ -106,7 +107,7 @@
 													<input type="hidden" name="target" value='<s:property value="#item.index+1"/>'/>
 													<a id="uploadTrigger" class="bdc p5 g5 uploadBtn mt20 dn" href="javascript:;" rel="fileInput<s:property value="#item.index+1"/>">点击上传</a>
 												</form>
-												<img id="uploadedPic<s:property value="#item.index+1"/>" class="l mr10 jsForUploaded " src='<s:property value="url" />'  height="90" width="90" rel="fileInput<s:property value="#item.index+1"/>"/>
+												<img id="uploadedPic<s:property value="#item.index+1"/>" class="l mr10 jsForUploaded " src='<s:property value="url" />' url='<s:property value="url" />' height="90" width="90" rel="fileInput<s:property value="#item.index+1"/>"/>
 												<iframe id="upload_target" name="upload_target<s:property value="#item.index+1"/>" class="dn"></iframe>
 						            		</div>
 						            	</s:iterator>
