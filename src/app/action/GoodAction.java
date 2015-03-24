@@ -40,7 +40,6 @@ public class GoodAction extends BaseAction implements ModelDriven<Good> {
 	public void saveGood() throws Exception {
 		out = response.getWriter();
 		response.setContentType("text/html;charset=UTF-8");
-		System.err.println(good.name);
 		goodService.saveGood(good, picUrls);
 		ActionContext.getContext().getActionInvocation()
 				.addPreResultListener(new PreResultListener() {

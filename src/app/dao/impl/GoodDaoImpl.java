@@ -15,6 +15,7 @@ public class GoodDaoImpl extends BaseDaoImpl implements GoodDao {
 
 	@Override
 	public Good saveGood(Good good) {
+		System.err.println("goodId" + good.name);
 		return (Good) save(good);
 	}
 

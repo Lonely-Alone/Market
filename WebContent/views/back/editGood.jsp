@@ -46,7 +46,7 @@
                         <span class="cr">*</span>
                         <select id="goodType" >
                         	<option selected><s:property value="#request.good.goodType"/></option>
-                        	<s:iterator value="{'衣服','数码','饮食','家具','书籍','其他' }" id="type">
+                        	<s:iterator value="{'服饰','数码','饮食','家具','书籍','其他' }" id="type">
                        			<option ><s:property/></option>
                         	</s:iterator>
 		                </select>

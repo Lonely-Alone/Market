@@ -74,7 +74,7 @@
                             	<div class="w15 ml5 co l"></div>
                                 <img class="ml5 mr10 l" width="50" height="50" src=""/>
                                 <div class="cell">
-                                    <a class="previewGoodBtn" href="@{AdminController.goodPreview(good.id)}" data="${good.id}"><s:property value="name"/></a>
+                                    <a class="previewGoodBtn" href="javascript:;" data="${good.id}"><s:property value="name"/></a>
                                     <a class="previewGoodBtn" href="javascript:;" data="${good.id}"><s:property value="chief"/></a>
                                 </div>
                             </td>

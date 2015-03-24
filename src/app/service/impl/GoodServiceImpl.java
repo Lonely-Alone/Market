@@ -42,9 +42,8 @@ public class GoodServiceImpl implements GoodService {
 	}
 
 	public void saveGood(Good good, String picUrls) {
-		System.err.println("goodId" + good.id);
 		goodDao.saveGood(good);
-		// attachmentDao.updateGoodPictures(good, picUrls);
+		attachmentDao.updateGoodPictures(good, picUrls);
 	}
 
 	@Override
