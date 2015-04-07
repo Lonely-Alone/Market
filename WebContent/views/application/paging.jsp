@@ -21,7 +21,7 @@
 			onchange="javascript:window.location='/Market/getGoodsList.action?goodsType=${goodsType}&page='+this.value">
 			<s:bean name="org.apache.struts2.util.Counter">
 			<s:param name="first" value="1" />
-			<s:param name="last" value="%{#request.pageCount-1}" />
+			<s:param name="last" value="%{#request.pageCount}" />
 			<s:iterator>
 			<option value="<s:property />"
 			<s:if test="%{page==(current-1)}"> selected="selected"</s:if>>

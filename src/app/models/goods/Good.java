@@ -33,4 +33,6 @@ public class Good extends BaseModel implements Serializable {
 	@Enumerated(EnumType.STRING)
 	public GoodType goodType;
 
+	public String imgUrl;
+
 }

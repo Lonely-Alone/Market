@@ -5,6 +5,7 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import util.CommonUtils;
+import app.models.enums.GoodType;
 import app.models.goods.Cart_Good;
 import app.models.goods.Good;
 import app.service.GoodService;
@@ -29,11 +30,11 @@ public class GoodAction extends BaseAction implements ModelDriven<Good> {
 
 	public String goodIds;// 批量删除商品的Ids
 
-	public String goodType;
+	public String type;
 
 	public int num;
 
-	private Good good;
+	public Good good;
 
 	public String picUrls;
 
@@ -53,25 +54,27 @@ public class GoodAction extends BaseAction implements ModelDriven<Good> {
 	}
 
 	public String getGood() {
-		Good goods = goodService.getGood(good.id);
-		request.setAttribute("good", goods);
-		request.setAttribute("attchs", attachService.getPictuesByGood(goods));
+		Good good_ = goodService.getGood(good.id);
+		request.setAttribute("good", good_);
+		System.out.println("==============主图路径" + good.imgUrl);
+		request.setAttribute("attchs", attachService.getPictuesByGood(good_));
 		return SUCCESS;
 	}
 
-	public String getGoodList() {
+	public String getGoodList() throws Exception {
+		response.setContentType("text/html;charset=UTF-8");
+		type = new String(type.getBytes("utf-8"));
 		if (page == null) {
 			page = 1;
 		}
-		List<Good> list = goodService.getGoodList(good.name, goodType, page,
+		List<Good> list = goodService.getGoodList(good.name, type, page,
 				PAGESIZE);
-		int goodCount = goodService.getTotalNum(good.name, goodType);
-		int pageCount = goodCount / PAGESIZE == 0 ? goodCount / PAGESIZE
-				: goodCount / PAGESIZE + 1;
-		request.setAttribute("goodsList", list);
+		int goodCount = goodService.getTotalNum(good.name, type);
+		int pageCount = (goodCount - 1) / PAGESIZE + 1;
+		request.setAttribute("goodList", list);
 		request.setAttribute("page", page);
 		request.setAttribute("pageCount", pageCount);
-		request.setAttribute("goodsType", goodType);
+		request.setAttribute("goodType", GoodType.converToEnum(type));
 		return SUCCESS;
 	}
 

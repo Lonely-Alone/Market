@@ -28,7 +28,7 @@ var $isEmpty = function(ele){
 // 发布商品
 var addGoodBtn = $("#addGoodBtn");
 addGoodBtn.click( function(){
-	var  previewPicDiv = $(".picDiv"), nameInput = $("#nameInput"), chiefInput = $("#chiefInput"), showPriceInput = $("#showPriceInput"), 
+	var  mainDiv = $("#mainDiv"),previewPicDiv = $(".picDiv"), nameInput = $("#nameInput"), chiefInput = $("#chiefInput"), showPriceInput = $("#showPriceInput"), 
 		realPriceInput = $("#realPriceInput"), leftCountInput = $("#leftCountInput"), descrArea = $("#descrArea"),goodType=$("#goodType");
 	if($isEmpty(nameInput)){
 		alert( "请输入商品名称");
@@ -44,6 +44,8 @@ addGoodBtn.click( function(){
 		alert(  "库存必须大于等于0");
 	}else if($isEmpty(descrArea)){
 		alert(  "请输入商品描述");
+	}else if(mainDiv.find('img').attr('url').length == 0){
+		alert( '您必须上传  1 张商品预览图');
 	}else if(previewPicDiv.find('img').attr('url').length == 0){
 		alert( '您必须上传  1 张商品预览图');
 	}else{
@@ -68,6 +70,7 @@ addGoodBtn.click( function(){
 				realPrice: Number(realPriceInput.val().trim()),
 				leftCount: Number(leftCountInput.val().trim()),
 				description: descrArea.val(),
+				imgUrl:mainDiv.find('img').attr('url'),
 				picUrls: picUrls.length>0?picUrls:null,
 				goodType:goodType.val().trim(),
 			},

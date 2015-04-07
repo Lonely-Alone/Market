@@ -14,29 +14,9 @@
      
     <constant name="struts.action.extension" value="action" />  
 
-<!-- 拦截器栈    -->  
-     <package name="allInterceptor" extends="struts-default" >
-    	<interceptors>  
-    	<!--
-            <interceptor name="encode"  
-                class="interceptor.EncodingInterceptor">  
-            </interceptor>  
-            <interceptor-stack name="mydefault">  
-                <interceptor-ref name="defaultStack" />  
-                <interceptor-ref name="encode" />  
-            </interceptor-stack>
-        --> 
-            <interceptor name="authenticationInterceptor" 
-				class="interceptor.AuthenticationInterceptor" />
-		    <interceptor-stack name="myStack">
-		      <interceptor-ref name="authenticationInterceptor" />
-		      <interceptor-ref name="defaultStack" />
-	    	</interceptor-stack>  
-        </interceptors>  
-    </package>
 
  <!-- struts2的action必须放在一个指定的包空间下定义 -->
-    <package name="default" extends="allInterceptor" namespace="">
+    <package name="default" extends="struts-default" namespace="">
 	  <global-results>
 	    <result name="input" type="redirect">/Market/views/application/Login.jsp</result>
 	    <result name="error">/error.jsp</result>
@@ -78,6 +58,11 @@
         	<result name="success">/views/back/editGood.jsp</result>
         </action>
         <action name="removeGoods" class="app.action.GoodAction" method="removeGoods"></action>
+        
+        <!-- 主页面 -->
+        <action name="fetchGoods" class="app.action.GoodAction" method="getGoodList">
+        	<result name="success">/views/good/goodList.jsp</result>
+        </action>
         
     </package>
 </struts>

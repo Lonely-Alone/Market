@@ -101,6 +101,16 @@
 					            </div>
 					            <div class="mt10 p10 bgf9">
 					            	<div class="mt10 fix">
+					            		<div id="mainDiv" class="upload_img_box2 l rel picDiv">
+					            			<form action="Market/upload.action" id="form0" class="" target="upload_target0" method="post" enctype="multipart/form-data">
+												<p>主图：</p>
+												<input type="file" name="image" class="dn jsForUpload" id="fileInput0"></br>
+												<input type="hidden" name="target" value="0"/>
+												<a id="uploadTrigger0" class="bdc p5 g5 uploadBtn mt20" href="javascript:;" rel="fileInput0">点击上传</a>
+											</form>
+											<img id="uploadedPic0" class="l mr10 jsForUploaded dn" src="" url=""  height="90" width="90" rel="fileInput0"/>
+											<iframe id="upload_target0" name="upload_target0" class="dn"></iframe>
+					            		</div>
 					            		<s:bean name="org.apache.struts2.util.Counter" id="counter">
 											<s:param name="first" value="1" />
 											<s:param name="last" value="5" />

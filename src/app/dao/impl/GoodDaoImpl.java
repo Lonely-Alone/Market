@@ -7,6 +7,7 @@ import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Repository;
 
 import app.dao.GoodDao;
+import app.models.enums.GoodType;
 import app.models.goods.Good;
 
 @Repository("goodDao")
@@ -15,7 +16,6 @@ public class GoodDaoImpl extends BaseDaoImpl implements GoodDao {
 
 	@Override
 	public Good saveGood(Good good) {
-		System.err.println("goodId" + good.name);
 		return (Good) save(good);
 	}
 
@@ -34,8 +34,8 @@ public class GoodDaoImpl extends BaseDaoImpl implements GoodDao {
 			hql += "and g.name like ?";
 		}
 		if (StringUtils.isNotBlank(type)) {
-			hql += " and  g.goodsType=?";
-			list.add(type);
+			hql += " and  g.goodType=?";
+			list.add(GoodType.converToEnum(type));
 		}
 		return fetch(hql, list, page, pageSize);
 	}

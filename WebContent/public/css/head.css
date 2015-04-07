@@ -4,21 +4,20 @@ body,h1,h2,h3,h4,h5,h6,p,ul,ol,li,form,img,dl,dt,dd,table,th,td,blockquote,field
 
 
 /*导航栏以及全部商品的悬浮窗口*/
-.head_menu{float:right;margin-right:50px;padding-left:15px;overflow:hidden;line-height:25px}
-.head_menu a{float:left; height:16px;line-height:26px;position:relative;color:gray;text-decoration:none}
+.head_menu{float:right;margin-right:50px;padding-left:15px;overflow:hidden;}
+.head_menu a{float:left;line-height:26px;position:relative;color:gray;text-decoration:none}
 .head_menu li{float:left;position:relative;padding:8px 14px;color:#808080;width:60px}
 
-.item a{padding:1px 2px}
+.item{text-align:center;padding:1px 2px;}
+.item a{color:#000000;}
 .item:hover a {color:red;}
 
-.head_li1:hover{background-color:#fff;border:1px solid #DDDDDD;border-bottom:1px solid #DDDDDD;}
-.drop_servi{margin-top:30px;width:60px;position: absolute;}
-.head_li1:hover div.drop_servi{display:block;position:relative; z-index:99;}
+.head_li1:hover{background-color:#fff;border:1px solid #DDDDDD;border-bottom:0px}
+.drop_servi{margin-top:0px;width:88px;border-left:1px solid #DDDDDD;border-right:1px solid #DDDDDD;border-bottom:1px solid #DDDDDD;z-index:999px}
 
-.head_li2:hover{background-color:#fff;border:1px solid #DDDDDD;border-bottom:1px solid #DDDDDD;}
-.drop_nav{position: absolute;margin-top:30px;width:60px}
-.head_li2 span{font-weight:bold;font-size:16px;margin-bottomm:10px}
-.head_li2:hover div.drop_nav{display:block;position:relative; z-index:99;}
+.head_li2:hover{background-color:#fff;border:1px solid #DDDDDD;border-bottom:0px ;}
+.drop_nav{width:88px;border-left:1px solid #DDDDDD;border-right:1px solid #DDDDDD;border-bottom:1px solid #DDDDDD;z-index:999px}
+.drop_nav span{font-weight:bold;font-size:16px;margin-bottomm:10px}
 
 
 

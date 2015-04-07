@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*,app.models.enums.GoodType" pageEncoding="UTF-8"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -24,7 +24,7 @@
   </div>
    <div class="search">
   	<input type="text" class="l search_input"/> 
-	<a href="javascript:;" class=" searchBtn">搜索</a>
+	<div class="searchBtn"><a href="javascript:;" >搜索</a></div>
   </div>
   	<div class="mainContent"> 
 		<div class="sidebar1">
@@ -62,7 +62,7 @@
 			<div class="navigation2" >
 				<ul>
 					<li><a href="javascript:;">首页</a></li>
-					<li><a href="javascript:;" >服装城</a></li>
+					<li><a href="Market/fetchGoods.action?type=2">服装城</a></li>
 					<li><a href="javascript:;" >购物超市</a></li>
 					<li><a href="javascript:;" >电器城</a></li>
 					<li><a href="javascript:;" >书城</a></li>
