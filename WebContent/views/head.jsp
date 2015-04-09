@@ -10,7 +10,7 @@
 					</li>
 					<li  class="head_li2 "> <a href="javascript:;" >网站导航</a>
 					</li>
-					<s:if test="#session.member.username != null && !#session.member.username.isEmpty()">
+					<s:if test="#session.member.username != null">
 						<li>
 							 <a href="javascript:;"><s:property value="#session.member.username"/></a>
 						</li>
@@ -18,6 +18,14 @@
 							<a href="/Market/logout.action">退出</a>
 						</li>
 					</s:if>
+					<s:elseif test="#session.member.email !=null">
+						<li>
+							 <a href="javascript:;"><s:property value="#session.member.email"/></a>
+						</li>
+						<li>
+							<a href="/Market/logout.action">退出</a>
+						</li>
+					</s:elseif>
 					<s:else >
 						<li>
 							<a href="/Market/views/application/Login.jsp">登录</a>
