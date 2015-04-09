@@ -11,7 +11,7 @@
 <head>
 <base href="<%=basePath%>">
 <title>Java</title>
-<link rel="stylesheet" type="text/css" href="public/css/programmingJava.css">
+<link rel="stylesheet" type="text/css" href="public/css/good.css">
 <link rel="stylesheet" type="text/css" href="public/css/common.css">
 <script type="text/javascript" src="public/js/min/jquery-1.8.3.js"></script>
 
@@ -24,14 +24,12 @@
   <div class="header">
   	<jsp:include page="/views/head.jsp"></jsp:include>
   </div>
-  <div class="mainContent"> 
+  <div class="mainContent" > 
 	<div class="goodlist">
 		<h2><a href="#"><s:property value="%{#request.goodType}"/> &gt;</a></h2>
 		<span><a href="#"></a></span>
 	</div>
-	<div class="leftPart" ></div>
-
-	<div class="goods_center">
+	<div class="goods_center" >
 		<hr>
 			<s:iterator   value="# request.goodList" id="good" >
 				<div class="goods_img">

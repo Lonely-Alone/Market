@@ -56,7 +56,6 @@ public class GoodAction extends BaseAction implements ModelDriven<Good> {
 	public String getGood() {
 		Good good_ = goodService.getGood(good.id);
 		request.setAttribute("good", good_);
-		System.out.println("==============主图路径" + good.imgUrl);
 		request.setAttribute("attchs", attachService.getPictuesByGood(good_));
 		return SUCCESS;
 	}

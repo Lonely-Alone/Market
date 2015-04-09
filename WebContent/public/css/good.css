@@ -1,0 +1,47 @@
+@CHARSET "UTF-8";
+
+a{text-decoration:none;}
+
+.goodlist{margin-top:10px;margin-left:250px}
+.goodlist h2{margin-left:52px}
+.goodlist span{display:block;margin-left:115px;margin-top:-20px}
+
+
+
+.leftPart{float:left;margin-left:50px;margin-top:20px;width:220px;height:400px;border:1px solid black;}
+
+
+.goods_center{float:left;margin:20px;width:800px;height:auto;margin-left:300px}
+.goods_center span {line-height:27px;}
+.goods_center a:hover {color:#CC9933;text-decoration: underline;}
+
+.goods_img{float:left;width:260px;margin-top:40px;margin-left:20px;border:1px solid #EEEEEE}
+.goods_detail{float:left;width:400px;margin-left:10px;margin-top:30px;margin-bottom:20px}
+
+.desc{display:block;color:red;width:300px;font-size:15px;font-weight:bold;white-space:nowrap; /* 设置一行显示 */overflow:hidden; /* 设置超出部分自动隐藏 */text-overflow:ellipsis;width: 20em;/*不允许出现半汉字截断*/}
+
+.addbutton{display:block;width:70px;height:30px;border:1px solid #CCCCCC;font-size:14px;font-color:gray;background-color:#CCCCCC;text-decoration:none;line-height:30px;}
+.addbutton:hover {background-color:gray;text-decoration:none;font-color:black;}
+/*商品分割线*/
+.cut_off{border:1px dashed #CCCCCC;width:800px;text-align:center;}
+
+.page{width:400px;height:30px;margin-left:400px;}
+.page a{display:block;float:left;width:30px;height:25px;color:blue;border:1px solid gray;margin-left:4px;text-decoration:none;text-align:center; line-height:25px;font-size:15px}
+
+
+
+
+.detail{float:left;margin:20px;width:900px;height:auto;margin-top:40px;margin-left:100px}
+.detail_img{float:left;width:350px;height:350px;border:1px solid gray;}
+.detail_div2{float:left;margin-left:10px;width:530px;height:500px;}
+.detail_div2 span{padding:30px ;line-height:40px;}
+.detail_div2 span a{display:inline-block;width:15px;height:15px;border:1px solid gray;text-align:center;line-height:18px;text-decoration:none;color:black}
+.detail_div2 span a:hover{text-decoration:none;color:black;border:1px solid black;}
+.detail_div2 span input {width:30px;height:20px;text-align:center;line-height:20px;}
+.detail_div2 hr{margin-top:20px;border:1px dotted #CCCCCC;width:600px; }
+.detail_div2 button {width:180px;height:40px;color:white;font-size:20px;font-weight:bold;background-color:#CC0000;margin-left:20px;margin-top:20px;border-style:solid;}
+.detail_div2 button:hover {border-style:none;}
+.detail_div2_1{font-size:17px;font-weight:bold;margin-top:20px;color:gray}
+.detail_div2_2{font-size:17px;font-weight:bold;color:red;margin-top:20px;}
+
+.number{width:40px}

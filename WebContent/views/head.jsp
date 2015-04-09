@@ -35,7 +35,6 @@
 							<div class="item"> <a href="javascript:;" >客服邮箱</a> </div>
 				</div>
 				<div class="dn drop_nav" id="nav_Float">
-					<div> <span >购物</span></div>
 					<div class="item"> 
 						<a href="javascript:;" >图书</a> 
 				 		<a href="javascript:;" >数码</a> 
@@ -44,7 +43,6 @@
 						<a href="javascript:;" >服饰</a> 
 						<a href="javascript:;" >食品</a> 
 					</div>
-					<div> <span >生活</span> </div>
 					<div class="item"> 
 						<a href="javascript:;" >商旅</a> 
 					 	<a href="javascript:;" >保险</a> 
@@ -53,14 +51,9 @@
 						<a href="javascript:;" >游戏</a> 
 					 	<a href="javascript:;" >水电</a> 
 				 	</div>
-					<div> <span >娱乐</span> </div>
 					<div class="item"> 
 						<a href="javascript:;" >电影</a> 
 					 	<a href="javascript:;" >玩具</a> 
-				 	</div>
-					<div class="item"> 
-						<a href="javascript:;" >棋牌麻将</a> 
-					 	<a href="javascript:;" >游戏机</a> 
 				 	</div>
 				</div>
 <script type="text/javascript" >

@@ -11,66 +11,52 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
     <title>《<s:property value="#request.good.name"/> 》</title>
     <link rel="stylesheet" type="text/css" href="public/css/common.css">
-	<link rel="stylesheet" type="text/css" href="public/css/bookDetail.css">
-	<script type="text/javascript" src="public/js/min/do.js"></script>
-	<script type="text/javascript" src="public/js/book.js"></script>
+	<link rel="stylesheet" type="text/css" href="public/css/good.css">
+	<script type="text/javascript" src="public/js/min/jquery-1.8.3.js"></script>
+	<script type="text/javascript" src="public/js/good.js"></script>
   </head>
   
   <body >
- 
-    <jsp:include page="/views/head.jsp"></jsp:include>
-    <div class="detai">
-		<h2 ><a href="#">图书 &gt;</a></h2>
-		<span><a href="#">计算机与互联网&gt;</a><a href="#">编程语言与程序设计</a></span>
-	</div>
-	<div class="detail_l"></div>
-	
-	<div class="detail_c">
-		<div class="detail_c_img"><img src='public/img/javaBook/<s:property value='#request.good.id'/>.jpg'></div>
-		<div class="detail_c_div2">
+	 <div class="header">
+	  	<jsp:include page="/views/head.jsp"></jsp:include>
+	  </div>
+	<div class="detail">
+		<div ><img src="<s:property value='#request.good.imgUrl'/>" class="detail_img"></div>
+		<div class="detail_div2">
 			<ul>
 				<li>
-					<span class="detail_c_div2_1"><s:property value="#request.good.name"/></span>
+					<span class="detail_div2_1"><s:property value="#request.good.name"/></span>
 				</li>
 				<li>
-					<span class="detail_c_div2_2">( <s:property value="#request.good.description"/>  )</span>
+					<span class="detail_div2_2">( <s:property value="#request.good.description"/>  )</span>
 				</li>
 				<li>
 					<hr align="center"  />
 				</li>
 				<li>
-					<span style="text-decoration:line-through;">定&emsp; &emsp;价：￥ <s:property value="#request.good.price"/> </span>
+					<span style="text-decoration:line-through;">定&emsp; &emsp;价：￥ <s:property value="#request.good.showPrice"/> </span>
 				</li>
 				<li>
-					<span >现&emsp; &emsp;价：</span><span style="color:red;font-size:16px;font-weight:bold;margin-left:-58px;">￥  ${book.sellPrice}</span>
+					<span >现&emsp; &emsp;价：</span><span style="color:red;font-size:16px;font-weight:bold;margin-left:-58px;">￥  <s:property value="#request.good.realPrice"/></span>
 				</li>
 				<li>
-					<span >作 &emsp; &emsp;者：  <s:property value="#request.good.author"/>  著</span>
+					<span >生产厂商：  <s:property value="#request.good.publisher"/> </span>
 				</li>
 				<li>
-					<span >出 &ensp;版 &ensp;社：  <s:property value="#request.good.publisher"/> </span>
-				</li>
-				<li>
-					<span >出版时间： <s:property value="#request.good.publishTime"/> </span>
+					<span >出产时间： <s:property value="#request.good.publishTime"/> </span>
 				</li>
 				<li>
 					<hr align="center" />
 				</li>
 				<li>
 					<span class="f14">购买数量：</span>
-					<span class="ml5">	
-						<a href="javascript:;"  class="reduceNum">—</a>
-						<input type="text" value="1" id="num" />		
-						<a href="javascript:;" class="addNum">+</a>	
-					</span>		
+					<input type="number" value="1" min="1" max="<s:property value='#request.good.leftCount'/>"class="number" />		
 				</li>
 				<li>
 					<button type="button" id="addToCart" goodId="<s:property value='#request.good.id'/>">加入购物车</button>
 				</li>
 			</ul>
 		</div>
-		
-				
 	</div>
   </body>
   

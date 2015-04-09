@@ -19,13 +19,13 @@
 </head>
 <body>
 <div class="container">
-  <div class="header">
-  	<jsp:include page="/views/head.jsp"></jsp:include>
-  </div>
-   <div class="search">
-  	<input type="text" class="l search_input"/> 
-	<div class="searchBtn"><a href="javascript:;" >搜索</a></div>
-  </div>
+  	<div class="header">
+  		<jsp:include page="/views/head.jsp"></jsp:include>
+  	</div>
+ 	<div class="search">
+  		<input type="text" class="l search_input"/> 
+		<div class="searchBtn"><a href="javascript:;" >搜索</a></div>
+  	</div>
   	<div class="mainContent"> 
 		<div class="sidebar1">
 			<div class="title"><a href="javascript:;" >商品全部分类</a></div>
@@ -78,14 +78,14 @@
 					<li class="dn"><a href="javascript:;"><img height="100%" width="100%" src="public/img/roll3.jpg" /></a></li>
 					<li class="dn"><a href="javascript:;"><img height="100%" width="100%" src="public/img/roll4.jpg" /></a></li>
 			    </ul>
-			    <ul id="slideMod" class="action"> 
+			    <ul id="slideMod" class="action l"> 
 			      <li class="mod current" data="1">1</li>  
 			        <li class="mod" data="2">2</li>    
 			        <li class="mod" data="3">3</li>    
 			        <li class="mod" data="4">4</li>
 			    </ul>
 		  </div>
-			<div class="sidebar2">
+			<div class="notice">
 				<div class="news">
 					<span>最新消息</span>
 				</div>
