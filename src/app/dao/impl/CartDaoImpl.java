@@ -38,13 +38,12 @@ public class CartDaoImpl extends BaseDaoImpl implements CartDao {
 			cartGood = new Cart_Good();
 			cartGood.cart = myCart;
 			cartGood.good = good;
-			cartGood.num = num;
-			cartGoodDao.saveCartGood(cartGood);
+
 		} else if (cartGood.isDeleted) {
 			cartGood.isDeleted = false;
-			cartGood.num = num;
-			cartGoodDao.saveCartGood(cartGood);
 		}
+		cartGood.num = num;
+		cartGoodDao.saveCartGood(cartGood);
 	}
 
 	@Override

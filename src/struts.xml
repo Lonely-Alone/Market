@@ -53,6 +53,7 @@
        	 </action>
          <action name="deleteGood" class="app.action.ShoppingAction"  method="deleteGoodFromCart"></action>
          <action name="deleteGoods" class="app.action.ShoppingAction"  method="deleteGoodsFromCart"></action>
+         <action name="updateCart" class="app.action.ShoppingAction"  method="updateCart"></action>
          
         
         <!-- 后台管理页面 -->

@@ -59,28 +59,33 @@ public class ShoppingAction extends BaseAction implements ModelDriven<Good> {
 		return SUCCESS;
 	}
 
-	public void deleteGoodFromCart() {
-		Good goods = goodService.getGood(good.id);
-		// goodService.deleteFromCart(goods);
+	public void updateCart() {
+		Member member = CommonUtils.getCurrentMember();
+		if (member != null) {
+			Good g = goodService.getGood(good.id);
+			goodService.addToCart(g, num, member);
+		}
+		addCookie("good_" + good.id, num + "");
+		readShoppingCartFromCookie();
 		out.write(Result.succeed(null));
 	}
 
 	public void deleteGoodsFromCart() {
+		Member member = CommonUtils.getCurrentMember();
 		String[] ids = goodIds.split(",");
-		// goodService.deleteGoodByIds(ids);
+		if (member != null) {
+			goodService.deleteGoodByIds(ids, member);
+		}
 		for (String key : ids) {
-			deleteFromCookie(key);
+			deleteFromCookie("good_" + key);
 		}
 		readShoppingCartFromCookie();
-
 		out.write(Result.succeed(null));
 	}
 
 	public void readShoppingCartFromCookie() {
 		Cookie cookies[] = request.getCookies();
 		Map<Good, Long> map = new HashMap<Good, Long>();
-		float totaoPrice = 0.0f;
-		long totalNum = 0l;
 		if (cookies != null && cookies.length > 0) {
 			for (Cookie cookie : cookies) {
 				String key = cookie.getName();
@@ -88,14 +93,10 @@ public class ShoppingAction extends BaseAction implements ModelDriven<Good> {
 					Long goodNum = Long.parseLong(cookie.getValue());
 					Good g = goodService.getGood(Long.parseLong(key
 							.substring(5)));
-					totalNum += goodNum;
-					totaoPrice += g.realPrice * goodNum;
 					map.put(g, goodNum);
 				}
 			}
 			session.put("myCart", map);
-			session.put("totalPrice", totaoPrice);
-			session.put("totalNum", totalNum);
 		}
 	}
 
@@ -104,36 +105,11 @@ public class ShoppingAction extends BaseAction implements ModelDriven<Good> {
 		Member member = CommonUtils.getCurrentMember();
 		Map<Good, Long> map = new HashMap<Good, Long>();
 		List<Cart_Good> list = goodService.fetchByMember(member);
-		float totaoPrice = 0.0f;
-		long totalNum = 0l;
 		for (Cart_Good cg : list) {
 			long num = cg.num;
-			totalNum += cg.num;
-			totaoPrice += cg.good.realPrice * cg.num;
 			map.put(cg.good, num);
 		}
 		session.put("myCart", map);
-		session.put("totalPrice", totaoPrice);
-		session.put("totalNum", totalNum);
-	}
-
-	public void peristShoppingCart() {
-		Cookie cookies[] = request.getCookies();
-		Member member = CommonUtils.getCurrentMember();
-		if (member != null && cookies != null && cookies.length > 0) {
-			for (Cookie cookie : cookies) {
-				String key = cookie.getName();
-				if (key.contains("good_")) {
-					Long goodNum = Long.parseLong(cookie.getValue());
-					Good g = goodService.getGood(Long.parseLong(key
-							.substring(5)));
-					goodService.addToCart(g, num, member);// 添加或者修改
-
-				}
-			}
-			removeAllCookies();
-		}
-
 	}
 
 	@Override

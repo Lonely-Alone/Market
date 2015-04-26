@@ -17,5 +17,7 @@ a{text-decoration:none}
 
 .cart_toolbar{border:1px solid #c0c0c0;height:55px;margin-top:10px;line-height:50px;}
 
+.emptyCart{padding:230px}
+
 .goPay{display:block;float:right;border:1px solid #999999;
 		width:95px;height:55px;text-align:center;background:#CC0000;color:white;line-height:55px;font-size:18px;font-weight:bold;}

@@ -14,6 +14,7 @@
 </head>
 <link rel="stylesheet" type="text/css" href="public/css/common.css">
 <link rel="stylesheet" type="text/css" href="public/css/login.css">
+<script type="text/javascript" src="public/js/min/jquery-1.8.3.js"></script>
 <script type="text/javascript" src="public/js/min/do.js"></script>
 <script type="text/javascript" src="public/js/login.js"></script>
 <body>

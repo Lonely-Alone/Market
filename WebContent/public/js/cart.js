@@ -8,6 +8,16 @@
     	     if(num>1){
     	    	 amount.val(num-1);
     	    	 $("#realPrice"+target).html((num-1)*price);
+    	    	 $.ajax({
+    	  			   type: "POST",
+    	  			   url: "/Market/updateCart.action",
+    	  			   data: {
+    	  				 id:target,
+    	  				 num:num-1
+    	  			   },
+    	  			   success: function(msg){
+    	  			   }
+	  			});
     	     }
     	     sumTotal();
     	})
@@ -17,12 +27,22 @@
     var increaseNum = function (){
     	$(".increaseNum").click(function(){
     		 var ele = $(this), amount=ele.prev().children("input"),num=new Number($.trim(amount.val()))
-    		 target=+amount.attr("data"),price=amount.attr("price"),checkBox=$("#jsForCheck"+target);
+    		 target=amount.attr("data"),price=amount.attr("price"),checkBox=$("#jsForCheck"+target);
     		 if(!checkBox.attr("checked")){
     			 checkBox.attr("checked",true);
     		 }
 	    	 amount.val(num+1);
 	    	 $("#realPrice"+target).html((num+1)*price);
+	    	 $.ajax({
+	  			   type: "POST",
+	  			   url: "/Market/updateCart.action",
+	  			   data: {
+	  				 id:target,
+	  				 num:num+1
+	  			   },
+	  			   success: function(msg){
+	  			   }
+			});
 	    	 sumTotal();
     	})
      
@@ -57,12 +77,16 @@
   			var ele=$(this);
   			$.ajax({
   			   type: "POST",
-  			   url: "/Market/deleteGood.action",
+  			   url: "/Market/deleteGoods.action",
   			   data: {
-  				 goodsId:ele.attr("data")
+  				 goodIds:ele.attr("data")
   			   },
   			   success: function(msg){
   				   ele.parent().parent().remove();
+  				   if($(".jsForCheck").length==0){
+  					 $("#myCart").html('<div class="tc emptyCart"><p>购物车空空的哦~，去看看心仪的商品吧~</p><a href="/Market" >去购物</a></div>');
+  				   }
+  				 sumTotal();
   			   }
   			});
   			
@@ -84,14 +108,18 @@
 	  			   type: "POST",
 	  			   url: "/Market/deleteGoods.action",
 	  			   data: {
-	  				 goodsArr:goodsArr
+	  				 goodIds:goodsArr
 	  			   },
 	  			   success: function(msg){
 	  				 $(".jsForCheck").each(function(index,item){
 	  	  				if(item.checked){
 	  	  					$(item).parent().parent().remove();
 	  	  				}
-	  	  			})
+	  	  			});
+	  				 if($(".jsForCheck").length==0){
+	  					 $("#myCart").html('<div class="tc emptyCart"><p>购物车空空的哦~，去看看心仪的商品吧~</p><a href="/Market" >去购物</a></div>');
+	  				 }
+	  				 sumTotal();
 	  			   }
 	  			});
   		})

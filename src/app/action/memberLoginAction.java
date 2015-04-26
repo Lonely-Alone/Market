@@ -5,10 +5,14 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import javax.annotation.Resource;
+import javax.servlet.http.Cookie;
 
+import util.CommonUtils;
 import util.MD5Util;
+import app.models.goods.Good;
 import app.models.member.Member;
 import app.models.member.MemberLogin;
+import app.service.GoodService;
 import app.service.MemberLoginService;
 import app.service.MemberService;
 import app.util.Result;
@@ -25,6 +29,8 @@ public class memberLoginAction extends BaseAction implements
 	private MemberLoginService memberLoginService;
 	@Resource(name = "memberService")
 	private MemberService memberService;
+	@Resource
+	private GoodService goodService;
 
 	public String login() throws IOException {
 		response.setContentType("text/html;charset=UTF-8");
@@ -34,6 +40,7 @@ public class memberLoginAction extends BaseAction implements
 		if (ml != null) {
 			if (ml.password.equals(MD5Util.MD5(memberLogin.password))) {
 				session.put("member", ml.member);
+				peristShoppingCart();
 				out.write(Result.succeed(null));
 				return null;
 			} else {
@@ -54,6 +61,7 @@ public class memberLoginAction extends BaseAction implements
 		response.setContentType("text/html;charset=UTF-8");
 		if (session.get("member") != null) {
 			session.remove("member");
+			removeAllCookies();
 		}
 		response.sendRedirect("/Market");
 
@@ -94,20 +102,23 @@ public class memberLoginAction extends BaseAction implements
 		out.write(Result.succeed(null));
 	}
 
-	public MemberLoginService getMemberLoginService() {
-		return memberLoginService;
-	}
+	public void peristShoppingCart() {
+		Cookie cookies[] = request.getCookies();
+		Member member = CommonUtils.getCurrentMember();
+		if (member != null && cookies != null && cookies.length > 0) {
+			for (Cookie cookie : cookies) {
+				String key = cookie.getName();
+				if (key.contains("good_")) {
+					Long goodNum = Long.parseLong(cookie.getValue());
+					Good g = goodService.getGood(Long.parseLong(key
+							.substring(5)));
+					goodService.addToCart(g, goodNum, member);// 添加或者修改
 
-	public void setMemberLoginService(MemberLoginService memberLoginService) {
-		this.memberLoginService = memberLoginService;
-	}
+				}
+			}
+			removeAllCookies();
+		}
 
-	public MemberService getMemberService() {
-		return memberService;
-	}
-
-	public void setMemberService(MemberService memberService) {
-		this.memberService = memberService;
 	}
 
 	@Override

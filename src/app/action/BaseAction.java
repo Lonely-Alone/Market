@@ -68,10 +68,17 @@ public class BaseAction extends ActionSupport implements SessionAware,
 		ServletActionContext.getResponse().addCookie(cookie);
 	}
 
-	public void updateCookie(Cookie c, String value) {
-		c.setValue(value.trim());
-		c.setMaxAge(2 * 60 * 60 * 1000);// 设置为2个钟
-		ServletActionContext.getResponse().addCookie(c);
+	public void updateCookie(String key, String newValue) {
+		// 修改没有效果 待查询
+		Cookie cookies[] = ServletActionContext.getRequest().getCookies();
+		if (cookies != null && cookies.length > 0) {
+			for (Cookie c : cookies) {
+				if (c.getName().contains("good_" + key)) {
+					c.setValue(newValue);
+					ServletActionContext.getResponse().addCookie(c);
+				}
+			}
+		}
 	}
 
 	public void removeAllCookies() {
