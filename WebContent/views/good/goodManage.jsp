@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<form action="Market/addGoods.action" method="post">
+<form action="/Market/addGoods.action" method="post">
 
 名字<input type="text" name="name"/>
 描述<input type="text" name="description"/>

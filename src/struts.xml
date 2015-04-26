@@ -6,7 +6,7 @@
 		<!-- name="struts.devMode 表示为开发模式 value="true"表示不需要重启tomcat -->
 		<constant name="struts.devMode" value="true" />
 
-<!-- Struts 2运行时使用Spring来创建对象 -->
+	<!-- Struts 2运行时使用Spring来创建对象 -->
 	<constant name="struts.objectFactory" value="spring" />
 	<!-- 指定Web应用的默认编码集，相当于调用 HttpServletRequest的setCharacterEncoding方法 -->  
     <constant name="struts.i18n.encoding" value="UTF-8" /> 
@@ -16,7 +16,7 @@
 
 
  <!-- struts2的action必须放在一个指定的包空间下定义 -->
-    <package name="default" extends="struts-default" namespace="">
+    <package name="default" extends="struts-default" namespace="/">
 	  <global-results>
 	    <result name="input" type="redirect">/Market/views/application/Login.jsp</result>
 	    <result name="error">/error.jsp</result>
@@ -43,12 +43,17 @@
         <action name="getGoods" class="app.action.GoodAction" method="getGoodList">
         	<result name="success">/views/good/bookList.jsp</result>
         </action>
-        <action name="addGoodsToCart" class="app.action.GoodAction"  method="addGoodToCart">
-        </action>
-         <action name="deleteGood" class="app.action.GoodAction"  method="deleteGoodFromCart"></action>
-         <action name="deleteGoods" class="app.action.GoodAction"  method="deleteGoodsFromCart"></action>
+       
+        <!-- 购物车操作 -->
+          <action name="addToCart" class="app.action.ShoppingAction"  method="addGoodToCart">
+         	<result name="success" type="redirectAction">goToCart.action</result>
+       	 </action>
+       	 <action name="goToCart" class="app.action.ShoppingAction"  method="goToCart">
+         	<result name="success" >/views/good/myCart.jsp</result>
+       	 </action>
+         <action name="deleteGood" class="app.action.ShoppingAction"  method="deleteGoodFromCart"></action>
+         <action name="deleteGoods" class="app.action.ShoppingAction"  method="deleteGoodsFromCart"></action>
          
-        <action name="saveGood" class="app.action.GoodAction"  method="saveGood"></action>
         
         <!-- 后台管理页面 -->
          <action name="manageGoods" class="app.action.BackstageAction" method="manageGoods">
@@ -58,7 +63,7 @@
         	<result name="success">/views/back/editGood.jsp</result>
         </action>
         <action name="removeGoods" class="app.action.GoodAction" method="removeGoods"></action>
-        
+        <action name="saveGood" class="app.action.GoodAction"  method="saveGood"></action>
         <!-- 主页面 -->
         <action name="fetchGoods" class="app.action.GoodAction" method="getGoodList">
         	<result name="success">/views/good/goodList.jsp</result>

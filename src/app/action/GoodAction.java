@@ -6,7 +6,6 @@ import javax.annotation.Resource;
 
 import util.CommonUtils;
 import app.models.enums.GoodType;
-import app.models.goods.Cart_Good;
 import app.models.goods.Good;
 import app.service.GoodService;
 import app.service.impl.AttachServiceImpl;
@@ -31,8 +30,6 @@ public class GoodAction extends BaseAction implements ModelDriven<Good> {
 	public String goodIds;// 批量删除商品的Ids
 
 	public String type;
-
-	public int num;
 
 	public Good good;
 
@@ -79,42 +76,6 @@ public class GoodAction extends BaseAction implements ModelDriven<Good> {
 
 	public void removeGoods() {
 		goodService.removeGoods(goodIds);
-		out.write(Result.succeed(null));
-	}
-
-	public String addGoodToCart() throws Exception {
-		response.setContentType("text/html;charset=UTF-8");
-		out = response.getWriter();
-		if (CommonUtils.getCurrentMember() == null) {
-			out.write(Result.failed("未登录,请先登录！"));
-			return null;
-		}
-		Good goods = goodService.getGood(good.id);
-		goodService.addToCart(goods, num);
-		List<Good> list = goodService.getGoodListByCart();
-		List<Cart_Good> list1 = goodService.getTotal();
-		float totaoPrice = goodService.getTotalPrice();
-		long totalNum = goodService.getTotalNum();
-		session.put("myCart", list1);
-		session.put("totalPrice", totaoPrice);
-		session.put("totalNum", totalNum);
-		if (list1 != null) {
-			out.write(Result.succeed(null));
-			return null;
-		}
-		out.write(Result.failed("添加失败！"));
-		return null;
-	}
-
-	public void deleteGoodFromCart() {
-		Good goods = goodService.getGood(good.id);
-		goodService.deleteFromCart(goods);
-		out.write(Result.succeed(null));
-	}
-
-	public void deleteGoodsFromCart() {
-		String[] ids = goodIds.split(",");
-		goodService.deleteGoodByIds(ids);
 		out.write(Result.succeed(null));
 	}
 

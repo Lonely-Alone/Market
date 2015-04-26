@@ -40,7 +40,7 @@
 				<div class="goods_detail">
 					<ul>
 						<li>
-							<a href="Market/getGoods.action?goodsId=${book.id}" class="f16 b"><s:property value="#book.name"/></a>
+							<a href="/Market/getGoods.action?goodsId=${book.id}" class="f16 b"><s:property value="#book.name"/></a>
 						</li>
 						<li class="desc"><s:property value="#book.description"/></li>
 						<li>
@@ -82,7 +82,7 @@
 <script type="text/javascript">
 
 	function addGoods(id){
-  		 window.open("/SuperMarket/addgoods.do?method=addGoods&id="+id+"&num=1");
+  		 window.open("/Market/addgoods.do?method=addGoods&id="+id+"&num=1");
   		 
   	}
 

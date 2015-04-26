@@ -13,35 +13,35 @@ import app.models.goods.Good;
 @SuppressWarnings("all")
 public class CartGoodDaoImpl extends BaseDaoImpl implements CartGoodDao {
 
-	public void saveCartGood(Cart_Good cartGoods) {
-		save(cartGoods);
+	public void saveCartGood(Cart_Good cartGood) {
+		save(cartGood);
 	}
 
 	@Override
 	public Cart_Good findByCartAndGoodId(Cart cart, long goodId) {
 		return (Cart_Good) find(
-				"select cg from Cart_Good cg where  cg.cart = ? and cg.goods.id = ? ",
+				"select cg from Cart_Good cg where  cg.cart = ? and cg.good.id = ? ",
 				cart, goodId);
 	}
 
 	@Override
 	public Cart_Good findByCartAndGood(Cart cart, Good good) {
 		return (Cart_Good) find(
-				"select cg from Cart_Good cg where  cg.cart = ? and cg.goods = ? ",
+				"select cg from Cart_Good cg where  cg.cart = ? and cg.good = ? ",
 				cart, good);
 	}
 
 	@Override
 	public List<Cart_Good> fetchByCart(Cart cart) {
 		return fetch(
-				"select cg from Cart_Good cg where cg.isDeleted = false and cg.cart = ? and cg.isDeleted = false ",
+				"select cg from Cart_Good cg where cg.isDeleted = false and cg.cart = ? ",
 				cart);
 	}
 
 	@Override
 	public List<Good> fetchGooListByCart(Cart cart) {
 		return fetch(
-				"select cg.goods from Cart_Good cg where cg.isDeleted = false and cg.cart = ?  ",
+				"select cg.good from Cart_Good cg where cg.isDeleted = false and cg.cart = ?  ",
 				cart);
 	}
 
@@ -54,14 +54,14 @@ public class CartGoodDaoImpl extends BaseDaoImpl implements CartGoodDao {
 
 	public Long totalNum(Cart cart) {
 		return count(
-				"select sum(cg.num) from Cart_Goods cg where cg.isDeleted = false and cg.isDeleted = false and cg.cart = ?",
+				"select sum(cg.num) from Cart_Good cg where cg.isDeleted = false and cg.isDeleted = false and cg.cart = ?",
 				cart);
 
 	}
 
 	public float totalPrice(Cart cart) {
 		return count(
-				"select sum(cg.goods.price) from Cart_Good cg.isDeleted = false and cg where cg.isDeleted = false and cg.cart = ?",
+				"select sum(cg.good.price) from Cart_Good cg.isDeleted = false and cg where cg.isDeleted = false and cg.cart = ?",
 				cart);
 
 	}

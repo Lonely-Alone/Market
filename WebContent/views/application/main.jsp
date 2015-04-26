@@ -62,7 +62,7 @@
 			<div class="navigation2" >
 				<ul>
 					<li><a href="javascript:;">首页</a></li>
-					<li><a href="Market/fetchGoods.action?type=2">服装城</a></li>
+					<li><a href="/Market/fetchGoods.action?type=2">服装城</a></li>
 					<li><a href="javascript:;" >购物超市</a></li>
 					<li><a href="javascript:;" >电器城</a></li>
 					<li><a href="javascript:;" >书城</a></li>

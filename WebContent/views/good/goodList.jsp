@@ -38,7 +38,7 @@
 				<div class="goods_detail">
 					<ul>
 						<li>
-							<a href="Market/getGood.action?id=${good.id}" class="f16 b"><s:property value="#good.name"/></a>
+							<a href="/Market/getGood.action?id=${good.id}" class="f16 b"><s:property value="#good.name"/></a>
 						</li>
 						<li class="desc"><s:property value="#good.description"/></li>
 						<li>
@@ -57,7 +57,7 @@
 							<span>生产日期： <s:property value="#good.publishTime"/></span>
 						</li>
 						<li>
-							<a href="javascript:;" target="_blank" class="addbutton" goodId ="${good.id}">加入购物车</a>
+							<a href="/Market/addToCart.action?id=${good.id}" target="_blank" class="addbutton" >加入购物车</a>
 						</li>
 					</ul>
 				</div>
@@ -72,15 +72,5 @@
 	</div>
 	</div>
 </div>
-
-
 </body>
-<script type="text/javascript">
-
-	function addGoods(id){
-  		 window.open("/SuperMarket/addgoods.do?method=addGoods&id="+id+"&num=1");
-  		 
-  	}
-
-</script>
 </html>

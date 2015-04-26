@@ -1,21 +1,55 @@
     var decreaseNum = function (){
-    	$(".decrese").click(function(){
-    		 var ele = $(this), amount=ele.next(),num=new Number($.trim(amount.val()));
+    	$(".decreaseNum").click(function(){
+    		 var ele = $(this), amount=ele.next().children("input"),num=new Number($.trim(amount.val())),
+    		 	target=amount.attr("data"),price=amount.attr("price"),checkBox=$("#jsForCheck"+target);
+    		 if(!checkBox.attr("checked")){
+    			 checkBox.attr("checked",true);
+    		 }
     	     if(num>1){
     	    	 amount.val(num-1);
+    	    	 $("#realPrice"+target).html((num-1)*price);
     	     }
+    	     sumTotal();
     	})
      
   	}
     decreaseNum();
     var increaseNum = function (){
-    	$(".increase").click(function(){
-    		 var ele = $(this), amount=ele.prev(),num=new Number($.trim(amount.val()));
+    	$(".increaseNum").click(function(){
+    		 var ele = $(this), amount=ele.prev().children("input"),num=new Number($.trim(amount.val()))
+    		 target=+amount.attr("data"),price=amount.attr("price"),checkBox=$("#jsForCheck"+target);
+    		 if(!checkBox.attr("checked")){
+    			 checkBox.attr("checked",true);
+    		 }
 	    	 amount.val(num+1);
+	    	 $("#realPrice"+target).html((num+1)*price);
+	    	 sumTotal();
     	})
      
   	}
     increaseNum();
+    
+    var sumTotal = function(){
+    	var totalPrice=0,totalNum=0;
+    	$(".jsForCheck:checked").each(function(index,item){
+	    		var ele=$(item),data=ele.attr("data");
+	    		totalPrice+=Number($("#realPrice"+data).html());
+	    		totalNum+=Number($("#amount"+data).val());
+    	});
+    	$(".totalPrice").html("￥"+totalPrice);
+    	$(".totalNum").html(totalNum);
+    }
+    sumTotal();
+    
+    //全选与反选
+    $("#checkAllBtn").click(function(){
+    	checkFun(!$(this).attr("checked"));
+    	sumTotal();
+    });
+    $("#checkAllChk").click( function(){
+    	checkFun(!$(this).attr("checked"));
+     	sumTotal();
+    });
   	
     //删除某件商品
   	var deleteFromCart = function(){
@@ -23,7 +57,7 @@
   			var ele=$(this);
   			$.ajax({
   			   type: "POST",
-  			   url: "Market/deleteGood.action",
+  			   url: "/Market/deleteGood.action",
   			   data: {
   				 goodsId:ele.attr("data")
   			   },
@@ -36,18 +70,11 @@
   	}
   	deleteFromCart();
   	
-  	// --列头全选框被单击---
-  	var checkAll=function (){
-	     $("#checkAll").click(function(){
-	    	 $(".check").attr("checked",true);
-	     });
-	}
-  	checkAll();
   	//删除选中商品
   	var deleteGoods= function (){
-  		$("#deleteChecked").click(function(){
+  		$("#deleteAllBtn").click(function(){
   			var goodsArr="";
-  			$(".check").each(function(index,item){
+  			$(".jsForCheck").each(function(index,item){
   				var ele =$(item);
   				if(item.checked){
   					goodsArr+=ele.attr("data")+",";
@@ -55,12 +82,12 @@
   			})
   			$.ajax({
 	  			   type: "POST",
-	  			   url: "Market/deleteGoods.action",
+	  			   url: "/Market/deleteGoods.action",
 	  			   data: {
 	  				 goodsArr:goodsArr
 	  			   },
 	  			   success: function(msg){
-	  				 $(".check").each(function(index,item){
+	  				 $(".jsForCheck").each(function(index,item){
 	  	  				if(item.checked){
 	  	  					$(item).parent().parent().remove();
 	  	  				}

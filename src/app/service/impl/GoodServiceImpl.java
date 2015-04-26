@@ -15,6 +15,7 @@ import app.dao.MemberDao;
 import app.models.goods.Cart;
 import app.models.goods.Cart_Good;
 import app.models.goods.Good;
+import app.models.member.Member;
 import app.service.GoodService;
 
 @Service("goodService")
@@ -58,8 +59,8 @@ public class GoodServiceImpl implements GoodService {
 	}
 
 	@Override
-	public List<Good> getGoodListByCart() {
-		return cartDao.fetchGoodByCart();
+	public List<Good> fetchGoodListByCart(Member member) {
+		return cartDao.fetchGoodByCart(member);
 	}
 
 	public void removeGoods(String goodIds) {
@@ -71,28 +72,31 @@ public class GoodServiceImpl implements GoodService {
 		return goodDao.getTotalNum(name, type);
 	}
 
-	@Override
-	public void addToCart(Good good, int num) {
-		cartDao.addToCart(good, num);
+	public Cart getCart(Member member) {
+		return cartDao.findCartByMember(member);
 	}
 
 	@Override
-	public void deleteFromCart(Good good) {
-		cartDao.deleteFromCart(good);
+	public void addToCart(Good good, long num, Member member) {
+		cartDao.addToCart(good, num, member);
+	}
+
+	@Override
+	public void deleteFromCart(Good good, Member member) {
+		cartDao.deleteFromCart(good, member);
 
 	}
 
 	@Override
-	public List<Cart_Good> getTotal() {
-		List<Cart_Good> goodsList = cartGoodsDao.fetchByCart(cartDao
-				.findCartByMember());
+	public List<Cart_Good> fetchByMember(Member member) {
+		List<Cart_Good> goodsList = cartDao.fetchByMember(member);
 		return goodsList;
 	}
 
 	@Override
-	public Long getTotalNum() {
+	public Long getTotalNum(Member member) {
 		List<Cart_Good> goodsList = cartGoodsDao.fetchByCart(cartDao
-				.findCartByMember());
+				.findCartByMember(member));
 		Long totalNum = 0l;
 		for (Cart_Good good : goodsList) {
 			totalNum += good.num;
@@ -101,8 +105,8 @@ public class GoodServiceImpl implements GoodService {
 	}
 
 	@Override
-	public void deleteGoodByIds(String[] goodIds) {
-		Cart cart = cartDao.findCartByMember();
+	public void deleteGoodByIds(String[] goodIds, Member member) {
+		Cart cart = cartDao.findCartByMember(member);
 		for (String id : goodIds) {
 			Cart_Good cgood = cartGoodsDao.findByCartAndGoodId(cart,
 					Long.parseLong(id));
@@ -112,9 +116,9 @@ public class GoodServiceImpl implements GoodService {
 	}
 
 	@Override
-	public float getTotalPrice() {
+	public float getTotalPrice(Member member) {
 		List<Cart_Good> goodList = cartGoodsDao.fetchByCart(cartDao
-				.findCartByMember());
+				.findCartByMember(member));
 		float totalPrice = 0f;
 		for (Cart_Good good : goodList) {
 			float price = good.num * good.good.realPrice;
@@ -124,14 +128,14 @@ public class GoodServiceImpl implements GoodService {
 	}
 
 	@Override
-	public void editCart(Good good, long num) {
-		cartDao.editCart(good, num);
+	public void editCart(Good good, long num, Member member) {
+		cartDao.editCart(good, num, member);
 
 	}
 
 	@Override
-	public void clearCart() {
-		cartDao.clearCart();
+	public void clearCart(Member member) {
+		cartDao.clearCart(member);
 	}
 
 }

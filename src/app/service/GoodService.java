@@ -4,6 +4,7 @@ import java.util.List;
 
 import app.models.goods.Cart_Good;
 import app.models.goods.Good;
+import app.models.member.Member;
 
 public interface GoodService {
 
@@ -20,22 +21,22 @@ public interface GoodService {
 
 	public int getTotalNum(String name, String type);
 
-	public void addToCart(Good good, int num);
+	public void addToCart(Good good, long num, Member member);
 
-	public void deleteFromCart(Good good);
+	public void deleteFromCart(Good good, Member member);
 
-	public void deleteGoodByIds(String[] goodIds);
+	public void deleteGoodByIds(String[] goodIds, Member member);
 
-	public Long getTotalNum();
+	public Long getTotalNum(Member member);
 
-	public float getTotalPrice();
+	public float getTotalPrice(Member member);
 
-	public void editCart(Good good, long num);
+	public void editCart(Good good, long num, Member member);
 
-	public void clearCart();
+	public void clearCart(Member member);
 
-	public List<Good> getGoodListByCart();
+	public List<Good> fetchGoodListByCart(Member member);
 
-	public List<Cart_Good> getTotal();//
+	public List<Cart_Good> fetchByMember(Member member);//
 
 }

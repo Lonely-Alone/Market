@@ -26,8 +26,8 @@ public class CartDaoImpl extends BaseDaoImpl implements CartDao {
 	}
 
 	@Override
-	public void addToCart(Good good, int num) {
-		Cart myCart = findCartByMember();
+	public void addToCart(Good good, long num, Member member) {
+		Cart myCart = findCartByMember(member);
 		if (myCart == null) {
 			myCart = new Cart();
 			myCart.member = CommonUtils.getCurrentMember();
@@ -42,52 +42,59 @@ public class CartDaoImpl extends BaseDaoImpl implements CartDao {
 			cartGoodDao.saveCartGood(cartGood);
 		} else if (cartGood.isDeleted) {
 			cartGood.isDeleted = false;
+			cartGood.num = num;
 			cartGoodDao.saveCartGood(cartGood);
 		}
 	}
 
 	@Override
-	public void deleteFromCart(Good goods) {
-		Cart_Good cartGoods = cartGoodDao.findByCartAndGood(findCartByMember(),
-				goods);
-		if (cartGoods != null) {
-			cartGoods.isDeleted = true;
-			save(cartGoods);
+	public void deleteFromCart(Good good, Member member) {
+		Cart_Good cartGood = cartGoodDao.findByCartAndGood(
+				findCartByMember(member), good);
+		if (cartGood != null) {
+			cartGood.isDeleted = true;
+			save(cartGood);
 		}
 
 	}
 
-	public List<Good> fetchGoodByCart() {
-		return cartGoodDao.fetchGooListByCart(findCartByMember());
+	@Override
+	public List<Good> fetchGoodByCart(Member member) {
+		return cartGoodDao.fetchGooListByCart(findCartByMember(member));
 	}
 
 	@Override
-	public Long getTotalNum() {
-		return cartGoodDao.totalNum(findCartByMember());
+	public List<Cart_Good> fetchByMember(Member member) {
+		return cartGoodDao.fetchByCart(findCartByMember(member));
+
 	}
 
 	@Override
-	public float getTotalPrice() {
-		return cartGoodDao.totalPrice(findCartByMember());
+	public Long getTotalNum(Member member) {
+		return cartGoodDao.totalNum(findCartByMember(member));
 	}
 
 	@Override
-	public void editCart(Good goods, long num) {
-		Cart_Good cartGoods = cartGoodDao.findByCartAndGood(findCartByMember(),
-				goods);
+	public float getTotalPrice(Member member) {
+		return cartGoodDao.totalPrice(findCartByMember(member));
+	}
+
+	@Override
+	public void editCart(Good goods, long num, Member member) {
+		Cart_Good cartGoods = cartGoodDao.findByCartAndGood(
+				findCartByMember(member), goods);
 		cartGoods.num = num;
 		saveOrupdate(cartGoods);
 	}
 
 	@Override
-	public void clearCart() {
-		cartGoodDao.clearCart(findCartByMember());
+	public void clearCart(Member member) {
+		cartGoodDao.clearCart(findCartByMember(member));
 
 	}
 
 	@Override
-	public Cart findCartByMember() {
-		Member member = CommonUtils.getCurrentMember();
+	public Cart findCartByMember(Member member) {
 		return (Cart) find("select c from Cart c where c.member = ?", member);
 	}
 
