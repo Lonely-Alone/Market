@@ -1,0 +1,5 @@
+/*布局*/
+.container {margin:0 auto; width:auto;}
+.header { height:40px;  margin-bottom:5px;width:100%;background:#f6f6f6;
+		border-bottom:1px solid #CCC;font-size:13px;}
+.mainContent { height:auto;margin-top:50px;}

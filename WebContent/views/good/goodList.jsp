@@ -21,16 +21,16 @@
 
 <body>
 <div class="container">
-  <div class="header">
-  	<jsp:include page="/views/head.jsp"></jsp:include>
-  </div>
-  <div class="mainContent" > 
-	<div class="goodlist">
-		<h2><a href="#"><s:property value="%{#request.goodType}"/> &gt;</a></h2>
-		<span><a href="#"></a></span>
+	<div class="header">
+		<jsp:include page="/views/head.jsp"></jsp:include>
 	</div>
-	<div class="goods_center" >
-		<hr>
+	<div class="mainContent" > 
+		<div class="goodlist">
+			<h2><a href="#"><s:property value="%{#request.goodType}"/> &gt;</a></h2>
+			<span><a href="#"></a></span>
+		</div>
+		<div class="goods_center" >
+			<hr>
 			<s:iterator   value="# request.goodList" id="good" >
 				<div class="goods_img">
 					<a href="" ><img src="<s:property value='#good.imgUrl'/>" width="260px"></a>
@@ -64,12 +64,12 @@
 				<div>
 					<hr   class= "cut_off " />
 				</div>
-				
-		 </s:iterator  >
-		  <div class="page">
+						
+		 	</s:iterator  >
+			<div class="page">
 			<jsp:include page="/views/application/paging.jsp"></jsp:include>
-		 </div>
-	</div>
+			</div>
+		</div>
 	</div>
 </div>
 </body>

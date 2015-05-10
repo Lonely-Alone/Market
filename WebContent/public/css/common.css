@@ -40,7 +40,7 @@ a.c:hover{text-decoration:none; color:#22a0b9;}
 .l{float:left;}.r{float:right;}.cl{clear:both;}
 .rel{position:relative;}.abs{position:absolute;}
 .l0{left:0;} .r0{right:0;} .r-50{right:-50px;}
-.zx1{z-index:1;}.zx2{z-index:2;}
+.zx1{z-index:1;}.zx2{z-index:2;}.zx999{z-index:999;}
 .poi{cursor:pointer;}.def{cursor:default;}.txt{cursor:text;}
 .ovh{overflow:hidden;}.ovs{overflow:scroll;}.ova{overflow:auto;}
 .vh{visibility:hidden;}.vv{visibility:visible;}
@@ -361,8 +361,3 @@ a.c:hover{text-decoration:none; color:#22a0b9;}
 .lh{text-decoration:line-through;}
 .hrd{border:1px dotted #CCCCCC;width:400px;}
 
-
-/*布局*/
-.container {margin:0 auto; width:auto;}
-.header { height:40px;  margin-bottom:5px;width:100%;background:#f6f6f6;border-bottom:1px solid #CCC;font-size:13px}
-.mainContent { height:auto;margin-top:50px;}

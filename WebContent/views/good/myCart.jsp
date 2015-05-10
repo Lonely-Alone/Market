@@ -8,24 +8,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
   <head>
     <base href="<%=basePath%>">
-    
     <title>我的购物车</title>
-    
-
+    <link rel="stylesheet" type="text/css" href="public/css/layout.css">
 	<link rel="stylesheet" type="text/css" href="public/css/common.css">
 	<link rel="stylesheet" type="text/css" href="public/css/shoppingCart.css">
+	<link rel="stylesheet" type="text/css" href="public/js/sobox/style.css">
 	<script type="text/javascript" src="public/js/min/jquery-1.8.3.js"></script>
-	<script type="text/javascript" src="public/js/min/newAjax.js"></script>
+	<script type="text/javascript" src="public/js/sobox/jquery.sobox.min.js"></script>
+	<script type="text/javascript" src="public/js/min/ibox.js"></script>
   </head>
-  
-  <body>
+  <body class="zx1">
 	<div class="container">
 		<div class="header">
 		 	<jsp:include page="/views/head.jsp"></jsp:include>
 		</div>
 		<s:if test="#session.myCart!=null && !session.myCart.isEmpty()">
 			<div id="myCart">
-				<div class="ml150">
+				<div class="ml150" >
 					<h2 >我的购物车</h2>
 				</div>
 				<div  class="shopping_div1">
@@ -91,8 +90,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		              		总价<span class="totalPrice"></span>
 		              	</div>
 		                <div class="l pct10">
-		                	<a href="javascript:;"  id="goPay">
+		                	<a href="javascript:;"  id="goPay" data="${member}"> 
 					      		<span class="goPay" >去结算 </span>
+					      		<a class="a-soIframe dn" href="http://localhost:8088/Market/views/good/Login.jsp#soIframe?width=600&height=400&showTitle=0&outCloseBtn=true"></a>
 					      	</a>
 				     	</div>       
 		           </div>

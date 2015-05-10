@@ -125,12 +125,12 @@
   		})
 	}
   	deleteGoods();
-  	
   	var goPay  = function(){
   		$("#goPay").click(function(){
   			var ele=$(this),data =ele.attr("data"); 
   			if( data== null ||data==""){
-  				window.open ('/Market/view/application/Login.jsp', '', 'height=565, width=525, top=120, left=300, toolbar=no, menubar=no, scrollbars=no, resizable=no,location=no, status=no');
+  			  $('.a-soIframe').click();
+
   			}else{
   				window.location.href="/Market/views/book/order.jsp";
   			}
@@ -139,3 +139,7 @@
   		
   	}
   	goPay();
+  	
+  	var soIframe = $('.a-soIframe').soIframePop();
+  	
+  

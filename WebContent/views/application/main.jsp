@@ -12,6 +12,7 @@
 <base href="<%=basePath%>">
 
 <title>首页面</title>
+<link rel="stylesheet" type="text/css" href="public/css/layout.css">
 <link rel="stylesheet" type="text/css" href="public/css/common.css">
 <link rel="stylesheet" type="text/css" href="public/css/main.css">
 <script type="text/javascript" src="public/js/min/jquery-1.8.3.js"></script>

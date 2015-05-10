@@ -35,6 +35,7 @@ a{text-decoration:none} a:hover{text-decoration:none}
 .mod{width:20px;height:20px;background: #CC3300;border:2px solid #993300; overflow:hidden; color:#fff; filter:alpha(opacity=80);opacity:0.8;float:left;cursor:default; font-size:12px;line-height:20px; margin:0px 5px; font-family:Arial;}
 
 .current{background-color:#00CB00;} 
+.wh{background-color:#fff;} 
 
 .news{padding: 0 15px;border-bottom: 1px dotted #E8E8E7;height: 43px;line-height: 43px;}
 .news span{font-size:18px;font-weight:bold;}
