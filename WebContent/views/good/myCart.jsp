@@ -15,9 +15,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" type="text/css" href="public/js/sobox/style.css">
 	<script type="text/javascript" src="public/js/min/jquery-1.8.3.js"></script>
 	<script type="text/javascript" src="public/js/sobox/jquery.sobox.min.js"></script>
-	<script type="text/javascript" src="public/js/min/ibox.js"></script>
   </head>
-  <body class="zx1">
+  <body >
 	<div class="container">
 		<div class="header">
 		 	<jsp:include page="/views/head.jsp"></jsp:include>
@@ -27,7 +26,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div class="ml150" >
 					<h2 >我的购物车</h2>
 				</div>
-				<div  class="shopping_div1">
+				<div  class="shopping_div1 ">
 			    	<ul >
 						<li ><img src='public/img/right.png' ></li>
 						<li class="ge"><b></b>1.我的购物车</li>
@@ -92,8 +91,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                <div class="l pct10">
 		                	<a href="javascript:;"  id="goPay" data="${member}"> 
 					      		<span class="goPay" >去结算 </span>
-					      		<a class="a-soIframe dn" href="http://localhost:8088/Market/views/good/Login.jsp#soIframe?width=600&height=400&showTitle=0&outCloseBtn=true"></a>
 					      	</a>
+					      	<a class="a-soIframe dn" href="http://localhost:8088/Market/views/good/Login.jsp#soIframe?width=600&height=400&showTitle=0&outCloseBtn=true"></a>
 				     	</div>       
 		           </div>
 			  </div>

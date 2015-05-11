@@ -21,3 +21,35 @@ a{text-decoration:none}
 
 .goPay{display:block;float:right;border:1px solid #999999;
 		width:95px;height:55px;text-align:center;background:#CC0000;color:white;line-height:55px;font-size:18px;font-weight:bold;}
+		
+.order_div1{width:800px;height:150px;margin-left:500px;margin-top:50px;}
+		
+		
+.order_div1 li {float:left;font-size:12px;}
+.hr1{width:150px; height:5px;border:none;border-top:5px ridge #BCE8A3;}
+.hr2{width:150px; height:5px;border:none;border-top:5px ridge #F7F7F7;}
+
+
+.order_div2{width:80%;height:30px;margin-left:10%;border:1px solid #DDDDDD;background:#F7F7F7}
+.order_div2 h3{color:#757575;margin-top:3px;}
+
+.order_div3{width:80%;height:auto;margin-left:10%;border:1px solid #DDDDDD;}
+.order_div3 span{display:block}
+.order_div3 strong{display:block;padding:10px;margin-top:10px}
+.order_div3_1{height:120px;border-bottom:1px solid #DDDDDD;}
+.order_div3_1 p{margin-left:100px;}
+.order_div3_2{height:120px;border-bottom:1px solid #DDDDDD;}
+.order_div3_2 p{margin-left:100px;}
+.order_div3_3{height:auto;border-bottom:1px solid #DDDDDD;}
+.order_div3_3 a{text-decoration:none}
+.order_div3_3 a:hover{text-decoration:underline}
+.order_div3_4{height:auto;margin-top:30px;}
+.order_div3_4_1{height:30px;background:#EEEEEE}
+.order_div3_4_2{height:120px;margin-top:50px;border-bottom:1px dotted black;text-align:center;}
+
+.button_sub{width:60px;height:25px;margin-left:280px;margin-top:-25px;background:#CC0000;color:white;border:0}
+.button_sub:hover{background:#EC4245}
+.goSubmit{display:block;float:left;margin-top:-30px;margin-left:800px;border:1px solid #999999;
+		width:150px;height:35px;text-align:center;background:#CC0000;color:white;line-height:35px;font-size:20px;font-weight:bold;border:0}
+.goSubmit:hover{background:#EC4245}
+		

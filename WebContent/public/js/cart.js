@@ -132,7 +132,24 @@
   			  $('.a-soIframe').click();
 
   			}else{
-  				window.location.href="/Market/views/book/order.jsp";
+  				var goodsArr="";
+  	  			$(".jsForCheck").each(function(index,item){
+  	  				var ele =$(item);
+  	  				if(item.checked){
+  	  					goodsArr+=ele.attr("data")+",";
+  	  				}
+  	  			})
+  	  			$.ajax({
+	  			   type: "POST",
+	  			   url: "/Market/submitOrder.action",
+	  			   data: {
+	  				 goodIds:goodsArr
+	  			   },
+	  			   success: function(msg){
+	  				 window.location.href="/Market/views/good/order.jsp";
+	  			   }
+  	  			});
+  				
   			}
   			
   		})
