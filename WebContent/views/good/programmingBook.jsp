@@ -11,23 +11,31 @@
 <head>
 <base href="<%=basePath%>">
 <title>编程之家</title>
+<link rel="stylesheet" type="text/css" href="public/css/layout.css">
 <link rel="stylesheet" type="text/css" href="public/css/bookMain.css">
 <link rel="stylesheet" type="text/css" href="public/css/common.css">
 <link rel="stylesheet" type="text/css" href="public/css/programmingBook.css">
 <script type="text/javascript" src="public/js/min/do.js"></script>
+<script type="text/javascript" src="public/js/min/jquery-1.8.3.js"></script>
 </head>
 
 <body>
 
-	<div >
+<div class="container">
+	<div class="header">
 		<jsp:include page="/views/head.jsp"></jsp:include>
+	</div>	
+	<div class="search">
+				<input type="text" /> 
+				<a href="javascript:;" onclick="">搜索</a>
+	</div>
 	</div>	
 
 	<div class="div">
 		<h2>热门编程语言</h2>
 		<div class="div1">
 			 <span><a href="#">c</a> <a href="#">c#</a> <a href="#">c++</a></span> <br />
-			 <span> <a href="Market/getGoodsList.action?page=1&goodsType=book">java</a> <a href="#">javaScript</a></span> <br />
+			 <span> <a href="Market/getGoods.action?page=1&type=book">java</a> <a href="#">javaScript</a></span> <br />
 			 <span> <a href="#">Objective-c</a>  </span><br />
 			 <span> <a href="#">PHP</a> <a href="#">Python</a> <a href="#">Ruby</a> </span><br/>
 			<span><a href="#">&gt;所有编程语言</a></span>

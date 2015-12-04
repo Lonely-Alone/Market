@@ -11,11 +11,13 @@
 <head>
 <base href="<%=basePath%>">
 <title>Java</title>
+<link rel="stylesheet" type="text/css" href="public/css/layout.css">
 <link rel="stylesheet" type="text/css" href="public/css/programmingJava.css">
 <link rel="stylesheet" type="text/css" href="public/css/common.css">
 <link rel="stylesheet" type="text/css" href="public/css/bookMain.css">
 <link rel="stylesheet" type="text/css" href="public/css/programmingBook.css">
 <script type="text/javascript" src="public/js/min/do.js"></script>
+<script type="text/javascript" src="public/js/min/jquery-1.8.3.js"></script>
 <script type="text/javascript" src="public/js/book.js"></script>
 
 
@@ -24,16 +26,19 @@
 
 <body>
 
-	<jsp:include page="/views/head.jsp"></jsp:include>
+<div class="container">
+  	<div class="header">
+  		<jsp:include page="/views/head.jsp"></jsp:include>
+  	</div>
+  	<div class="mainDiv"> 
 	<div class="booklist">
 		<h2><a href="#">图书 &gt;</a></h2>
 		<span><a href="#">编程语言与程序设计</a></span>
 	</div>
-	<div class="javabook1" ></div>
 
 	<div class="goods_center">
 		<hr>
-			<s:iterator   value="# request.goodsList" id="book" >
+			<s:iterator   value="# request.goodList" id="book" >
 				<div class="goods_img">
 					<a href="" ><img src="public/img/javaBook/${book.id}.jpg"></a>
 				</div>
@@ -75,7 +80,8 @@
 			<jsp:include page="/views/application/paging.jsp"></jsp:include>
 		 </div>
 	</div>
-
+	</div>
+</div>
 
 
 </body>

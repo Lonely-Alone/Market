@@ -1,5 +1,6 @@
 package app.action;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -12,8 +13,13 @@ import org.apache.commons.lang.StringUtils;
 import util.CommonUtils;
 import app.models.goods.Cart_Good;
 import app.models.goods.Good;
+import app.models.member.Address;
 import app.models.member.Member;
+import app.models.order.OrderItem;
+import app.models.order.OrderSum;
+import app.service.AddressService;
 import app.service.GoodService;
+import app.service.OrderService;
 import app.util.Result;
 
 import com.opensymphony.xwork2.ModelDriven;
@@ -23,6 +29,10 @@ public class ShoppingAction extends BaseAction implements ModelDriven<Good> {
 
 	@Resource
 	private GoodService goodService;
+	@Resource
+	private OrderService orderService;
+	@Resource
+	private AddressService addressService;
 
 	public Good good;
 
@@ -110,6 +120,39 @@ public class ShoppingAction extends BaseAction implements ModelDriven<Good> {
 			map.put(cg.good, num);
 		}
 		session.put("myCart", map);
+	}
+
+	public void createOrder() {
+		Member currMember = CommonUtils.getCurrentMember();
+		OrderSum orderSum = orderService.saveOrderSum(currMember);
+		List<OrderItem> itemList = new ArrayList<OrderItem>();
+		for (String id : goodIds.split(",")) {
+			if (StringUtils.isNotBlank(id)) {
+				int goodNum = 0;
+				String num = getDataFromCookie("good_" + id);
+				if (StringUtils.isBlank(num)) {
+					goodNum = 1;
+				} else {
+					goodNum = Integer.parseInt(num);
+				}
+				Good good = goodService.getGood(Long.parseLong(id));
+				OrderItem item = orderService.saveOrderItem(orderSum, good,
+						goodNum, good.realPrice * goodNum);
+				orderSum.sumPrice += good.realPrice * goodNum;
+				orderSum.totalCount += goodNum;
+				itemList.add(item);
+			}
+		}
+		orderService.updateOrderSum(orderSum);
+		List<Address> addresses = addressService.fetchByPerson(CommonUtils
+				.getCurrentMember());
+		session.put("addresses", addresses);
+		System.err.println("========================"
+				+ addresses.get(0).isDefault);
+		session.put("order", itemList);
+		session.put("orderSum", orderSum);
+		out.write(Result.succeed(null));
+
 	}
 
 	@Override

@@ -44,7 +44,7 @@
 				</div>
 				<div class="dn drop_nav" id="nav_Float">
 					<div class="item"> 
-						<a href="javascript:;" >图书</a> 
+						<a href="/Market/views/good/goodMain.jsp" >图书</a> 
 				 		<a href="javascript:;" >数码</a> 
 			 		</div>
 					<div class="item"> 	

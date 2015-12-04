@@ -54,7 +54,10 @@
          <action name="deleteGood" class="app.action.ShoppingAction"  method="deleteGoodFromCart"></action>
          <action name="deleteGoods" class="app.action.ShoppingAction"  method="deleteGoodsFromCart"></action>
          <action name="updateCart" class="app.action.ShoppingAction"  method="updateCart"></action>
-         <action name="submitOrder" class="app.action.ShoppingAction"  method="submitOrder"></action>
+         <action name="createOrder" class="app.action.ShoppingAction"  method="createOrder"></action>
+         
+         <!-- 订单处理 -->
+           <action name="addAddress" class="app.action.AddressAction"  method="addAddress"></action>
          
         
         <!-- 后台管理页面 -->

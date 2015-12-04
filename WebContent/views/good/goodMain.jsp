@@ -11,75 +11,66 @@
 <head>
 <base href="<%=basePath%>">
 <title>书城</title>
+<link rel="stylesheet" type="text/css" href="public/css/layout.css">
 <link rel="stylesheet" type="text/css" href="public/css/bookMain.css">
 <link rel="stylesheet" type="text/css" href="public/css/sort.css">
 <link rel="stylesheet" type="text/css" href="public/css/common.css">
 <script type="text/javascript" src="public/js/min/do.js"></script>
+<script type="text/javascript" src="public/js/min/jquery-1.8.3.js"></script>
 </head>
 <body>
-<div class="header">
-	<div >
+<div class="container">
+	<div class="header">
 		<jsp:include page="/views/head.jsp"></jsp:include>
 	</div>	
 	<div class="search">
 				<input type="text" /> 
 				<a href="javascript:;" onclick="">搜索</a>
 	</div>
-	<div class="h">
-		<h2>
-			<a href="javascript:;">图书</a>
-		</h2>
-		<span> 
-			<a href="javascript:;" >电子书</a>&nbsp;|&nbsp;
-			<a href="javascript:;" >音像</a>&nbsp;|&nbsp;
-			<a href="javascript:;" >在线读书</a>&nbsp;|&nbsp;
-			<a href="javascript:;" >团购</a>&nbsp;|&nbsp;
-			<a href="javascript:;" >版税补贴</a>&nbsp;|&nbsp;
-			<a href="javascript:;" >图书榜</a>&nbsp;|&nbsp;
-			<a href="javascript:;" >新书榜</a>&nbsp;|&nbsp;
-			<a href="javascript:;" >特价</a>&nbsp;|&nbsp;
-			<a href="javascript:;" >预售</a>&nbsp;|&nbsp;
+	<div class="title">
 			<a href="javascript:;" >所有图书分类</a>
-		</span>
+			<a href="javascript:;" >电子书</a>
+			<a href="javascript:;" >音像</a>
+			<a href="javascript:;" >在线读书</a>
+			<a href="javascript:;" >团购</a>
+			<a href="javascript:;" >版税补贴</a>
+			<a href="javascript:;" >图书榜</a>
+			<a href="javascript:;" >新书榜</a>
+			<a href="javascript:;" >特价</a>
+			<a href="javascript:;" >预售</a>
 	</div>
-
-</div>
-
-<div class="l">
-	<jsp:include page="leftTag.jsp"></jsp:include>
-</div>
+  	<div class="mainContent"> 
+			<div class="l">
+				<jsp:include page="leftTag.jsp"></jsp:include>
+			</div>
 <div class="tc mt50">
-	<div class="dhooo_tab1">
-		<ul class="tab_btn_1" id="myTab_btns2">
-			<li class="hot">1</li>
-			<li>2</li>
-			<li>3</li>
-			<li>4</li>
-			<li>5</li>
-		</ul>
-		<div class="main1" id="main2">
-			<ul class="content">
-				<li><a href="javascript:;"><img src="public/img/book/book1.jpg" /></a></li>
-				<li><a href="javascript:;"><img src="public/img/book/book2.jpg" /></a></li>
-				<li><a href="javascript:;"><img src="public/img/book/book3.jpg" /></a></li>
-				<li><a href="javascript:;"><img src="public/img/book/book4.jpg" /></a></li>
-				<li><a href="javascript:;"><img src="public/img/book/book5.jpg" /></a></li>
-				<li><a href="javascript:;"><img src="public/img/book/book6.jpg" /></a></li>
+		<div class="dhooo_tab1">
+			<ul class="tab_btn_1" id="myTab_btns2">
+				<li class="hot">1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
 			</ul>
+			<div class="main1" id="main2">
+				<ul class="content">
+					<li><a href="javascript:;"><img src="public/img/book/book1.jpg" /></a></li>
+					<li><a href="javascript:;"><img src="public/img/book/book2.jpg" /></a></li>
+					<li><a href="javascript:;"><img src="public/img/book/book3.jpg" /></a></li>
+					<li><a href="javascript:;"><img src="public/img/book/book4.jpg" /></a></li>
+					<li><a href="javascript:;"><img src="public/img/book/book5.jpg" /></a></li>
+					<li><a href="javascript:;"><img src="public/img/book/book6.jpg" /></a></li>
+				</ul>
+			</div>
 		</div>
-	</div>
 	<div class="dhooo_tab">
 		<h2>分类推荐</h2>
 		<ul class="tab_btn" id="myTab_btns1">
-			<li class="hot">文学</li>
-			<li style="display:none"></li>
-			<li>小说</li>
-			<li style="display:none">
-			<li>励志</li>
-			<li style="display:none">
-			<li>社科</li>
-			<li style="display:none">
-			<li>计算机互联网</li>
+			<li class="hot" data="1">文学</li>
+			<li data="2">小说</li>
+			<li data="3">励志</li>
+			<li data="4">社科</li>
+			<li data="5">计算机互联网</li>
 		</ul>
 		<div class="main" id="main1">
 			<div class="shell">
@@ -132,14 +123,14 @@
 								<span style="color:red;">现价：￥17.00</span><br />
 							</div>
 						</div></li>
-					<li style="margin-left:-30px">
+					<li class="dn">
 						<div style="margin-bottom:50px;">
 							<div style="float:left;">
 								<a href="javascript:;"><img src="public/img/book/huaerjie.jpg" />
 								</a>
 							</div>
 							<div>
-								<span><a href="javascript:;"
+								<span><a href="/Market/views/good/huaerjieDetail.jsp"
 									style="font-size:15px;margin-bottom:20px">华尔街之狼</a>
 								</span><br> <span
 									style="TEXT-DECORATION: line-through;margin-top:20px;display:block">定价：￥45.00</span><span
@@ -180,7 +171,7 @@
 								<span style="color:red;">现价：￥17.00</span><br />
 							</div>
 						</div></li>
-					<li style="margin-left:-30px">
+					<li class="dn">
 						<div style="margin-bottom:50px;">
 							<div style="float:left;">
 								<a href="javascript:;"><img src="public/img/book/huaerjie.jpg" />
@@ -229,7 +220,7 @@
 								<span style="color:red;">现价：￥17.00</span><br />
 							</div>
 						</div></li>
-					<li style="margin-left:-40px">
+					<li class="dn">
 						<div style="margin-bottom:50px;">
 							<div style="float:left;">
 								<a href="javascript:;"><img src="public/img/book/hanzi.jpg" />
@@ -279,7 +270,7 @@
 								<span style="color:red;">现价：￥290.00</span><br />
 							</div>
 						</div></li>
-					<li style="margin-left:-40px">
+					<li class="dn">
 						<div style="margin-bottom:50px;">
 							<div style="float:left;">
 								<a href="javascript:;"><img src="public/img/book/Puppet.jpg" />
@@ -352,6 +343,10 @@
 	</div>
 	<jsp:include page="/views/good/billBoard.jsp"></jsp:include>
 		
+  	</div>
+ </div>
+ <div>
+	</div>
 </div>
 </body>
 <script language=javascript src="public/js/book.js" type=text/javascript></script>

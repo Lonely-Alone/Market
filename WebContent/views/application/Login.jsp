@@ -12,6 +12,7 @@
 <base href="<%=basePath%>">
 <title>登录页面</title>
 </head>
+<link rel="stylesheet" type="text/css" href="public/css/layout.css">
 <link rel="stylesheet" type="text/css" href="public/css/common.css">
 <link rel="stylesheet" type="text/css" href="public/css/login.css">
 <script type="text/javascript" src="public/js/min/jquery-1.8.3.js"></script>
@@ -58,7 +59,6 @@
 							<a  class="loginbtn bdrad3 boxsh1" href="/Market/views/application/register.jsp">注册</a>
 						</div>	
 					</div>
-					<span class="shadow"></span>										
 				</div>	
 			</div>		
 		</div>	

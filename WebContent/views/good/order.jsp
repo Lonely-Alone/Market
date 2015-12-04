@@ -39,20 +39,45 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    <div class="order_div2">
 		    	<h3>填写并核对订单消息</h3></div>
 		    <div class="order_div3">
-		    	<div class="order_div3_1"> 
-		    		<strong>收货人信息[<a href="">修改</a>]</strong>
-		    		<p> <s:property value="#member.userName" /> &emsp;  <s:property value="#member.phone" /> </p>
-		    		<p> </p>
+		    	<div class="order_div3_1">
+		    		<div class="address"> 
+			    		<h2 class="l ml10">收货人信息</h2>
+			    		<div class="r mr20">
+			    			<a href="javascript:;" id="addAddress">新增收货地址</a>
+			    		</div>
+		    		</div>
+		    		<div>
+	    				<s:iterator   value="#session.addresses"  id="address">
+	    					<ul class="address_list">
+	    						<s:if test="%{#address.isDefault}"><span>bc0</span></s:if>
+								<li class=''>
+									<span><s:property value="#address.isDefault" /></span>
+									<span><s:property value="#address.province" /></span>								
+									<span><s:property value="#address.city" /></span>
+									<span><s:property value="#address.address" /></span>
+									<span><s:property value="#address.cellPhone" /></span>
+									<span><a href="javascript:;">设为默认地址</a></span>
+									<span><a href="javascript:;">编辑</a></span>
+									<span><a href="javascript:;">删除</a></span>
+								</li>	    					
+	    					</ul>
+	    				</s:iterator>
+		    		</div>
 		    	</div>
 		    	<div class="order_div3_2">
-		    		<strong >支付及配送方式[<a href="">修改</a>]</strong>
-		    		<p> 在线支付 &emsp;  </p>
-		    		<p> 申通快递</p>
-		    	
+		    		<strong >支付及配送方式</strong>
+		    		<ul >
+		    			<li class="payMode selected"> 在线支付 </li>
+		    			<li class="payMode"> 货到付款</li>
+		    		</ul>
 		    	</div>
 		    	<div class="order_div3_3">
-		    		<strong>商品清单</strong> 
-		    		<a href="/Market/goToCart.action" style="display:block;margin-left:800px;margin-top:-px;">返回修改购物车</a>
+		    		<div >
+			    		<h3 class="mt5 ml10">商品清单</h3>
+			    		<div class="r">
+			    			<a href="/Market/goToCart.action" >返回修改购物车</a>
+			    		</div> 
+			    	</div>
 		    		<div class="order_div3_4">
 					    <div class="mt10 mb5 p5 bgef bdc tc bge8 h20">
 				   				<div class="l pct10">&emsp;</div>
@@ -62,109 +87,37 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				                <div class="l pct10">小计（元）</div>
 				                <div class="l pct10">操作</div>       
 				             </div>
-					    	<div class="shopping_div2_1">
+					    	<div class="shopping_div2_1 mb30">
 						    	<table width="100%"  cellpadding="2" cellspacing="1"  id="goodTable" >
-					   				<s:iterator   value="#session.myCart.keySet()"  id="item">
+					   				<s:iterator   value="#session.order"  id="item">
 						   				<tr class="mt10 tc" >
 						   					<td class="bbc pct10">
-						   						<input type="checkbox" class="jsForCheck l" id="jsForCheck${item.id}" data="${item.id}" checked/>
-						   						<img alt="" class="h60" src="<s:property value="#item.imgUrl" />">
+						   						<img alt="" class="h60" src="<s:property value="#item.good.imgUrl" />">
 						   					</td>
 						   					<td class="pct30 bbc">
-						   						<a href="javascript:;" target="_blank"><s:property value="#item.name" /></a>
+						   						<a href="javascript:;" target="_blank"><s:property value="#item.good.name" /></a>
 						   					</td>
-						   					<td class="bbc pct10"><s:property value="#item.realPrice"/></td>
-						   					<td class="pct30 bbc ">
-						   						<span class="add_number">
-							   						<a  class="decreaseNum case b def g9" >-</a>    				
-													<span class="case">
-														<input  id="amount${item.id}" data="${item.id }" price="<s:property value="#item.realPrice"/>" class="num_input amountInput" type="text" placeholder="1" value='<s:property value="#session.myCart.get(#item)" />'/>
-													</span>
-													<a  class="increaseNum case b def g9" >+</a> 
-												</span>
-						   					</td>
-						   					<td class="bbc pct10" id="realPrice${item.id}"><s:property value="#item.realPrice*session.myCart.get(#item)"/></td>
+						   					<td class="bbc pct10"><s:property value="#item.good.realPrice"/></td>
+						   					<td class="pct30 bbc "><s:property value="#item.amount"/></td>
+						   					<td class="bbc pct10" id="realPrice${item.id}"><s:property value="#item.soldPrice"/></td>
 						   					<td class="bbc pct10">
 						   						<a href="javascript:;" class="delete" data="${item.id }">删除</a>
 						   					</td>
 						   				</tr>
 							    	</s:iterator>
 					   			</table>
-							 </div>   	
-				     	<div style="width:1000px;height:auto;margin-top:10px;margin-bottom:40px;">
-				     		<span style="margin-left:700px;margin-top:40px;"> 商品共计${totalNum}件：</span>
-				     	    <span style="color:red;margin-top:-20px;font-size:18px;margin-left:800px;">￥ ${totalPrice}</span>&emsp;&emsp;&emsp;&emsp;
-				     	    <span style="margin-top:20px;">
-				     	    	<a href="javascript:;" onclick="userScore()">使用积分支付</a>
-				     	    </span>
-				     	    <div id="userScore" style="display:none;width:800px;height:auto;margin-top:10px;margin-left:20px;border:1px solid #33CCFF;background:#EEFAFF;padding:20px ;">
-				     	    	<div id="d1">
-									<span style="font-weight:bold;font-size:14px;">本次使用:	
-									<input type="text" style="width:80px;" oninput="checkValue(this.value)" id="score">	 积分支付 </span>  
-									<input type="button" value="使用" class="button_sub" onclick="useScorePay(${totalPrice})">
-									<hr style="border:1px dotted #33CCFF;width:800px;align:center"> 
-								</div>	
-								<span style="display:inline">您有</span>
-								<span style="display:inline;width:10px;" id="v1"></span>
-								<span style="display:inline">积分可以使用</span> 
-								
-									<span style="display:inline">,本次使用</span>
-									<span style="display:inline;font-size:18px;font-weight:bold"id="v2">0</span>
-									<span style="display:inline">积分，折合人民币</span>
-									<span style="display:inline;color:red"id="v3">￥0.0</span>  
-									<span style="display:none" id="cancel"><a href="javascript:;" onclick="cancel(${totalPrice})">取消使用</a></span>
-				     	    </div>
-				     	    
-			     		</div>
-				     		<span style="margin-left:560px;font-weight:bold;font-size:18px;">应付总额：</span>
-				     		<span style="margin-left:660px;margin-top:-30px;color:red;font-size:24px;font-weight:bold;" id="total">￥${totalPrice}</span>
-				      		<a href="javascript:;" onclick="goSubmit()" >
-				      			<span class="goSubmit" >提交订单 &gt;</span>
-				      		</a>
-		    			</div>
-		    	</div>
+							 </div> 
+						</div>
+		     	</div>
 		     </div>
+		 	<div class=" r mt30">
+              	<span>已选择<em class="totalNum"><s:property value="#session.orderSum.totalCount"/></em>件商品</span>
+  				<span>总价<em class="totalPrice"><s:property value="#session.orderSum.sumPrice"/></em></span>
+	      		<span class="goSubmit" >提交订单 </span>
+           </div> 
 		     <div style="height:50px;margin-top:100px;;"></div>
 		 </div>
  </div>
 </body>
-  <script type="text/javascript">
-  	function userScore(){
-  		if(returnDom("userScore").style.display == "block")
-  			returnDom("userScore").style.display="none";
-  		else{
-  			returnDom("userScore").style.display="block";
-  			returnDom("score").value="";
-  			this.checkValue(0);
-  			}
-  	}
-  	
-  	function checkValue(value){
-  	  		returnDom("v2").innerHTML=value;
-  	  		returnDom("v3").innerHTML="￥"+value/100;
-  	}
-  	
-  	function useScorePay(totalPrice){
-  		returnDom("total").innerHTML="￥"+(totalPrice-returnDom("score").value/100);
-  		returnDom("d1").style.display="none";
-  		returnDom("cancel").style.display="inline";
-  	}
-  	
-  	function cancel(totalPrice){
-  		returnDom("total").innerHTML="￥"+totalPrice;
-  		returnDom("d1").style.display="block";
-  		returnDom("cancel").style.display="none";
-  		returnDom("score").value="";
-  		this.checkValue(0);
-  	}
-  	
-  	function returnDom(id){
-  		return document.getElementById(id);
-  	}
-  	
-  	function goSubmit(){
-  	
-  	window.location.href="/SuperMarket/submitorder.do?score="+returnDom("score").value;
-  	}
-  </script>
+<script type="text/javascript" src="public/js/order.js"></script>
 </html>

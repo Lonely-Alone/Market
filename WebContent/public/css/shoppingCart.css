@@ -1,6 +1,7 @@
 @CHARSET "UTF-8";
 
 a{text-decoration:none}
+strong{font-size:16px;font-weight:bold}
 
 
 .shopping_div1{margin-left:500px;margin-top:50px;}
@@ -37,9 +38,7 @@ a{text-decoration:none}
 .order_div3 span{display:block}
 .order_div3 strong{display:block;padding:10px;margin-top:10px}
 .order_div3_1{height:120px;border-bottom:1px solid #DDDDDD;}
-.order_div3_1 p{margin-left:100px;}
 .order_div3_2{height:120px;border-bottom:1px solid #DDDDDD;}
-.order_div3_2 p{margin-left:100px;}
 .order_div3_3{height:auto;border-bottom:1px solid #DDDDDD;}
 .order_div3_3 a{text-decoration:none}
 .order_div3_3 a:hover{text-decoration:underline}
@@ -47,9 +46,16 @@ a{text-decoration:none}
 .order_div3_4_1{height:30px;background:#EEEEEE}
 .order_div3_4_2{height:120px;margin-top:50px;border-bottom:1px dotted black;text-align:center;}
 
+.address{height:40px;line-height:30px;float:right;width:100%}
+.address_list{margin-left:200px;font-size:14px}
+.address_list li,span{float:left;padding:0 5px;}
+
+.payMode{float:left;width:80px;height:30px;margin-left:30px;margin-top:20px;line-height:30px;text-align:center;border:1px solid #c0c0c0;cursor:pointer;}
+.selected{border:2 solid #e10000;}
+
 .button_sub{width:60px;height:25px;margin-left:280px;margin-top:-25px;background:#CC0000;color:white;border:0}
 .button_sub:hover{background:#EC4245}
 .goSubmit{display:block;float:left;margin-top:-30px;margin-left:800px;border:1px solid #999999;
-		width:150px;height:35px;text-align:center;background:#CC0000;color:white;line-height:35px;font-size:20px;font-weight:bold;border:0}
+		width:150px;height:35px;text-align:center;background:#CC0000;color:white;line-height:35px;font-size:20px;font-weight:bold;border:0;cursor:pointer;}
 .goSubmit:hover{background:#EC4245}
 		

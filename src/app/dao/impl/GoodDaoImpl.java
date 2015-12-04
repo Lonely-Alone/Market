@@ -25,6 +25,13 @@ public class GoodDaoImpl extends BaseDaoImpl implements GoodDao {
 	}
 
 	@Override
+	public void addGood(Good good, int num) {
+		good.leftCount += num;
+		save(good);
+
+	}
+
+	@Override
 	public List<Good> getGoodList(String name, String type, int page,
 			int pageSize) {
 		String hql = "select g from Good g where g.isDeleted = false ";
@@ -35,7 +42,7 @@ public class GoodDaoImpl extends BaseDaoImpl implements GoodDao {
 		}
 		if (StringUtils.isNotBlank(type)) {
 			hql += " and  g.goodType=?";
-			list.add(GoodType.converToEnum(type));
+			list.add(GoodType.书籍);
 		}
 		return fetch(hql, list, page, pageSize);
 	}

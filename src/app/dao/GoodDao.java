@@ -20,4 +20,6 @@ public interface GoodDao {
 
 	public void addClick(Good good);
 
+	public void addGood(Good good, int num);
+
 }

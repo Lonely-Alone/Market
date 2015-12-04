@@ -141,12 +141,12 @@
   	  			})
   	  			$.ajax({
 	  			   type: "POST",
-	  			   url: "/Market/submitOrder.action",
+	  			   url: "/Market/createOrder.action",
 	  			   data: {
 	  				 goodIds:goodsArr
 	  			   },
 	  			   success: function(msg){
-	  				 window.location.href="/Market/views/good/order.jsp";
+	  				   	window.location.href="/Market/views/good/order.jsp";
 	  			   }
   	  			});
   				

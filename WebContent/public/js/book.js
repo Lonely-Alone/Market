@@ -9,6 +9,14 @@ Do(function(){
 	Do('sort',function(){});
 	Do('scroll',function(){});
 	
+	
+	$("#myTab_btns1").on('hover','li',function(){
+		var index=$(this).attr("data");
+		$("#myTab_btns1").find("li").removeClass("hot");
+		$(this).addClass("hot");
+		$("#main1").find("li").addClass("dn");
+		$("#main1").find("li").eq(index).removeClass("dn");
+	})
 
 
 

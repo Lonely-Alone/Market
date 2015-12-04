@@ -123,6 +123,7 @@ a.c:hover{text-decoration:none; color:#22a0b9;}
 .pct20{width:20%;}
 .pct25{width:25%;}
 .pct30{width:30%;}
+.pct35{width:35%;}
 .pct45{width:45%;}
 .pct50{width:50%;}
 .pct60{width:60%;}
@@ -162,6 +163,7 @@ a.c:hover{text-decoration:none; color:#22a0b9;}
 .bgeb{background-color:#E7FBD7;}
 .bgde{background-color:#DEEEFE;}
 .bdc1{background:#DC143C}
+.bc0{background:#c0c0c0}
 
 /*-------字体颜色---------*/
 .ca{color:#0372DE;}
